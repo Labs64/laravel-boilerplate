@@ -1,5 +1,6 @@
 vendor/
 node_modules/
+bower_components/
 
 # Laravel 4 specific
 bootstrap/compiled.php
@@ -13,3 +14,10 @@ bootstrap/cache/
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
+
+# PhpStorm
+.idea
+
+# IDE Helper
+_ide_helper.php
+.phpstorm.meta.php
