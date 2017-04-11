@@ -6,6 +6,13 @@ The goal of this project is... TBD
 
 ## Features
 - Administration Dashboard with [Gentelella Admin Theme](https://colorlib.com/polygon/gentelella/)
+- Responsive Layout
+- Bootstrap 3
+- Font Awesome
+- Socialite Integration
+
+## Installation
+_TODO_
 
 ## How to contribute
 
