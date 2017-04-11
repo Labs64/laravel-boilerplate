@@ -2,10 +2,16 @@
 
 # A Laravel 5 Boilerplate Project
 
-## Contributing
+## About
 
-Thank you for considering contributing to this boilerplate!
+The goal of this project is... TBD
+
+## How to contribute
+
+Fork the repository, read the [CONTRIBUTE](CONTRIBUTE.md) file and make some changes.
+Once you're done with your changes send a pull request and check [CI validation status](https://netlicensing.io).
+Thanks!
 
 ## License
 
-This boilerplate is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+This boilerplate is open-sourced software licensed under the [MIT license](LICENSE).
