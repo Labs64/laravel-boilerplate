@@ -132,7 +132,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => env('APP_LOG', 'daily'),
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
@@ -193,6 +193,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        \App\Providers\JavascriptServiceProvider::class
 
     ],
 
@@ -247,11 +248,12 @@ return [
         * Third Party Aliases
         */
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
-        'Captcha'     => Arcanedev\NoCaptcha\Facades\NoCaptcha::class,
-        'Form'        => Collective\Html\FormFacade::class,
-        'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
-        'Html'        => Collective\Html\HtmlFacade::class,
-        'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
+        'Captcha' => Arcanedev\NoCaptcha\Facades\NoCaptcha::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'JavaScript' => \App\Helpers\Javascript\Facades\JavascriptFacade::class
 
     ],
 

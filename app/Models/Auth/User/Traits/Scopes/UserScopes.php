@@ -2,31 +2,26 @@
 
 namespace App\Models\Auth\User\Traits\Scopes;
 
+use Arcanedev\Support\Bases\Model;
+
 trait UserScopes
 {
     /**
-     * Fetch records that are belong to users by a given confirmed value.
+     * Fetch users by a given role id or role name value.
      *
      * @param $query \Illuminate\Database\Eloquent\Builder
-     * @param bool $confirmed
-     *
+     * @param $role
      * @return mixed
      */
-    public function scopeWhereConfirmed($query, $confirmed = true)
+    public function scopeWhereRole($query, $role)
     {
-        return $query->where('confirmed', $confirmed);
-    }
+        if ($role instanceof Model) $role = $role->getKey();
 
-    /**
-     * Fetch records that are belong to users by a given active value.
-     *
-     * @param $query \Illuminate\Database\Eloquent\Builder
-     * @param bool $status
-     *
-     * @return mixed
-     */
-    public function scopeWhereActive($query, $status = true)
-    {
-        return $query->where('status', $status);
+        $query->whereHas('roles', function ($query) use ($role) {
+            /** @var $query \Illuminate\Database\Query\Builder */
+            $query->orWhere('id', $role)->orWhere('name', $role);
+        });
+
+        return $query;
     }
 }

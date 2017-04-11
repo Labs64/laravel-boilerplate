@@ -6,11 +6,12 @@ use App\Models\Auth\Permission\Permission;
 use App\Models\Auth\Role\Role;
 use App\Models\Auth\User\SocialAccount;
 use App\Models\Auth\User\User;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 trait SocialAccountRelations
 {
     /**
-     * Relation with user
+     * @return BelongsTo
      */
     public function user()
     {

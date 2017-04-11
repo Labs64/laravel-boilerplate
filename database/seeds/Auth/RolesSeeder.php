@@ -3,7 +3,6 @@
 use Database\Traits\TruncateTable;
 use Database\Traits\DisableForeignKeys;
 
-use Carbon\Carbon as Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -21,22 +20,7 @@ class RolesSeeder extends Seeder
         $this->disableForeignKeys();
         $this->truncate('roles');
 
-        $roles = [
-            [
-                'name' => 'administrator',
-                'super' => true,
-                'sort' => 0,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'name' => 'authenticated',
-                'super' => false,
-                'sort' => 1,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-        ];
+        $roles = [['name' => 'administrator'], ['name' => 'authenticated']];
 
         DB::table('roles')->insert($roles);
 
