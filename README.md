@@ -1,6 +1,6 @@
-# A <img src="https://laravel.com/assets/img/components/logo-laravel.svg"> 5 Boilerplate Project
+<p><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-## About
+# A Laravel 5 Boilerplate Project
 
 The goal of this project is... TBD
 
