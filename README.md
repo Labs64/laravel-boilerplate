@@ -4,6 +4,9 @@
 
 The goal of this project is... TBD
 
+## Features
+- Administration Dashboard with [Gentelella Admin Theme](https://colorlib.com/polygon/gentelella/)
+
 ## How to contribute
 
 Fork the repository, read the [CONTRIBUTE](CONTRIBUTE.md) file and make some changes.
