@@ -1,23 +1,21 @@
+!.gitkeep
+
+# Laravel, nodeJS, Bower, Gulp exclusions
 vendor/
 node_modules/
 bower_components/
-
-# Laravel 4 specific
 bootstrap/compiled.php
 app/storage/
-
-# Laravel 5 & Lumen specific
 bootstrap/cache/
 .env.*.php
 .env.php
 .env
+.sass-cache
 
-# Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
+# Rocketeer PHP task runner exclusions
 .rocketeer/
 
-# PhpStorm
+# IDE exclusions
 .idea
-
-# IDE Helper
 _ide_helper.php
 .phpstorm.meta.php
