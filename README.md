@@ -2,7 +2,7 @@
 
 # A Laravel 5 Boilerplate Project
 
-The goal of this project is... TBD
+_Laravel Boilerplate_ provides a very flexible and extensible way of building your custom Laravel 5 applications.
 
 ## Features
 - Administration Dashboard with [Gentelella Admin Theme](https://colorlib.com/polygon/gentelella/)
@@ -10,6 +10,19 @@ The goal of this project is... TBD
 - Bootstrap 3
 - Font Awesome
 - Socialite Integration
+
+## Minimum System Requirements
+To be able to run Laravel Boilerplate you have to meet the following requirements:
+- PHP 5.5.9 or higher
+- PDO PHP Extension
+- cURL PHP Extension
+- OpenSSL PHP Extension
+- Mbstring PHP Extension
+- Tokenizer PHP Extension
+- Mcrypt PHP Extension
+- GD PHP Library
+- MySql 5.5
+- One of the following cache drivers: ```memcached```, ```redis```, ```apc```
 
 ## Installation
 _TODO_
