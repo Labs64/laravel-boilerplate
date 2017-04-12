@@ -4,13 +4,14 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Laravel</title>
+        <!-- Meta title & meta -->
+        @meta
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <!-- Scripts -->
-    {{ javascript()->html() }}
+
         <!-- Styles -->
         <style>
             html, body {
@@ -64,6 +65,9 @@
                 margin-bottom: 30px;
             }
         </style>
+
+        <!-- Laravel variables for js -->
+        @javascript
     </head>
     <body>
         <div class="flex-center position-ref full-height">

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Helpers\Javascript;
 
 use Illuminate\Support\Arr;
@@ -10,14 +11,16 @@ class Javascript
     public function put(array $data)
     {
         foreach ($data as $key => $value) {
-            $this->data[$key] = $value;
+            $this->data[$key] = value($value);
         }
 
         return $this;
     }
 
-    public function get($key, $default = null)
+    public function get($key = null, $default = null)
     {
+        if (!$key) return $this->data;
+
         return Arr::get($this->data, $key, $default);
     }
 
@@ -26,11 +29,5 @@ class Javascript
         Arr::forget($this->data, $keys);
 
         return $this;
-    }
-
-    public function html()
-    {
-
-        print'<script> window.Laravel = ' . json_encode($this->data) . '</script>';
     }
 }

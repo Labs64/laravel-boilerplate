@@ -5,7 +5,7 @@ namespace App\Models\Auth\User;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Models\Auth\User\Traits\Rolable;
+use App\Models\Auth\User\Traits\Ables\Rolable;
 use App\Models\Auth\User\Traits\Scopes\UserScopes;
 use App\Models\Auth\User\Traits\Relations\UserRelations;
 
@@ -74,15 +74,4 @@ class User extends Authenticatable
      * @var array
      */
     protected $dates = ['deleted_at'];
-
-    /**
-     * Send the password reset notification.
-     *
-     * @param  string $token
-     * @return void
-     */
-    public function sendPasswordResetNotification($token)
-    {
-        $this->notify(new ResetPassword($token));
-    }
 }

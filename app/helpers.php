@@ -33,3 +33,33 @@ if (!function_exists('javascript')) {
         return app('javascript')->get($key, $default);
     }
 }
+
+if (!function_exists('meta')) {
+    /**
+     * Access the meta helper.
+     */
+    function meta()
+    {
+        return app('meta');
+    }
+}
+
+if (!function_exists('meta_tag')) {
+    /**
+     * Access the meta tags helper.
+     */
+    function meta_tag($name = null, $content = null, $attributes = [])
+    {
+        return app('meta')->tag($name, $content, $attributes);
+    }
+}
+
+if (!function_exists('meta_property')) {
+    /**
+     * Access the meta tags helper.
+     */
+    function meta_property($name = null, $content = null, $attributes = [])
+    {
+        return app('meta')->property($name, $content, $attributes);
+    }
+}

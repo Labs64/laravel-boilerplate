@@ -39,6 +39,7 @@ return [
     */
 
     'debug' => env('APP_DEBUG', false),
+    'debug_emails' => env('APP_DEBUG_EMAILS', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -193,7 +194,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        \App\Providers\JavascriptServiceProvider::class
+        \App\Providers\JavascriptServiceProvider::class,
+        \App\Providers\MetaServiceProvider::class,
 
     ],
 
@@ -253,7 +255,8 @@ return [
         'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'JavaScript' => \App\Helpers\Javascript\Facades\JavascriptFacade::class
+        'Javascript' => \App\Helpers\Javascript\Facades\JavascriptFacade::class,
+        'Meta' => \App\Helpers\Meta\Facades\MetaFacade::class
 
     ],
 

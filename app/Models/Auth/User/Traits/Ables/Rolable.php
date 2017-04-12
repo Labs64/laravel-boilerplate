@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Auth\User\Traits;
+namespace App\Models\Auth\User\Traits\Ables;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
