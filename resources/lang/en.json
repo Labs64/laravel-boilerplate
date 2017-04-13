@@ -63,9 +63,10 @@
   "views.auth.passwords.reset.input_2": "Confirm Password",
   "views.auth.passwords.reset.action": "Reset Password",
   "views.auth.passwords.reset.message": "Already have your credentials?",
-  "views.auth.passwords.reset.copyright_": "All Rights Reserved",
+  "views.auth.passwords.reset.copyright": "All Rights Reserved",
   "views.auth.passwords.email.header": "Reset Password",
   "views.auth.passwords.email.input": "E-Mail Address",
   "views.auth.passwords.email.action": "Send Reset Link",
-  "views.auth.passwords.email.message": "Already have your credentials?"
+  "views.auth.passwords.email.message": "Already have your credentials?",
+  "views.auth.passwords.email.copyright": "All Rights Reserved"
 }
