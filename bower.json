@@ -1,0 +1,21 @@
+{
+  "name": "Laravel 5 Labs64 Boilerplate",
+  "description": "Laravel Boilerplate provides a very flexible and extensible way of building your custom Laravel 5 applications.",
+  "main": "",
+  "authors": [
+    "Labs64 <info@labs64.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Labs64/laravel-boilerplate",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "gentelella": "^1.4.0"
+  }
+}

@@ -67,7 +67,7 @@
         </style>
 
         <!-- Laravel variables for js -->
-        @javascript
+        @tojs
     </head>
     <body>
         <div class="flex-center position-ref full-height">

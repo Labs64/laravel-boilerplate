@@ -16,21 +16,21 @@ if (!function_exists('gravatar')) {
     }
 }
 
-if (!function_exists('javascript')) {
+if (!function_exists('to_js')) {
     /**
      * Access the javascript helper.
      */
-    function javascript($key = null, $default = null)
+    function to_js($key = null, $default = null)
     {
         if (is_null($key)) {
-            return app('javascript');
+            return app('tojs');
         }
 
         if (is_array($key)) {
-            return app('javascript')->put($key);
+            return app('tojs')->put($key);
         }
 
-        return app('javascript')->get($key, $default);
+        return app('tojs')->get($key, $default);
     }
 }
 

@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Laravel Boilerplate'),
+    'name' => env('APP_NAME', 'Laravel 5 Labs64 Boilerplate'),
 
     /*
     |--------------------------------------------------------------------------
@@ -194,7 +194,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        \App\Providers\JavascriptServiceProvider::class,
+        \App\Providers\ToJsServiceProvider::class,
         \App\Providers\MetaServiceProvider::class,
 
     ],
@@ -252,10 +252,10 @@ return [
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'Captcha' => Arcanedev\NoCaptcha\Facades\NoCaptcha::class,
         'Form' => Collective\Html\FormFacade::class,
-        'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'Javascript' => \App\Helpers\Javascript\Facades\JavascriptFacade::class,
+        'ToJs' => \App\Helpers\ToJs\Facades\ToJsFacade::class,
         'Meta' => \App\Helpers\Meta\Facades\MetaFacade::class
 
     ],

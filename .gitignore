@@ -11,6 +11,7 @@ bootstrap/cache/
 .env.php
 .env
 .sass-cache
+public
 
 # Rocketeer PHP task runner exclusions
 .rocketeer/

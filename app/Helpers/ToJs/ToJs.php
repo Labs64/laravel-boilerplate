@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Helpers\Javascript;
+namespace App\Helpers\ToJs;
 
 use Illuminate\Support\Arr;
 
-class Javascript
+class ToJs
 {
     protected $data = [];
 

@@ -20,29 +20,31 @@ Route::auth();
 Route::group(['namespace' => 'Auth'], function () {
 
     // Authentication Routes...
-    Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-    Route::post('login', 'Auth\LoginController@login');
-    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+    Route::get('login', 'LoginController@showLoginForm')->name('login');
+    Route::post('login', 'LoginController@login');
+    Route::get('logout', 'LoginController@logout')->name('logout');
 
     // Registration Routes...
     if (config('auth.users.registration')) {
-        Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-        Route::post('register', 'Auth\RegisterController@register');
+        Route::get('register', 'RegisterController@showRegistrationForm')->name('register');
+        Route::post('register', 'RegisterController@register');
     }
 
     // Password Reset Routes...
-    Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-    Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-    Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-    Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+    Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
+    Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+    Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
+    Route::post('password/reset', 'ResetPasswordController@reset');
 
     // Confirmation Routes...
-    if (config('auth.users.change_email')) {
+    if (config('auth.users.confirm_email')) {
         Route::get('confirm/{user_by_code}', 'ConfirmController@confirm')->name('confirm');
         Route::get('confirm/resend/{user_by_email}', 'ConfirmController@sendEmail')->name('confirm.send');
     }
 
     // Social Authentication Routes...
+    Route::get('social/redirect/{provider}', 'SocialLoginController@redirect')->name('social.redirect');
+    Route::get('social/login/{provider}', 'SocialLoginController@login')->name('social.login');
 });
 
 Route::get('/', function () {

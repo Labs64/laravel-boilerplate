@@ -44,7 +44,7 @@ class DetectLocale
 
         session(['session.locale' => $locale]);
 
-        javascript(['locale' => $locale]);
+        to_js(['locale' => $locale]);
 
         \App::setLocale($locale);
 

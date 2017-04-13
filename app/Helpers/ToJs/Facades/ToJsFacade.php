@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Helpers\Javascript\Facades;
+namespace App\Helpers\ToJs\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 
-class JavascriptFacade extends Facade
+class ToJsFacade extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -14,6 +14,6 @@ class JavascriptFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'javascript';
+        return 'tojs';
     }
 }

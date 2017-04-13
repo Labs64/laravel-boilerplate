@@ -41,8 +41,7 @@ class Meta
     {
         $keys = collect($keys);
 
-        $html = (!$keys->isEmpty() && $keys->contains('title')) ? $this->title->render() : '';
-
+        $html = ($keys->isEmpty() || (!$keys->isEmpty() && $keys->contains('title'))) ? $this->title->render() : '';
         $html .= $this->tagFactory->render($keys);
         $html .= $this->propertyFactory->render($keys);
 
