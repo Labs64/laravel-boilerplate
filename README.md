@@ -5,7 +5,7 @@
 _Laravel Boilerplate_ provides a very flexible and extensible way of building your custom Laravel 5 applications.
 
 ## Features
-- Administration Dashboard with [Gentelella Admin Theme](https://colorlib.com/polygon/gentelella/)
+- Administration Dashboard with [Gentelella Admin Theme](https://github.com/puikinsh/gentelella)
 - Responsive Layout
 - Bootstrap 3
 - Font Awesome
