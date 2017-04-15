@@ -30,7 +30,45 @@ To be able to run Laravel Boilerplate you have to meet the following requirement
 - One of the following cache drivers: ```memcached```, ```redis```, ```apc```
 
 ## Installation
-_TODO_
+```
+$ git clone https://github.com/Labs64/laravel-boilerplate.git
+```
+```
+$ composer install --prefer-dist
+```
+```
+$ npm install
+```
+
+### Database setup
+
+Edit `.env.example` according to your environment and save as `.env`.
+An application key can be generated with the command `php artisan key:generate`.
+
+Run these commands to create the tables within the database you have already created.
+
+```
+$ php artisan migrate:install
+```
+```
+$ php artisan migrate:refresh
+```
+
+If you get an error like a `PDOException` try editing your `.env` file and change `DB_HOST=localhost` to `DB_HOST=127.0.0.1`.
+
+## Run
+
+To provide the JS and CSS files and to keep track of changes to these files:
+```
+$ gulp && gulp watch
+```
+
+To start the PHP built-in server:
+```
+$ php -S localhost:8080 -t public/
+```
+
+Now you can browse the site  [http://localhost:8080](http://localhost:8080). 🙌
 
 ## How to contribute
 
