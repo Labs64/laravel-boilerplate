@@ -122,6 +122,8 @@ class SocialLoginController extends Controller
             return redirect(route('login'))->withErrors([app(LoginController::class)->username() => __('auth.social')]);
         }
 
+        session([config('auth.socialite.session_name') => $provider]);
+
         //fire social login event
         event(new SocialLogin($user, $provider, $socialite));
 

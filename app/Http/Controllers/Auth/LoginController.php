@@ -39,15 +39,26 @@ class LoginController extends Controller
     }
 
     /**
-     * Redirect path after user login
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    public function redirectTo()
+    public function logout(Request $request)
     {
-        if ($this->guard()->user()->can('view', 'backend')) {
-            return route('backend.dashboard');
-        }
+        $this->guard()->logout();
 
-        return $this->redirectTo;
+        /*
+         * Remove the socialite session variable if exists
+         */
+
+        \Session::forget(config('access.socialite_session_name'));
+
+        $request->session()->flush();
+
+        $request->session()->regenerate();
+
+        return redirect('/');
     }
 
     /**

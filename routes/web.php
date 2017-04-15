@@ -15,8 +15,6 @@
 /**
  * Auth routes
  */
-Route::auth();
-
 Route::group(['namespace' => 'Auth'], function () {
 
     // Authentication Routes...
@@ -45,6 +43,18 @@ Route::group(['namespace' => 'Auth'], function () {
     // Social Authentication Routes...
     Route::get('social/redirect/{provider}', 'SocialLoginController@redirect')->name('social.redirect');
     Route::get('social/login/{provider}', 'SocialLoginController@login')->name('social.login');
+});
+
+/**
+ * Backend routes
+ */
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => 'admin'], function () {
+
+    // Dashboard
+    Route::get('/', 'DashboardController@index')->name('dashboard');
+
+    //Users
+    Route::get('users', 'UserController@index')->name('users');
 });
 
 Route::get('/', function () {

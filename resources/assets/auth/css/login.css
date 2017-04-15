@@ -1,0 +1,65 @@
+.login {
+    background: #F7F7F7;
+}
+
+.login .h1 {
+    font: 400 25px Helvetica, Arial, sans-serif;
+    letter-spacing: -.05em;
+    line-height: 20px;
+    margin: 10px 0 30px;
+}
+
+.login form div button {
+    font-size: 12px;
+    margin: 10px 15px 0 0;
+}
+
+.login a.btn:hover {
+    text-decoration: none;
+}
+
+.login .alert-danger a {
+    margin: 0;
+    color: #E9EDEF;
+    text-decoration: underline;
+}
+
+.login .al_left {
+    text-align: left;
+}
+
+.login .btn-google-plus {
+    background-color: #dd4b39;
+    border-color: #dd4b39;
+}
+
+.login .btn-google-plus:hover {
+    background-color: #dd4b39;
+    border-color: #dd4b39;
+    opacity: 0.9;
+    text-decoration: none;
+}
+
+.login .btn-facebook {
+    background-color: #3b5998;
+    border-color: #3b5998;
+}
+
+.login .btn-facebook:hover {
+    background-color: #3b5998;
+    border-color: #3b5998;
+    opacity: 0.9;
+    text-decoration: none;
+}
+
+.login .btn-twitter {
+    background-color: #1da1f2;
+    border-color: #1da1f2;
+}
+
+.login .btn-twitter:hover {
+    background-color: #1da1f2;
+    border-color: #1da1f2;
+    opacity: 0.9;
+    text-decoration: none;
+}

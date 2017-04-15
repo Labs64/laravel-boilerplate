@@ -1,4 +1,4 @@
-@extends('layouts.html')
+@extends('auth.layouts.auth')
 
 @section('body_class','login')
 
@@ -84,4 +84,10 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('styles')
+    @parent
+
+    {{ Html::style(mix('assets/auth/css/login.css')) }}
 @endsection

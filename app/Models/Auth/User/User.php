@@ -2,14 +2,13 @@
 
 namespace App\Models\Auth\User;
 
+use App\Models\Auth\User\Traits\Attributes\UserAttributes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Auth\User\Traits\Ables\Rolable;
 use App\Models\Auth\User\Traits\Scopes\UserScopes;
 use App\Models\Auth\User\Traits\Relations\UserRelations;
-
-
 
 /**
  * App\Models\Auth\User\User
@@ -25,6 +24,7 @@ use App\Models\Auth\User\Traits\Relations\UserRelations;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property \Carbon\Carbon $deleted_at
+ * @property-read mixed $avatar
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Auth\User\SocialAccount[] $providers
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Auth\Role\Role[] $roles
@@ -38,12 +38,14 @@ use App\Models\Auth\User\Traits\Relations\UserRelations;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User whereName($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User wherePassword($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User whereRole($role)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class User extends Authenticatable
 {
     use Rolable,
+        UserAttributes,
         UserScopes,
         UserRelations,
         Notifiable,

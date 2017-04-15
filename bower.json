@@ -16,6 +16,8 @@
     "tests"
   ],
   "dependencies": {
-    "gentelella": "^1.4.0"
+    "gentelella": "^1.4.0",
+    "font-awesome": "^4.7.0",
+    "bootstrap": "^3.3.7"
   }
 }

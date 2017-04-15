@@ -68,5 +68,17 @@
   "views.auth.passwords.email.input": "E-Mail Address",
   "views.auth.passwords.email.action": "Send Reset Link",
   "views.auth.passwords.email.message": "Already have your credentials?",
-  "views.auth.passwords.email.copyright": "All Rights Reserved"
+  "views.auth.passwords.email.copyright": "All Rights Reserved",
+  "**************************** Backend Navigation **************": "Backend Navigation i18n",
+  "views.backend.section.navigation.greeting": "Welcome",
+  "views.backend.section.navigation.sub_header_0": "General",
+  "views.backend.section.navigation.sub_header_1": "Management",
+  "views.backend.section.navigation.sub_header_2": "Development",
+  "views.backend.section.navigation.menu_0": "Dashboard",
+  "views.backend.section.navigation.menu_1": "Users",
+  "views.backend.section.navigation.menu_2": "Log viewer",
+  "views.backend.section.navigation.menu_3": "Dashboard",
+  "views.backend.section.navigation.menu_4": "Logs",
+  "**************************** Backend Header *******************": "Backend Header i18n",
+  "views.backend.section.header.menu_0": "Log out"
 }
