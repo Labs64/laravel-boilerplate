@@ -5,11 +5,16 @@
 _Laravel Boilerplate_ provides a very flexible and extensible way of building your custom Laravel 5 applications.
 
 ## Features
-- Administration Dashboard with [Gentelella Admin Theme](https://colorlib.com/polygon/gentelella/)
+- Administration Dashboard with [Gentelella Admin Theme](https://github.com/puikinsh/gentelella)
 - Responsive Layout
 - Bootstrap 3
 - Font Awesome
 - Socialite Integration
+
+## Theme Demo
+![Gentelella Bootstrap Admin Template](https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/gentelella-admin-template-preview.jpg "Gentelella Theme Browser Preview")
+
+**[Template Demo](https://colorlib.com/polygon/gentelella/index.html)**
 
 ## Minimum System Requirements
 To be able to run Laravel Boilerplate you have to meet the following requirements:
