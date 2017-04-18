@@ -196,6 +196,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         \App\Providers\ToJsServiceProvider::class,
         \App\Providers\MetaServiceProvider::class,
+        Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
 
     ],
 

@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Auth\User\Traits\Ables\Rolable;
 use App\Models\Auth\User\Traits\Scopes\UserScopes;
 use App\Models\Auth\User\Traits\Relations\UserRelations;
+use Kyslik\ColumnSortable\Sortable;
 
 /**
  * App\Models\Auth\User\User
@@ -41,6 +42,7 @@ use App\Models\Auth\User\Traits\Relations\UserRelations;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User whereRole($role)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User sortable($defaultSortParameters = null)
  */
 class User extends Authenticatable
 {
@@ -49,7 +51,10 @@ class User extends Authenticatable
         UserScopes,
         UserRelations,
         Notifiable,
-        SoftDeletes;
+        SoftDeletes,
+        Sortable;
+
+    public $sortable = ['name', 'email', 'created_at', 'updated_at'];
 
     /**
      * The database table used by the model.

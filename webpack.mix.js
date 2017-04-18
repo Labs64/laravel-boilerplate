@@ -71,6 +71,7 @@ mix.styles([
 mix.copy([
     'bower_components/gentelella/vendors/bootstrap/dist/fonts',
 ], 'public/assets/admin/fonts');
+
 /*
  |--------------------------------------------------------------------------
  | Frontend

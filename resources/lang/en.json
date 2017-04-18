@@ -80,5 +80,7 @@
   "views.backend.section.navigation.menu_3": "Dashboard",
   "views.backend.section.navigation.menu_4": "Logs",
   "**************************** Backend Header *******************": "Backend Header i18n",
-  "views.backend.section.header.menu_0": "Log out"
+  "views.backend.section.header.menu_0": "Log out",
+  "**************************** Backend Footer *******************": "Backend Footer i18n",
+  "views.backend.section.footer.copyright": "All Rights Reserved"
 }

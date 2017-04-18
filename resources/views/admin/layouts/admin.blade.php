@@ -11,8 +11,14 @@
             @show
 
             @yield('left-sidebar')
-            @yield('content')
-            @yield('footer')
+
+            <div class="right_col" role="main">
+                @yield('content')
+            </div>
+
+            <footer>
+                @include('admin.sections.footer')
+            </footer>
         </div>
     </div>
 @stop
