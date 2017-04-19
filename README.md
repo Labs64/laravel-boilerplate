@@ -50,44 +50,44 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 To be able to run Laravel Boilerplate you have to meet the following requirements:
 - PHP > 5.6.4
 - PHP Extensions: PDO, cURL, Mbstring, Tokenizer, Mcrypt, XML, GD
-- nodeJS > 6.0
+- Node.js > 6.0
 - Composer > 1.0.0
 - Bower
 
 
 ## Installation
+1. Clone repository
 ```
 $ git clone https://github.com/Labs64/laravel-boilerplate.git
 ```
+2. Install Composer using detailed installation instruction [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
+3. Install Node.js using detailed installation instruction [here](https://nodejs.org/en/download/package-manager/)
+4. Change into the working directory
+```
+$ cd laravel-boilerplate
+```
+5. Install dependencies
 ```
 $ composer install --prefer-dist
-```
-```
 $ npm install
 ```
-
-### Database setup
-
-Edit `.env.example` according to your environment and save as `.env`.
-An application key can be generated with the command `php artisan key:generate`.
-
-Run these commands to create the tables within the database you have already created.
-
+6. Edit `.env.example` according to your environment and save as `.env`.
+7. An application key can be generated with the command:
 ```
-$ php artisan migrate:install
+$ php artisan key:generate
 ```
+8. Execute following commands:
 ```
-$ php artisan migrate:refresh
+$ bower install
+$ npm run dev
 ```
-
+9. Run these commands to create the tables within the database you have already created
+```
+$ php artisan migrate --seed
+```
 If you get an error like a `PDOException` try editing your `.env` file and change `DB_HOST=localhost` to `DB_HOST=127.0.0.1`.
 
 ## Run
-
-To provide the JS and CSS files and to keep track of changes to these files:
-```
-$ gulp && gulp watch
-```
 
 To start the PHP built-in server:
 ```
