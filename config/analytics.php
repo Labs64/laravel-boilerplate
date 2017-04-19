@@ -7,7 +7,7 @@ return [
     | Google Analytics
     |--------------------------------------------------------------------------
     |
-    | Found in views/includes/partials/ga.blade.php
+    | Found in views/partials/ga.blade.php
     */
     'google-analytics' => 'UA-XXXXX-X',
 ];
