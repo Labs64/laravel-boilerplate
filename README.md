@@ -10,6 +10,8 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 - Bootstrap 3
 - Font Awesome
 - Socialite Integration
+- MySQL, SQLite, PostgreSQL databases support
+- AWS S3 support
 - Google Analytics support in frontend
     - Configuration can be easily made via ```analytics.php``` and template ```ga.blade.php```
 - Automatic errors feedback via eMail
@@ -46,16 +48,12 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 
 ## Minimum System Requirements
 To be able to run Laravel Boilerplate you have to meet the following requirements:
-- PHP 5.5.9 or higher
-- PDO PHP Extension
-- cURL PHP Extension
-- OpenSSL PHP Extension
-- Mbstring PHP Extension
-- Tokenizer PHP Extension
-- Mcrypt PHP Extension
-- GD PHP Library
-- MySql 5.5
-- One of the following cache drivers: ```memcached```, ```redis```, ```apc```
+- PHP > 5.6.4
+- PHP Extensions: PDO, cURL, Mbstring, Tokenizer, Mcrypt, XML, GD
+- nodeJS > 6.0
+- Composer > 1.0.0
+- Bower
+
 
 ## Installation
 ```
