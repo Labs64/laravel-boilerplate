@@ -11,7 +11,6 @@ use App\Models\Auth\Role\Traits\Relations\RoleRelations;
  *
  * @property int $id
  * @property string $name
- * @property bool $is_admin
  * @property int $weight
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -19,7 +18,6 @@ use App\Models\Auth\Role\Traits\Relations\RoleRelations;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\Role\Role sort($direction = 'asc')
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\Role\Role whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\Role\Role whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\Role\Role whereIsAdmin($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\Role\Role whereName($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\Role\Role whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\Role\Role whereWeight($value)
