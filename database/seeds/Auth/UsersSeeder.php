@@ -34,7 +34,7 @@ class UsersSeeder extends Seeder
             ],
             [
                 'name' => 'Demo',
-                'email' => 'demo@Demo.com',
+                'email' => 'demo@demo.com',
                 'password' => bcrypt('demo'),
                 'active' => true,
                 'confirmation_code' => \Ramsey\Uuid\Uuid::uuid1(),
