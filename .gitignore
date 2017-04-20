@@ -8,6 +8,8 @@ bootstrap/compiled.php
 bootstrap/cache/
 app/storage/
 storage/debugbar/
+storage/framework/views/
+storage/framework/sessions/
 .env.*.php
 .env.php
 .env
