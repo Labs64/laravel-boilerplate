@@ -35,7 +35,7 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 - Added listeners on some events; e.g. Login, Logout, Registration, SocialLogin
 - Added notification ```ConfirmEmail``` on user account confirmation
 - Added policies to access backend services
-- Added database seeders for Users, Roles and UserRoles
+- Added database seeders for Users, Roles, and UserRoles
 - Improved migration ```create_users_table.php```; fields added active, confirm and deleted_at for soft deletion
 - JavaScript / CSS minification
 - JavaScript / CSS hashing
