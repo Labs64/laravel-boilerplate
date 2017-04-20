@@ -1,9 +1,24 @@
 {
     "name": "labs64/laravel-boilerplate",
     "description": "Laravel 5 Boilerplate",
-    "keywords": ["framework", "laravel", "admin"],
-    "license": "MIT",
     "type": "project",
+    "keywords": ["framework", "laravel", "admin"],
+    "homepage": "https://github.com/Labs64/laravel-boilerplate",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Labs64 GmbH",
+            "email": "info@labs64.com",
+            "homepage": "http://www.labs64.com"
+        }
+    ],
+    "support": {
+        "email": "info@labs64.com",
+        "issues": "https://github.com/Labs64/laravel-boilerplate/issues",
+        "wiki": "https://github.com/Labs64/laravel-boilerplate",
+        "source": "https://github.com/Labs64/laravel-boilerplate",
+        "docs": "https://github.com/Labs64/laravel-boilerplate"
+    },
     "require": {
         "php": ">=5.6.4",
         "arcanedev/log-viewer": "~4.0",
@@ -60,5 +75,6 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
-    }
+    },
+    "prefer-stable": true
 }
