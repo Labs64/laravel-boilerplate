@@ -8,7 +8,7 @@ before_script:
   - cp .env.example .env
   - mysql -e 'create database homestead_test;'
   - composer self-update
-  - composer install --dev --no-interaction --prefer-dist
+  - composer install --prefer-dist --no-interaction
   - npm install
   - php artisan key:generate
   - bower install
