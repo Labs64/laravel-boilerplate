@@ -1,27 +1,32 @@
 !.gitkeep
 
-# Laravel, nodeJS, Bower, Gulp exclusions
-vendor/
-node_modules/
-bower_components/
-bootstrap/compiled.php
-bootstrap/cache/
-app/storage/
-storage/debugbar/
+# Laravel, nodeJS, Bower, Gulp, Composer exclusions
+.htaccess
+/vendor
+/node_modules
+/bower_components
+/storage
+
+composer.phar
+composer.lock
+phpunit.phar
+/public/thumbnails
+/public/sitemap.xml
+/public/assets
+/public/rev-manifest.json
+/bootstrap/cache
+/bootstrap/compiled.php
+
+.env
 .env.*.php
 .env.php
-.env
 .sass-cache
-public
-
-# Rocketeer PHP task runner exclusions
-.rocketeer/
 
 # IDE exclusions
+.DS_Store
+Thumbs.db
 .idea
 _ide_helper.php
 .phpstorm.meta.php
-
-# Composer
-composer.phar
-composer.lock
+*.sqlite
+.rocketeer/
