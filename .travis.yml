@@ -21,7 +21,6 @@ before_script:
   - npm run dev
   - php artisan migrate --seed --no-interaction
   - cat .env
-  - php -S localhost:8080 -t public/
 
 script:
   - vendor/bin/phpunit
