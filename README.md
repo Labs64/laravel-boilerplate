@@ -51,7 +51,7 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 ## Theme Demo
 ![Gentelella Bootstrap Admin Template](https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/gentelella-admin-template-preview.jpg "Gentelella Theme Browser Preview")
 
-**[Template Demo](https://colorlib.com/polygon/gentelella/index.html)**
+**[Gentelella Admin Theme Demo](https://colorlib.com/polygon/gentelella/index.html)**
 
 ## Minimum System Requirements
 To be able to run Laravel Boilerplate you have to meet the following requirements:
