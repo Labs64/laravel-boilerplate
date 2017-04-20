@@ -5,8 +5,9 @@ vendor/
 node_modules/
 bower_components/
 bootstrap/compiled.php
-app/storage/
 bootstrap/cache/
+app/storage/
+storage/debugbar/
 .env.*.php
 .env.php
 .env
