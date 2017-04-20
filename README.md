@@ -1,5 +1,7 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
+[![Build Status](https://travis-ci.org/Labs64/laravel-boilerplate.svg?branch=master)](https://travis-ci.org/Labs64/laravel-boilerplate)
+
 # A Laravel 5 Boilerplate Project
 
 _Laravel Boilerplate_ provides a very flexible and extensible way of building your custom Laravel 5 applications.
