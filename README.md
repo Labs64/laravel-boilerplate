@@ -1,6 +1,8 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-[![Build Status](https://travis-ci.org/Labs64/laravel-boilerplate.svg?branch=master)](https://travis-ci.org/Labs64/laravel-boilerplate)
+<p align="center">
+<a href="https://travis-ci.org/Labs64/laravel-boilerplate"><img src="https://travis-ci.org/Labs64/laravel-boilerplate.svg" alt="Build Status"></a>
+</p>
 
 # A Laravel 5 Boilerplate Project
 
@@ -95,12 +97,12 @@ To start the PHP built-in server
 $ php -S localhost:8080 -t public/
 ```
 
-Now you can browse the site [http://localhost:8080](http://localhost:8080)  🙌
+Now you can browse the site [http://localhost:8080](https://photolancer.zone)  🙌
 
 ## How to contribute
 
 Fork the repository, read the [CONTRIBUTE](CONTRIBUTE.md) file and make some changes.
-Once you're done with your changes send a pull request and check [CI validation status](https://photolancer.zone).
+Once you're done with your changes send a pull request and check [CI validation status](https://travis-ci.org/Labs64/laravel-boilerplate).
 Thanks!
 
 ## Bugs and Feedback
