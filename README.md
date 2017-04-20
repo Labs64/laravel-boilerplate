@@ -1,6 +1,8 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
+<p align="center">
 [![Build Status](https://travis-ci.org/Labs64/laravel-boilerplate.svg?branch=master)](https://travis-ci.org/Labs64/laravel-boilerplate)
+</p>
 
 # A Laravel 5 Boilerplate Project
 
