@@ -11,4 +11,5 @@ before_script:
   - cp .env.example .env
   - php artisan migrate --database=laravel_boilerplate --no-interaction
 
-script: vendor/bin/phpunit
+script:
+  - vendor/bin/phpunit
