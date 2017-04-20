@@ -13,7 +13,6 @@ before_script:
   - mysql -e 'create database laravel_boilerplate;'
   - mysql -u root -h 127.0.0.1 -e "SHOW DATABASES"
   - mysql -u root -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('')"
-  #- composer self-update
   - composer install --prefer-dist --no-interaction
   - nvm install $NODEJS_VERSION
   - npm install
