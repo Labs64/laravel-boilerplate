@@ -1,7 +1,7 @@
 <?php
 
-use Database\Traits\TruncateTable;
-use Database\Traits\DisableForeignKeys;
+use Database\traits\TruncateTable;
+use Database\traits\DisableForeignKeys;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
