@@ -2,7 +2,7 @@
     "name": "labs64/laravel-boilerplate",
     "description": "Laravel 5 Boilerplate",
     "type": "project",
-    "keywords": ["framework", "laravel", "admin"],
+    "keywords": ["framework", "laravel", "admin", "theme", "starter", "bootstrap", "boilerplate", "docker", "template"],
     "homepage": "https://github.com/Labs64/laravel-boilerplate",
     "license": "MIT",
     "authors": [
