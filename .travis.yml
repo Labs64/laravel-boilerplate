@@ -5,11 +5,16 @@ php:
   - 7.0
 
 before_script:
-  - mysql -e 'create database laravel_boilerplate;'
-  - composer self-update
-  - composer install --dev --no-interaction --prefer-source
   - cp .env.example .env
-  - php artisan migrate --database=laravel_boilerplate --no-interaction
+  - mysql -e 'create database homestead_test;'
+  - composer self-update
+  - composer install --dev --no-interaction --prefer-dist
+  - npm install
+  - php artisan key:generate
+  - bower install
+  - npm run dev
+  - php artisan migrate --seed --no-interaction
+  #- php -S localhost:8080 -t public/
 
 script:
   - vendor/bin/phpunit
