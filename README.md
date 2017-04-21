@@ -62,12 +62,12 @@ To be able to run Laravel Boilerplate you have to meet the following requirement
 - Bower
 
 ## Installation
-1. Clone repository
+1. Install Composer using detailed installation instructions [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
+2. Install Node.js using detailed installation instructions [here](https://nodejs.org/en/download/package-manager/)
+3. Clone repository
 ```
 $ git clone https://github.com/Labs64/laravel-boilerplate.git
 ```
-2. Install Composer using detailed installation instructions [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
-3. Install Node.js using detailed installation instructions [here](https://nodejs.org/en/download/package-manager/)
 4. Change into the working directory
 ```
 $ cd laravel-boilerplate
