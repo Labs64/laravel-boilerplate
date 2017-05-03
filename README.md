@@ -102,6 +102,10 @@ $ php -S localhost:8080 -t public/
 
 Now you can browse the site [http://localhost:8080](https://photolancer.zone)  🙌
 
+## Docker
+
+You may also be interested in the [Docker image](https://github.com/Labs64/laravel-boilerplate/tree/docker) for _Laravel 5 Boilerplate Project_.
+
 ## How to contribute
 
 Fork the repository, read the [CONTRIBUTE](CONTRIBUTE.md) file and make some changes.
