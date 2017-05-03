@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/labs64/laravel-boilerplate"><img src="https://poser.pugx.org/labs64/laravel-boilerplate/license.svg" alt="License"></a>
 </p>
 
-# A Laravel 5 Boilerplate Project
+# Laravel 5 Boilerplate Project
 
 _Laravel Boilerplate_ provides a very flexible and extensible way of building your custom Laravel 5 applications.
 
