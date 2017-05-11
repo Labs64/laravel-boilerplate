@@ -2,9 +2,12 @@
 
 <p align="center">
 <a href="https://travis-ci.org/Labs64/laravel-boilerplate"><img src="https://travis-ci.org/Labs64/laravel-boilerplate.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/labs64/laravel-boilerplate"><img src="https://poser.pugx.org/labs64/laravel-boilerplate/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/labs64/laravel-boilerplate"><img src="https://poser.pugx.org/labs64/laravel-boilerplate/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/labs64/laravel-boilerplate"><img src="https://poser.pugx.org/labs64/laravel-boilerplate/license.svg" alt="License"></a>
 </p>
 
-# A Laravel 5 Boilerplate Project
+# Laravel 5 Boilerplate Project
 
 _Laravel Boilerplate_ provides a very flexible and extensible way of building your custom Laravel 5 applications.
 
@@ -48,7 +51,7 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 ## Theme Demo
 ![Gentelella Bootstrap Admin Template](https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/gentelella-admin-template-preview.jpg "Gentelella Theme Browser Preview")
 
-**[Template Demo](https://colorlib.com/polygon/gentelella/index.html)**
+**[Gentelella Admin Theme Demo](https://colorlib.com/polygon/gentelella/index.html)**
 
 ## Minimum System Requirements
 To be able to run Laravel Boilerplate you have to meet the following requirements:
@@ -59,12 +62,12 @@ To be able to run Laravel Boilerplate you have to meet the following requirement
 - Bower
 
 ## Installation
-1. Clone repository
+1. Install Composer using detailed installation instructions [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
+2. Install Node.js using detailed installation instructions [here](https://nodejs.org/en/download/package-manager/)
+3. Clone repository
 ```
 $ git clone https://github.com/Labs64/laravel-boilerplate.git
 ```
-2. Install Composer using detailed installation instructions [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
-3. Install Node.js using detailed installation instructions [here](https://nodejs.org/en/download/package-manager/)
 4. Change into the working directory
 ```
 $ cd laravel-boilerplate
@@ -98,6 +101,10 @@ $ php -S localhost:8080 -t public/
 ```
 
 Now you can browse the site [http://localhost:8080](https://photolancer.zone)  🙌
+
+## Docker
+
+You may also be interested in the [Docker image](https://github.com/Labs64/laravel-boilerplate/tree/docker) for _Laravel 5 Boilerplate Project_.
 
 ## How to contribute
 
