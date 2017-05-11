@@ -44,7 +44,7 @@ class SocialLoginController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt(Uuid::uuid4()),
-            'confirmation_code' => Uuid::uuid1(),
+            'confirmation_code' => Uuid::uuid4(),
             'confirmed' => true,
             'active' => true
         ]);

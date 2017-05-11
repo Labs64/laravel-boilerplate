@@ -70,7 +70,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'confirmation_code' => Uuid::uuid1(),
+            'confirmation_code' => Uuid::uuid4(),
             'confirmed' => false
         ]);
     }
