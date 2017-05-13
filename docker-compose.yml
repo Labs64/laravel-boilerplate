@@ -2,34 +2,37 @@ version: '2'
 services:
   mysql:
     image: mysql:latest
+    container_name: mysql
     volumes:
       - "./data/db:/var/lib/mysql"
-    restart: always
     ports:
       - "3306:3306"
+    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: laravel_boilerplate
-      MYSQL_USER: root
-      MYSQL_PASSWORD:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=laravel_boilerplate
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=secret
   laravel-env:
+    build: ./dockerfiles/laravel-env
+    container_name: laravel-env
     depends_on:
       - mysql
     volumes:
-      - "./laravel-boilerplate:/var/www"
+      - ".:/var/www"
       #- "./config/php-fpm/php.ini:/usr/local/etc/php/php.ini"
       #- "./config/php-fpm/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
     restart: always
-    build: ./dockerfiles/laravel-env
     extra_hosts:
       - "laravel-boilerplate.local:127.0.0.1"
   nginx:
+    image: nginx:latest
+    container_name: nginx
     depends_on:
       - laravel-env
+    volumes:
+      - ".:/var/www"
+      #- "./config/nginx/default.conf:/etc/nginx/conf.d/default.conf"
     ports:
       - "80:80"
-    image: nginx:latest
-    volumes:
-      - "./laravel-boilerplate:/var/www"
-      #- "./config/nginx/default.conf:/etc/nginx/conf.d/default.conf"
     restart: always

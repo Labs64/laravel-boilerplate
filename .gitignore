@@ -1,5 +1,7 @@
 !.gitkeep
 
+data/
+
 # Laravel, nodeJS, Bower, Gulp exclusions, Composer exclusions
 .htaccess
 vendor/
