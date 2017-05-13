@@ -104,7 +104,33 @@ Now you can browse the site [http://localhost:8080](https://photolancer.zone)  ð
 
 ## Docker
 
-You may also be interested in the [Docker image](https://github.com/Labs64/laravel-boilerplate/tree/docker) for _Laravel 5 Boilerplate Project_.
+Tere is a Docker based local development environment prepared, which provides a very flexible and extensible way of building your custom Laravel 5 applications.
+
+### What's Inside
+This project is based on [docker-compose](https://docs.docker.com/compose/). By default, the following containers are started: _laravel-env, mysql, nginx_. The `/laravel` directory is the web root which is mapped to the nginx container.
+You can directly edit configuration files from within the repo as they are mapped to the correct locations in containers.
+
+### Minimum System Requirements
+To be able to run Laravel Boilerplate you have to meet the following requirements:
+* [docker](https://www.docker.com)
+* [docker-compose](https://docs.docker.com/compose/)
+
+### Setup
+1. Clone repository
+```
+$ git clone https://github.com/Labs64/laravel-boilerplate.git
+```
+2. TODO
+
+
+### Run
+
+To start environment
+```
+$ docker-compose up
+```
+
+Now you can browse the site [http://localhost:8080](https://photolancer.zone)  ðŸ™Œ
 
 ## How to contribute
 
