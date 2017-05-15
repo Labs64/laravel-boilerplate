@@ -6,7 +6,7 @@ php:
   - 7.1
 
 env:
-  - NODEJS_VERSION=6.10.2
+  - NODEJS_VERSION=6.10.3
 
 before_script:
   - cp .env.example .env

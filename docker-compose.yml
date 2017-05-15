@@ -20,8 +20,8 @@ services:
       - mysql
     volumes:
       - ".:/var/www"
-      #- "./config/php-fpm/php.ini:/usr/local/etc/php/php.ini"
-      #- "./config/php-fpm/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+      - "./dockerfiles/config/laravel-env/php.ini:/usr/local/etc/php/php.ini"
+      - "./dockerfiles/config/laravel-env/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
     restart: always
     extra_hosts:
       - "laravel-boilerplate.local:127.0.0.1"
@@ -32,7 +32,7 @@ services:
       - laravel-env
     volumes:
       - ".:/var/www"
-      #- "./config/nginx/default.conf:/etc/nginx/conf.d/default.conf"
+      - "./dockerfiles/config/nginx/default.conf:/etc/nginx/conf.d/default.conf"
     ports:
       - "80:80"
     restart: always
