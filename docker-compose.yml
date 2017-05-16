@@ -22,9 +22,11 @@ services:
       - ".:/var/www"
       - "./dockerfiles/config/laravel-env/php.ini:/usr/local/etc/php/php.ini"
       - "./dockerfiles/config/laravel-env/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+    ports:
+      - ":9000"
     restart: always
-    extra_hosts:
-      - "laravel-boilerplate.local:127.0.0.1"
+    #extra_hosts:
+    #  - "laravel-boilerplate.local:127.0.0.1"
   nginx:
     image: nginx:latest
     container_name: nginx
