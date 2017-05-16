@@ -45,4 +45,4 @@ RUN yum list installed nodejs
 RUN node -v
 
 # Expose ports
-EXPOSE 80 443
+EXPOSE 9000

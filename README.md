@@ -127,10 +127,38 @@ $ git clone https://github.com/Labs64/laravel-boilerplate.git
 
 To start environment
 ```
-$ docker-compose up
+$ docker-compose up -d
 ```
 
 Now you can browse the site [http://localhost:8080](https://photolancer.zone)  🙌
+
+To stop environment
+```
+$ docker-compose down
+```
+
+### Useful commands
+
+List docker processes
+```
+$ docker ps
+```
+
+List docker processes
+```
+$ docker exec -it <CONTAINER ID> bash
+```
+
+Verify available databases
+```
+# mysql -u root -p laravel_boilerplate
+mysql> show databases;
+```
+
+Remove all docker-compose images
+```
+$ docker-compose rm -v
+```
 
 ## How to contribute
 
