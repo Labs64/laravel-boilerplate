@@ -21,7 +21,7 @@ services:
     volumes:
       - ".:/var/www"
       - "./dockerfiles/config/laravel-env/php.ini:/usr/local/etc/php/php.ini"
-      - "./dockerfiles/config/laravel-env/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+      - "./dockerfiles/config/laravel-env/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini"
     ports:
       - ":9000"
     restart: always
