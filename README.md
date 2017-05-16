@@ -146,7 +146,7 @@ $ docker ps
 
 List docker processes
 ```
-$ docker exec -it <CONTAINER ID> bash
+$ docker exec -it <CONTAINER ID|CONTAINER NAME> bash
 ```
 
 Verify available databases
