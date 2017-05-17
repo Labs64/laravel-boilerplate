@@ -22,7 +22,7 @@ services:
       - ".:/var/www/laravel-boilerplate"
       - "./dockerfiles/config/laravel-env/php.ini:/usr/local/etc/php/php.ini"
       - "./dockerfiles/config/laravel-env/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini"
-    restart: always
+    #restart: always
   nginx:
     image: nginx:latest
     container_name: nginx
