@@ -44,5 +44,7 @@ RUN yum -y install nodejs
 RUN yum list installed nodejs
 RUN node -v
 
+WORKDIR /var/www
+
 # Expose ports
-#EXPOSE 9000
+EXPOSE 9000
