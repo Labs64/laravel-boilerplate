@@ -11,6 +11,12 @@
         {{--Title and Meta--}}
         @meta
 
+        {{--Common App Styles--}}
+        {{ Html::style(mix('assets/app/css/app.css')) }}
+
+        {{--Styles--}}
+        @yield('styles')
+
         {{--Head--}}
         @yield('head')
 
@@ -19,12 +25,6 @@
 
         {{--Page--}}
         @yield('page')
-
-        {{--Common App Styles--}}
-        {{ Html::style(mix('assets/app/css/app.css')) }}
-
-        {{--Styles--}}
-        @yield('styles')
 
         {{--Common Scripts--}}
         {{ Html::script(mix('assets/app/js/app.js')) }}
