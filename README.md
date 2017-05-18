@@ -115,22 +115,19 @@ To be able to run Laravel Boilerplate you have to meet the following requirement
 * [docker](https://www.docker.com)
 * [docker-compose](https://docs.docker.com/compose/)
 
-### Setup
-1. Clone repository
+### Run
+
+Clone repository
 ```
 $ git clone https://github.com/Labs64/laravel-boilerplate.git
 ```
-2. TODO
-
-
-### Run
 
 To start environment
 ```
 $ docker-compose up -d
 ```
 
-Now you can browse the site [http://localhost:8080](https://photolancer.zone)  🙌
+Now you can browse the site [http://localhost:80](https://photolancer.zone)  🙌
 
 To stop environment
 ```
