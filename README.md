@@ -97,6 +97,8 @@ If you get an error like a `PDOException` try editing your `.env` file and chang
 
 To start the PHP built-in server
 ```
+$ php artisan serve --port=8080
+or
 $ php -S localhost:8080 -t public/
 ```
 
