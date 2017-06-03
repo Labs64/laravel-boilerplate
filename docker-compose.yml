@@ -20,10 +20,10 @@ services:
       - mysql
     volumes:
       - ".:/var/www/laravel-boilerplate"
+      - "./dockerfiles/config/php/php-fpm.conf:/etc/php-fpm.conf"
+      - "./dockerfiles/config/php/www.conf:/etc/php-fpm.d/www.conf"
       - "./dockerfiles/config/php/php.ini:/usr/local/etc/php/php.ini"
       - "./dockerfiles/config/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini"
-      - "./dockerfiles/config/etc/supervisord.conf:/etc/supervisord.conf"
-    #restart: always
   nginx:
     image: nginx:latest
     container_name: nginx

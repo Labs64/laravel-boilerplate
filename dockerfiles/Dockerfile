@@ -43,16 +43,11 @@ RUN yum -y install php71w \
 
 RUN php -v
 
-# Copy supervisor configuration file
-RUN yum -y install supervisor
-#COPY config/etc/supervisord.conf /etc/supervisord.conf
+# Prepare PHP environment
 COPY config/php/php-fpm.conf /etc/php-fpm.conf
 COPY config/php/www.conf /etc/php-fpm.d/www.conf
-
-# Forward logs to docker log collector
-RUN ln -sf /dev/stdout /var/log/php-fpm/access.log \
-  && ln -sf /dev/stderr /var/log/fpm-php.www.log \
-  && ln -sf /dev/stderr /var/log/php-fpm/fpm-error.log
+COPY config/php/php.ini /usr/local/etc/php/php.ini
+COPY config/php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php
@@ -69,10 +64,9 @@ RUN node -v
 RUN yum clean all
 
 # Define work directory
-WORKDIR /var/www
+WORKDIR /var/www/laravel-boilerplate
 
 # Expose ports
 EXPOSE 9000
 
-#CMD ["/usr/bin/supervisord"]
 CMD ["php-fpm", "-F", "-O"]

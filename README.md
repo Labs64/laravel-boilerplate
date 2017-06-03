@@ -72,12 +72,15 @@ $ git clone https://github.com/Labs64/laravel-boilerplate.git
 ```
 $ cd laravel-boilerplate
 ```
-5. Install dependencies
+5. Copy `.env.example` to `.env` and modify according to your environment
+```
+$ cp .env.example .env
+```
+6. Install dependencies
 ```
 $ composer install --prefer-dist
 $ npm install
 ```
-6. Edit `.env.example` according to your environment and save as `.env`
 7. An application key can be generated with the command
 ```
 $ php artisan key:generate
