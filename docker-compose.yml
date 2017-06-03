@@ -14,14 +14,15 @@ services:
       - MYSQL_USER=root
       - MYSQL_PASSWORD=secret
   laravel-env:
-    build: ./dockerfiles/laravel-env
+    build: ./dockerfiles
     container_name: laravel-env
     depends_on:
       - mysql
     volumes:
       - ".:/var/www/laravel-boilerplate"
-      - "./dockerfiles/config/laravel-env/php.ini:/usr/local/etc/php/php.ini"
-      - "./dockerfiles/config/laravel-env/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini"
+      - "./dockerfiles/config/php/php.ini:/usr/local/etc/php/php.ini"
+      - "./dockerfiles/config/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini"
+      - "./dockerfiles/config/etc/supervisord.conf:/etc/supervisord.conf"
     #restart: always
   nginx:
     image: nginx:latest
