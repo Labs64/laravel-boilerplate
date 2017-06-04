@@ -9,10 +9,7 @@ env:
   - NODEJS_VERSION=6.10.3
 
 before_script:
-  - lsb_release -a
-  - dpkg-query --show
   - dpkg -l
-  - dpkg --get-selections
   - cp .env.example .env
   - mysql -e 'create database laravel_boilerplate;'
   - mysql -u root -h 127.0.0.1 -e "SHOW DATABASES"
@@ -21,8 +18,11 @@ before_script:
   - php artisan key:generate
   - cat .env
   - nvm install $NODEJS_VERSION
+  - ls -la
   - npm install
+  - ls -la
   - bower install
+  - ls -la
   - npm run dev
   - php artisan migrate --seed --no-interaction
   - ls -la

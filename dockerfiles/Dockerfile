@@ -4,7 +4,7 @@ MAINTAINER Labs64 GmbH info@labs64.com
 
 # Install some must-haves
 RUN yum -y install vim wget
-RUN yum -y install libtool make automake autoconf nasm
+RUN yum -y install libtool make automake autoconf nasm libpng-static
 RUN yum -y install git
 RUN git --version
 
