@@ -20,9 +20,8 @@ class UsersRolesSeeder extends Seeder
 
         $data = [
             'admin@admin.com' => ['administrator', 'authenticated'],
-            'demo@Demo.com' => 'authenticated',
+            'demo@demo.com' => 'authenticated',
         ];
-
 
         foreach ($data as $email => $role) {
             /** @var  $user \App\Models\Auth\User\User */

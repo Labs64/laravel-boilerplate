@@ -59,7 +59,8 @@
 
                             <div>
                                 <div class="h1">{{ config('app.name') }}</div>
-                                <p>&copy; {{ date('Y') }} {{ __('views.auth.register.copyright_0') }}. {{ config('app.name') }}. {{ __('views.auth.register.copyright_1') }}</p>
+                                <p>&copy; {{ date('Y') }} {{ config('app.name') }}. {{ __('views.auth.register.copyright_0') }}</p>
+                                <p>{{ __('views.auth.register.copyright_1') }}</p>
                             </div>
                         </div>
                     {{ Form::close() }}
@@ -74,4 +75,3 @@
 
     {{ Html::style(mix('assets/auth/css/register.css')) }}
 @endsection
-
