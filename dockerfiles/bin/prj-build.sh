@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Install dependencies
+composer install --prefer-dist --no-interaction
+
 # Generate application key
 php artisan key:generate
 
@@ -7,7 +10,6 @@ php artisan key:generate
 cat .env
 
 # Install dependencies
-composer install --prefer-dist --no-interaction
 npm install
 bower install --allow-root
 npm run dev
