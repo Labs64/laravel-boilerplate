@@ -5,6 +5,7 @@
 <a href="https://packagist.org/packages/labs64/laravel-boilerplate"><img src="https://poser.pugx.org/labs64/laravel-boilerplate/d/total.svg" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/labs64/laravel-boilerplate"><img src="https://poser.pugx.org/labs64/laravel-boilerplate/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/labs64/laravel-boilerplate"><img src="https://poser.pugx.org/labs64/laravel-boilerplate/license.svg" alt="License"></a>
+<a href="https://waffle.io/Labs64/laravel-boilerplate"><img src="https://badge.waffle.io/Labs64/laravel-boilerplate.svg?label=ready&title=Ready" alt="Stories in Ready"></a>
 </p>
 
 # Laravel 5 Boilerplate Project
