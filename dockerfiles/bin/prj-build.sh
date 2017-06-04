@@ -16,3 +16,6 @@ npm run dev
 
 # Create database tables and populate seed data
 php artisan migrate --seed --no-interaction
+
+# Execute PHPUnit tests
+vendor/bin/phpunit

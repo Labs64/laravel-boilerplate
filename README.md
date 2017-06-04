@@ -77,17 +77,17 @@ $ cd laravel-boilerplate
 ```
 $ cp .env.example .env
 ```
-6. Install dependencies
+6. Install composer dependencies
 ```
 $ composer install --prefer-dist
-$ npm install
 ```
 7. An application key can be generated with the command
 ```
 $ php artisan key:generate
 ```
-8. Execute following commands
+8. Execute following commands to install other dependencies
 ```
+$ npm install
 $ bower install
 $ npm run dev
 ```
