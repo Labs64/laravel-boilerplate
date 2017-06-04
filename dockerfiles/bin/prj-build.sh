@@ -11,6 +11,7 @@ cat .env
 
 # Install dependencies
 npm install
+npm install -g bower   # temporary: inslall bower globally until https://github.com/Labs64/laravel-boilerplate/issues/7 is resolved
 bower install --allow-root
 npm run dev
 
