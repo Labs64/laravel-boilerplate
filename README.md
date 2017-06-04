@@ -94,7 +94,7 @@ $ npm run dev
 ```
 $ php artisan migrate --seed
 ```
-If you get an error like a `PDOException` try editing your `.env` file and change `DB_HOST=localhost` to `DB_HOST=127.0.0.1`.
+If you get an error like a `PDOException` try editing your `.env` file and change `DB_HOST=localhost` to `DB_HOST=127.0.0.1` to `DB_HOST=mysql` (for *docker-compose* environment).
 
 ## Run
 
@@ -125,6 +125,11 @@ To be able to run Laravel Boilerplate you have to meet the following requirement
 Clone repository
 ```
 $ git clone https://github.com/Labs64/laravel-boilerplate.git
+```
+
+Copy `.env.example` to `.env` and modify according to your environment (make sure database host set to `DB_HOST=mysql`)
+```
+$ cp .env.example .env
 ```
 
 To start environment

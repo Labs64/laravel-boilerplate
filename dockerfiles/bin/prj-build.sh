@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Copy environment config
-cp .env.example .env
-
 # Generate application key
 php artisan key:generate
 
@@ -11,11 +8,7 @@ cat .env
 
 # Install dependencies
 composer install --prefer-dist --no-interaction
-
-# Install dependencies
 npm install
-
-# Install dependencies
 bower install --allow-root
 npm run dev
 
