@@ -9,17 +9,23 @@ env:
   - NODEJS_VERSION=6.10.3
 
 before_script:
+  - lsb_release -a
   - cp .env.example .env
   - mysql -e 'create database laravel_boilerplate;'
   - mysql -u root -h 127.0.0.1 -e "SHOW DATABASES"
   - mysql -u root -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('secret')"
+  - ls -la
   - composer install --prefer-dist --no-interaction
+  - ls -la
   - php artisan key:generate
   - cat .env
   - nvm install $NODEJS_VERSION
   - npm install
+  - ls -la
   - bower install
+  - ls -la
   - npm run dev
+  - ls -la
   - php artisan migrate --seed --no-interaction
 
 script:

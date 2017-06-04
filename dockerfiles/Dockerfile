@@ -3,8 +3,8 @@ FROM centos:7
 MAINTAINER Labs64 GmbH info@labs64.com
 
 # Install some must-haves
-RUN yum -y update
 RUN yum -y install vim wget
+RUN yum -y install libtool make automake autoconf nasm
 RUN yum -y install git
 RUN git --version
 
@@ -13,7 +13,6 @@ RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.
 	&& rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 RUN yum install yum-utils
 RUN yum-config-manager --enable remi-php71
-RUN yum -y update
 
 RUN yum -y install php71w \
 					         php71w-bcmath \
@@ -55,12 +54,13 @@ RUN mv composer.phar /usr/bin/composer
 RUN composer --version
 
 # Install Node.js
-RUN curl -sL https://rpm.nodesource.com/setup_7.x | bash -
+RUN curl -sL https://rpm.nodesource.com/setup_6.x | bash -
 RUN yum -y install nodejs
 RUN yum list installed nodejs
 RUN node -v
 
-# Clean up
+# Final update and clean up
+RUN yum -y update
 RUN yum clean all
 
 # Define work directory
