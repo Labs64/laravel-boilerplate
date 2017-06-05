@@ -113,8 +113,10 @@ Now you can browse the site [http://localhost:8080](https://photolancer.zone)  ð
 Tere is a Docker based local development environment prepared, which provides a very flexible and extensible way of building your custom Laravel 5 applications.
 
 ### What's Inside
-This project is based on [docker-compose](https://docs.docker.com/compose/). By default, the following containers are started: _laravel-env, mysql, nginx_. The `/var/www/laravel-boilerplate` directory is the web root which is mapped to the nginx container.
+This project is based on [docker-compose](https://docs.docker.com/compose/). By default, the following containers are started: _laravel-env (centos:7 based), mysql, nginx_. The `/var/www/laravel-boilerplate` directory is the web root which is mapped to the nginx container.
 You can directly edit configuration files from within the repo as they are mapped to the correct locations in containers.
+
+<p align="center"><img src="https://raw.githubusercontent.com/Labs64/laravel-boilerplate/master/dockerfiles/img/laravel-boilerplate-docker.png" alt="Laravel Boilerplate Docker"></p>
 
 ### Minimum System Requirements
 To be able to run Laravel Boilerplate you have to meet the following requirements:
