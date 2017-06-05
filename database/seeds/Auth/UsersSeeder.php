@@ -24,7 +24,7 @@ class UsersSeeder extends Seeder
         $users = [
             [
                 'name' => 'Admin',
-                'email' => 'admin@admin.com',
+                'email' => 'admin.laravel@labs64.com',
                 'password' => bcrypt('admin'),
                 'active' => true,
                 'confirmation_code' => \Ramsey\Uuid\Uuid::uuid4(),
@@ -34,7 +34,7 @@ class UsersSeeder extends Seeder
             ],
             [
                 'name' => 'Demo',
-                'email' => 'demo@demo.com',
+                'email' => 'demo.laravel@labs64.com',
                 'password' => bcrypt('demo'),
                 'active' => true,
                 'confirmation_code' => \Ramsey\Uuid\Uuid::uuid4(),

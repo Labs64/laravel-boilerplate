@@ -100,8 +100,8 @@
                 </div>
                 <div class="m-b-md">
                    Sample users:<br/>
-                   Admin user: admin@admin.com / password: admin<br/>
-                   Demo user: demo@demo.com / password: demo
+                   Admin user: admin.laravel@labs64.com / password: admin<br/>
+                   Demo user: demo.laravel@labs64.com / password: demo
                 </div>
                 <div class="footer">
                    Credits:&nbsp;
