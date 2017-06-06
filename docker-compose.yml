@@ -15,13 +15,15 @@ services:
       - MYSQL_PASSWORD=secret
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
     links:
       - mysql
+    ports:
+      - '8080:80'
+    restart: always
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
-    ports:
-      - '8080:80'
   laravel-env:
     build: ./dockerfiles
     container_name: laravel-env
