@@ -92,6 +92,16 @@ mix.copy([
     'node_modules/gentelella/vendors/bootstrap/dist/fonts',
 ], 'public/assets/admin/fonts');
 
+
+mix.scripts([
+    'node_modules/select2/dist/js/select2.full.js',
+    'resources/assets/admin/js/users/edit.js',
+], 'public/assets/admin/js/users/edit.js').version();
+
+mix.styles([
+    'node_modules/select2/dist/css/select2.css',
+], 'public/assets/admin/css/users/edit.css').version();
+
 /*
  |--------------------------------------------------------------------------
  | Frontend

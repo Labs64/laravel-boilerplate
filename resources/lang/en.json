@@ -127,6 +127,7 @@
   "views.admin.users.edit.confirmed": "Confirmed",
   "views.admin.users.edit.password": "Password",
   "views.admin.users.edit.confirm_password": "Confirm Password",
+  "views.admin.users.edit.roles": "Roles",
   "views.admin.users.edit.cancel": "Cancel",
   "views.admin.users.edit.save": "Save"
 }

@@ -24,6 +24,7 @@
     "laravel-mix": "0.*",
     "lodash": "^4.17.4",
     "pace-progress": "^1.0.2",
+    "select2": "^4.0.3",
     "vue": "^2.1.10"
   }
 }

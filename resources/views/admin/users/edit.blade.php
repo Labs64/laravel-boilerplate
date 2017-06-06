@@ -105,7 +105,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password_confirmation">
                         {{ __('views.admin.users.edit.confirm_password') }}
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -122,6 +122,19 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="roles">
+                        {{ __('views.admin.users.edit.roles') }}
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <select id="roles" name="roles[]" class="select2" multiple="multiple" style="width: 100%" autocomplete="off">
+                            @foreach($roles as $role)
+                                <option @if($user->roles->find($role->id)) selected="selected" @endif value="{{ $role->id }}">{{ $role->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                         <a class="btn btn-primary" href="{{ URL::previous() }}"> {{ __('views.admin.users.edit.cancel') }}</a>
                         <button type="submit" class="btn btn-success"> {{ __('views.admin.users.edit.save') }}</button>
@@ -130,4 +143,14 @@
             {{ Form::close() }}
         </div>
     </div>
+@endsection
+
+@section('styles')
+    @parent
+    {{ Html::style(mix('assets/admin/css/users/edit.css')) }}
+@endsection
+
+@section('scripts')
+    @parent
+    {{ Html::script(mix('assets/admin/js/users/edit.js')) }}
 @endsection

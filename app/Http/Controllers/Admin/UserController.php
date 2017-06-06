@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Auth\Role\Role;
 use App\Models\Auth\User\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -59,7 +60,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.users.edit', ['user' => $user]);
+        return view('admin.users.edit', ['user' => $user, 'roles' => Role::get()]);
     }
 
     /**
@@ -99,6 +100,15 @@ class UserController extends Controller
         $user->confirmed = $request->get('confirmed', 0);
 
         $user->save();
+
+        //roles
+        if ($request->has('roles')) {
+            $user->roles()->detach();
+
+            if ($request->get('roles')) {
+                $user->roles()->attach($request->get('roles'));
+            }
+        }
 
         return redirect()->intended(route('admin.users'));
     }
