@@ -5,6 +5,7 @@
 <a href="https://packagist.org/packages/labs64/laravel-boilerplate"><img src="https://poser.pugx.org/labs64/laravel-boilerplate/d/total.svg" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/labs64/laravel-boilerplate"><img src="https://poser.pugx.org/labs64/laravel-boilerplate/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/labs64/laravel-boilerplate"><img src="https://poser.pugx.org/labs64/laravel-boilerplate/license.svg" alt="License"></a>
+<a href="https://waffle.io/Labs64/laravel-boilerplate"><img src="https://badge.waffle.io/Labs64/laravel-boilerplate.svg?label=ready&title=Ready" alt="Stories in Ready"></a>
 </p>
 
 # Laravel 5 Boilerplate Project
@@ -72,18 +73,21 @@ $ git clone https://github.com/Labs64/laravel-boilerplate.git
 ```
 $ cd laravel-boilerplate
 ```
-5. Install dependencies
+5. Copy `.env.example` to `.env` and modify according to your environment
+```
+$ cp .env.example .env
+```
+6. Install composer dependencies
 ```
 $ composer install --prefer-dist
-$ npm install
 ```
-6. Edit `.env.example` according to your environment and save as `.env`
 7. An application key can be generated with the command
 ```
 $ php artisan key:generate
 ```
-8. Execute following commands
+8. Execute following commands to install other dependencies
 ```
+$ npm install
 $ bower install
 $ npm run dev
 ```
@@ -91,12 +95,14 @@ $ npm run dev
 ```
 $ php artisan migrate --seed
 ```
-If you get an error like a `PDOException` try editing your `.env` file and change `DB_HOST=localhost` to `DB_HOST=127.0.0.1`.
+If you get an error like a `PDOException` try editing your `.env` file and change `DB_HOST=127.0.0.1` to `DB_HOST=localhost` or `DB_HOST=mysql` (for *docker-compose* environment).
 
 ## Run
 
 To start the PHP built-in server
 ```
+$ php artisan serve --port=8080
+or
 $ php -S localhost:8080 -t public/
 ```
 
@@ -107,32 +113,43 @@ Now you can browse the site [http://localhost:8080](https://photolancer.zone)  �
 Tere is a Docker based local development environment prepared, which provides a very flexible and extensible way of building your custom Laravel 5 applications.
 
 ### What's Inside
-This project is based on [docker-compose](https://docs.docker.com/compose/). By default, the following containers are started: _laravel-env, mysql, nginx_. The `/laravel` directory is the web root which is mapped to the nginx container.
+This project is based on [docker-compose](https://docs.docker.com/compose/). By default, the following containers are started: _laravel-env (centos:7 based), mysql, nginx_. The `/var/www/laravel-boilerplate` directory is the web root which is mapped to the nginx container.
 You can directly edit configuration files from within the repo as they are mapped to the correct locations in containers.
+
+<p align="center"><img src="https://raw.githubusercontent.com/Labs64/laravel-boilerplate/master/dockerfiles/img/laravel-boilerplate-docker.png" alt="Laravel Boilerplate Docker"></p>
 
 ### Minimum System Requirements
 To be able to run Laravel Boilerplate you have to meet the following requirements:
 * [docker](https://www.docker.com)
 * [docker-compose](https://docs.docker.com/compose/)
 
-### Setup
+### Run
+
 1. Clone repository
 ```
 $ git clone https://github.com/Labs64/laravel-boilerplate.git
 ```
-2. TODO
 
+2. Copy `.env.example` to `.env` and modify according to your environment (make sure database host set to `DB_HOST=mysql`)
+```
+$ cp .env.example .env
+```
 
-### Run
-
-To start environment
+3. Start environment
 ```
 $ docker-compose up -d
 ```
 
-Now you can browse the site [http://localhost:8080](https://photolancer.zone)  🙌
+4. Build project
+```
+$ docker exec laravel-env ./dockerfiles/bin/prj-build.sh
+```
 
-To stop environment
+Now you can browse the site [http://localhost:80](https://photolancer.zone)  🙌
+
+---
+
+Stop environment
 ```
 $ docker-compose down
 ```
@@ -144,7 +161,7 @@ List docker processes
 $ docker ps
 ```
 
-List docker processes
+Execute script in a container
 ```
 $ docker exec -it <CONTAINER ID|CONTAINER NAME> bash
 ```

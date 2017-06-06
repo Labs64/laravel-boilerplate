@@ -61,6 +61,15 @@
                 text-transform: uppercase;
             }
 
+            .footer {
+                position:fixed;
+                width:100%;
+                height:20px;
+                padding:5px;
+                bottom:0px;
+                font-size: smaller;
+            }
+
             .m-b-md {
                 margin-bottom: 30px;
             }
@@ -74,12 +83,13 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (!Auth::check())
-                        <a href="{{ url('/login') }}">{{ __('views.welcome.login') }}</a>
                         <a href="{{ url('/register') }}">{{ __('views.welcome.register') }}</a>
+                        <a href="{{ url('/login') }}">{{ __('views.welcome.login') }}</a>
                     @else
                         @if(auth()->user()->hasRole('administrator'))
                             <a href="{{ url('/admin') }}">{{ __('views.welcome.admin') }}</a>
                         @endif
+                        <a href="{{ url('/logout') }}">{{ __('views.welcome.logout') }}</a>
                     @endif
                 </div>
             @endif
@@ -87,6 +97,16 @@
             <div class="content">
                 <div class="title m-b-md">
                    {{ config('app.name') }}
+                </div>
+                <div class="m-b-md">
+                   Sample users:<br/>
+                   Admin user: admin.laravel@labs64.com / password: admin<br/>
+                   Demo user: demo.laravel@labs64.com / password: demo
+                </div>
+                <div class="footer">
+                   Credits:&nbsp;
+                   <a href="http://netlicensing.io/?utm_source=Laravel_Boilerplate&amp;utm_medium=github&amp;utm_campaign=laravel_boilerplate&amp;utm_content=credits" target="_blank" title="Online Software License Management"><i class="fa fa-lock" aria-hidden="true"></i>NetLicensing</a>&nbsp;&bull;&nbsp;
+                   <a href="https://photolancer.zone/?utm_source=Laravel_Boilerplate&amp;utm_medium=github&amp;utm_campaign=laravel_boilerplate&amp;utm_content=credits" target="_blank" title="Individual digital content for your next campaign"><i class="fa fa-camera-retro" aria-hidden="true"></i>Photolancer Zone</a>
                 </div>
             </div>
         </div>
