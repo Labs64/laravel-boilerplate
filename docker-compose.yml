@@ -13,6 +13,15 @@ services:
       - MYSQL_DATABASE=laravel_boilerplate
       - MYSQL_USER=root
       - MYSQL_PASSWORD=secret
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - '8080:80'
   laravel-env:
     build: ./dockerfiles
     container_name: laravel-env
