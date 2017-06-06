@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Events\Auth\SocialLogin;
+use App\Models\Auth\Role\Role;
 use App\Models\Auth\User\SocialAccount;
 use App\Models\Auth\User\User;
 use Illuminate\Foundation\Auth\RedirectsUsers;
@@ -48,6 +49,10 @@ class SocialLoginController extends Controller
             'confirmed' => true,
             'active' => true
         ]);
+
+        if (config('auth.users.default_role')) {
+            $user->roles()->attach(Role::firstOrCreate(['name' => config('auth.users.default_role')]));
+        }
 
         return $user;
     }

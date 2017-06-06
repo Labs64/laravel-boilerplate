@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Auth\Role\Role;
 use App\Notifications\Auth\ConfirmEmail;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -66,13 +67,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        /** @var  $user User */
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'confirmation_code' => Uuid::uuid4(),
             'confirmed' => false
         ]);
+
+        if (config('auth.users.default_role')) {
+            $user->roles()->attach(Role::firstOrCreate(['name' => config('auth.users.default_role')]));
+        }
+
+        return $user;
     }
 
     /**
@@ -86,10 +94,6 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));
-
-        if (config('auth.user.confirm_email') && !$user->confirmed) {
-
-        }
 
         $this->guard()->login($user);
 

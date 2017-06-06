@@ -83,7 +83,9 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (!Auth::check())
-                        <a href="{{ url('/register') }}">{{ __('views.welcome.register') }}</a>
+                        @if(config('auth.users.registration') == 'true')
+                            <a href="{{ url('/register') }}">{{ __('views.welcome.register') }}</a>
+                        @endif
                         <a href="{{ url('/login') }}">{{ __('views.welcome.login') }}</a>
                     @else
                         @if(auth()->user()->hasRole('administrator'))
