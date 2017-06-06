@@ -13,6 +13,7 @@
     "axios": "^0.15.3",
     "bootstrap-sass": "^3.3.7",
     "bower": "^1.8.0",
+    "clean-webpack-plugin": "^0.1.16",
     "cross-env": "^3.2.3",
     "jquery": "^3.2.1",
     "laravel-mix": "0.*",
