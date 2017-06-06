@@ -60,7 +60,6 @@ To be able to run Laravel Boilerplate you have to meet the following requirement
 - PHP Extensions: PDO, cURL, Mbstring, Tokenizer, Mcrypt, XML, GD
 - Node.js > 6.0
 - Composer > 1.0.0
-- Bower
 
 ## Installation
 1. Install Composer using detailed installation instructions [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
