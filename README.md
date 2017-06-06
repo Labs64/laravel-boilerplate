@@ -87,6 +87,7 @@ $ php artisan key:generate
 ```
 8. Execute following commands to install other dependencies
 ```
+$ npm install
 $ npm run dev
 ```
 9. Run these commands to create the tables within the defined database and populate seed data

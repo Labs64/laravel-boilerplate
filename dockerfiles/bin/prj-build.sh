@@ -10,6 +10,7 @@ php artisan key:generate
 cat .env
 
 # Install dependencies
+npm install
 npm run dev
 
 # Create database tables and populate seed data
