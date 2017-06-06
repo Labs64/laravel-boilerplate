@@ -6,6 +6,7 @@ data/
 .htaccess
 vendor/
 node_modules/
+npm-shrinkwrap.json
 bower_components/
 bootstrap/compiled.php
 bootstrap/cache/

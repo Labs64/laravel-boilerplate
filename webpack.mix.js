@@ -3,8 +3,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 // paths to clean
 var pathsToClean = [
-    'public/assets/js',
-    'public/assets/css'
+    'public/assets/app/js',
+    'public/assets/app/css',
+    'public/assets/admin/js',
+    'public/assets/admin/css',
+    'public/assets/auth/css',
 ];
 
 // the clean options to use
@@ -36,17 +39,17 @@ mix.webpackConfig({
 
 mix.scripts([
     'node_modules/jquery/dist/jquery.js',
-    'bower_components/PACE/pace.js',
+    'node_modules/pace-progress/pace.js',
 
 ], 'public/assets/app/js/app.js').version();
 
 mix.styles([
-    'bower_components/font-awesome/css/font-awesome.css',
-    'bower_components/PACE/themes/blue/pace-theme-minimal.css',
+    'node_modules/font-awesome/css/font-awesome.css',
+    'node_modules/pace-progress/themes/blue/pace-theme-minimal.css',
 ], 'public/assets/app/css/app.css').version();
 
 mix.copy([
-    'bower_components/font-awesome/fonts/',
+    'node_modules/font-awesome/fonts/',
 ], 'public/assets/app/fonts');
 
 /*
@@ -61,9 +64,9 @@ mix.styles('resources/assets/auth/css/register.css', 'public/assets/auth/css/reg
 mix.styles('resources/assets/auth/css/passwords.css', 'public/assets/auth/css/passwords.css').version();
 
 mix.styles([
-    'bower_components/bootstrap/dist/css/bootstrap.css',
-    'bower_components/gentelella/vendors/animate.css/animate.css',
-    'bower_components/gentelella/build/css/custom.css',
+    'node_modules/bootstrap/dist/css/bootstrap.css',
+    'node_modules/gentelella/vendors/animate.css/animate.css',
+    'node_modules/gentelella/build/css/custom.css',
 ], 'public/assets/auth/css/auth.css').version();
 
 /*
@@ -74,19 +77,19 @@ mix.styles([
  */
 
 mix.scripts([
-    'bower_components/bootstrap/dist/js/bootstrap.js',
-    'bower_components/gentelella/build/js/custom.js',
+    'node_modules/bootstrap/dist/js/bootstrap.js',
+    'node_modules/gentelella/build/js/custom.js',
 ], 'public/assets/admin/js/admin.js').version();
 
 mix.styles([
-    'bower_components/bootstrap/dist/css/bootstrap.css',
-    'bower_components/gentelella/vendors/animate.css/animate.css',
-    'bower_components/gentelella/build/css/custom.css',
+    'node_modules/bootstrap/dist/css/bootstrap.css',
+    'node_modules/gentelella/vendors/animate.css/animate.css',
+    'node_modules/gentelella/build/css/custom.css',
 ], 'public/assets/admin/css/admin.css').version();
 
 
 mix.copy([
-    'bower_components/gentelella/vendors/bootstrap/dist/fonts',
+    'node_modules/gentelella/vendors/bootstrap/dist/fonts',
 ], 'public/assets/admin/fonts');
 
 /*
