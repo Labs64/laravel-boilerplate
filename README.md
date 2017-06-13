@@ -60,7 +60,6 @@ To be able to run Laravel Boilerplate you have to meet the following requirement
 - PHP Extensions: PDO, cURL, Mbstring, Tokenizer, Mcrypt, XML, GD
 - Node.js > 6.0
 - Composer > 1.0.0
-- Bower
 
 ## Installation
 1. Install Composer using detailed installation instructions [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
@@ -112,7 +111,7 @@ Now you can browse the site [http://localhost:8080](https://photolancer.zone)  ð
 Tere is a Docker based local development environment prepared, which provides a very flexible and extensible way of building your custom Laravel 5 applications.
 
 ### What's Inside
-This project is based on [docker-compose](https://docs.docker.com/compose/). By default, the following containers are started: _laravel-env (centos:7 based), mysql, nginx_. The `/var/www/laravel-boilerplate` directory is the web root which is mapped to the nginx container.
+This project is based on [docker-compose](https://docs.docker.com/compose/). By default, the following containers are started: _laravel-env (centos:7 based), mysql, phpmyadmin, nginx_. The `/var/www/laravel-boilerplate` directory is the web root which is mapped to the nginx container.
 You can directly edit configuration files from within the repo as they are mapped to the correct locations in containers.
 
 <p align="center"><img src="https://raw.githubusercontent.com/Labs64/laravel-boilerplate/master/dockerfiles/img/laravel-boilerplate-docker.png" alt="Laravel Boilerplate Docker"></p>

@@ -19,7 +19,6 @@ before_script:
   - cat .env
   - nvm install $NODEJS_VERSION
   - npm install
-  - bower install
   - npm run dev
   - php artisan migrate --seed --no-interaction
   - ls -la
