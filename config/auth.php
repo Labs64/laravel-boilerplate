@@ -108,7 +108,7 @@ return [
         /*
          * Whether or not public registration is on
          */
-        'registration' => env('ENABLE_REGISTRATION', 'true'),
+        'registration' => env('ENABLE_REGISTRATION', true),
 
         /*
          * The role the user is assigned to when they sign up from the frontend, not namespaced
@@ -151,6 +151,6 @@ return [
         /*
          * Whether the registration captcha is on or off
          */
-        'registration' => env('REGISTRATION_CAPTCHA_STATUS', false),
+        'registration' => env('REGISTRATION_CAPTCHA_STATUS', true),
     ],
 ];

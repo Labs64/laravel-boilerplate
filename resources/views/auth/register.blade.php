@@ -42,6 +42,10 @@
                             </div>
                         @endif
 
+                        @if(config('auth.captcha.registration'))
+                            @captcha()
+                        @endif
+
                         <div>
                             <button type="submit"
                                     class="btn btn-default submit">{{ __('views.auth.register.action_1') }}</button>

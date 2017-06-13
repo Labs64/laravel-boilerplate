@@ -83,7 +83,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (!Auth::check())
-                        @if(config('auth.users.registration') == 'true')
+                        @if(config('auth.users.registration'))
                             <a href="{{ url('/register') }}">{{ __('views.welcome.register') }}</a>
                         @endif
                         <a href="{{ url('/login') }}">{{ __('views.welcome.login') }}</a>
