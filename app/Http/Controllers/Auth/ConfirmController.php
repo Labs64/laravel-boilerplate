@@ -36,8 +36,9 @@ class ConfirmController extends Controller
 
     public function sendEmail(User $user)
     {
-
+        //create confirmation code
         $user->confirmation_code = Uuid::uuid4();
+        $user->save();
 
         //send email
         $user->notify(new ConfirmEmail());
