@@ -198,6 +198,7 @@ return [
         \App\Providers\ToJsServiceProvider::class,
         \App\Providers\MetaServiceProvider::class,
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
+        \App\Providers\NetLicensingProvider::class
 
     ],
 

@@ -48,22 +48,30 @@ Route::group(['namespace' => 'Auth'], function () {
 /**
  * Backend routes
  */
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], function () {
 
     // Dashboard
-    Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
 
     //Users
-    Route::get('users', 'UserController@index')->name('users');
-    Route::get('users/{user}', 'UserController@show')->name('users.show');
-    Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit');
-    Route::put('users/{user}', 'UserController@update')->name('users.update');
-    Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy');
+    Route::get('users', 'Admin\UserController@index')->name('users');
+    Route::get('users/{user}', 'Admin\UserController@show')->name('users.show');
+    Route::get('users/{user}/edit', 'Admin\UserController@edit')->name('users.edit');
+    Route::put('users/{user}', 'Admin\UserController@update')->name('users.update');
+    Route::delete('users/{user}', 'Admin\UserController@destroy')->name('users.destroy');
+    Route::get('license', 'NetLicensing\LicenseController@index')->name('license');
 });
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/', 'HomeController@index');
+
+/**
+ * NetLicensing
+ */
+
+Route::group(['namespace' => 'NetLicensing', 'prefix' => 'netlisensing', 'as' => 'netlisensing.'], function () {
+
+    //Route::get('demo', 'DemoController@index')->name('demo')->middleware('netlicensing:lb_product_module,netlisensing.demo.shop');
+    Route::get('demo', 'DemoController@index')->name('demo');
+    Route::get('demo/shop/{licensee}', 'DemoController@shop')->name('demo.shop');
 });
-
-Route::get('/home', 'HomeController@index');
-

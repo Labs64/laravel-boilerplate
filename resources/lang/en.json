@@ -77,6 +77,7 @@
   "views.backend.section.navigation.sub_header_3": "Credits",
   "views.backend.section.navigation.menu_0_1": "Dashboard",
   "views.backend.section.navigation.menu_1_1": "Users",
+  "views.backend.section.navigation.menu_1_2": "License",
   "views.backend.section.navigation.menu_2_1": "Log viewer",
   "views.backend.section.navigation.menu_2_2": "Dashboard",
   "views.backend.section.navigation.menu_2_3": "Logs",
@@ -129,5 +130,15 @@
   "views.admin.users.edit.confirm_password": "Confirm Password",
   "views.admin.users.edit.roles": "Roles",
   "views.admin.users.edit.cancel": "Cancel",
-  "views.admin.users.edit.save": "Save"
+  "views.admin.users.edit.save": "Save",
+  "**************************** Admin License **********************": "Admin License i18n",
+  "views.netlicensing.license.title": "Licenses",
+  "views.netlicensing.license.table_header_0": "Email",
+  "views.netlicensing.license.table_header_1": "Username",
+  "views.netlicensing.license.table_header_2": "Licenses",
+  "views.netlicensing.license.table_header_3": "Product Modules",
+  "views.netlicensing.license.table_header_4": "Is Valid",
+  "views.netlicensing.license.table_header_5": "Expires",
+  "views.netlicensing.license.valid": "valid",
+  "views.netlicensing.license.not_valid": "not valid"
 }

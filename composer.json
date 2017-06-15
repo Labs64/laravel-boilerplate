@@ -26,6 +26,7 @@
         "creativeorange/gravatar": "~1.0",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
         "kyslik/column-sortable": "^5.4",
+        "labs64/netlicensingclient-php": "^2.3",
         "laravel/framework": "5.4.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",

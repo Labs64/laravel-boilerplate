@@ -63,3 +63,27 @@ if (!function_exists('meta_property')) {
         return app('meta')->property($name, $content, $attributes);
     }
 }
+
+if (!function_exists('nlic_context')) {
+
+    function nlic_context()
+    {
+        return app('netlicensing')->context();
+    }
+}
+
+if (!function_exists('nlic_context_basic_auth')) {
+
+    function nlic_context_basic_auth()
+    {
+        return app('netlicensing')->context(\NetLicensing\Context::BASIC_AUTHENTICATION);
+    }
+}
+
+if (!function_exists('nlic_context_api_key')) {
+
+    function nlic_context_api_key()
+    {
+        return app('netlicensing')->context(\NetLicensing\Context::APIKEY_IDENTIFICATION);
+    }
+}
