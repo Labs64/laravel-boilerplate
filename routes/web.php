@@ -59,7 +59,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], f
     Route::get('users/{user}/edit', 'Admin\UserController@edit')->name('users.edit');
     Route::put('users/{user}', 'Admin\UserController@update')->name('users.update');
     Route::delete('users/{user}', 'Admin\UserController@destroy')->name('users.destroy');
-    Route::get('license', 'NetLicensing\LicenseController@index')->name('license');
+    Route::get('permissions', 'NetLicensing\PermissionsController@index')->name('permissions');
+    Route::get('permissions/{user}/repeat', 'NetLicensing\PermissionsController@repeat')->name('permissions.repeat');
 });
 
 
@@ -71,7 +72,7 @@ Route::get('/', 'HomeController@index');
 
 Route::group(['namespace' => 'NetLicensing', 'prefix' => 'netlisensing', 'as' => 'netlisensing.'], function () {
 
-    //Route::get('demo', 'DemoController@index')->name('demo')->middleware('netlicensing:lb_product_module,netlisensing.demo.shop');
-    Route::get('demo', 'DemoController@index')->name('demo');
+    Route::get('demo', 'DemoController@index')->name('demo')->middleware('nl.protection:' . config('netlicensing.demo.product_module_number') . ',netlisensing.demo.shop');
     Route::get('demo/shop/{licensee}', 'DemoController@shop')->name('demo.shop');
+    Route::get('demo/success-shop-redirect/', 'DemoController@successShopRedirect')->name('demo.shop.success');
 });

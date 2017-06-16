@@ -42,9 +42,20 @@ return [
             'number' => 'id',
             'name' => 'email'
         ],
+        'shop' => [
+            'success_url' => env('LABS64_NETLICENSING_SHOP_SUCCESS_URL'),
+            'success_url_title' => env('LABS64_NETLICENSING_SHOP_SUCCESS_URL_TITLE', 'Laravel 5 Labs64 Boilerplate'),
+            'cancel_url' => env('LABS64_NETLICENSING_SHOP_CANCEL_URL'),
+            'cancel_url_title' => env('LABS64_NETLICENSING_SHOP_CANCEL_URL_TITLE'),
+        ]
     ],
 
+    /**
+     * Skip validation if user has role
+     */
+    'except_roles' => ['administrator'],
+
     'demo' => [
-        'product_module_number' => 'lb_product_module',
-    ]
+        'product_module_number' =>  env('LABS64_NETLICENSING_DEMO_PRODUCT_MODULE_NUMEBR'),
+    ],
 ];

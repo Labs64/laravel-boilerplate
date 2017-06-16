@@ -26,9 +26,12 @@ use Kyslik\ColumnSortable\Sortable;
  * @property \Carbon\Carbon $updated_at
  * @property \Carbon\Carbon $deleted_at
  * @property-read mixed $avatar
+ * @property-read \App\Models\NetLicensing\NlShopToken $nlShopToken
+ * @property-read \App\Models\NetLicensing\NlValidation $nlValidation
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Auth\User\SocialAccount[] $providers
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Auth\Role\Role[] $roles
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User sortable($defaultSortParameters = null)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User whereActive($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User whereConfirmationCode($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User whereConfirmed($value)
@@ -42,7 +45,6 @@ use Kyslik\ColumnSortable\Sortable;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User whereRole($role)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User whereUpdatedAt($value)
  * @mixin \Eloquent
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User sortable($defaultSortParameters = null)
  */
 class User extends Authenticatable
 {
@@ -78,6 +80,8 @@ class User extends Authenticatable
     protected $hidden = ['password', 'remember_token'];
 
     /**
+     * The attributes that should be mutated to dates.
+     *
      * @var array
      */
     protected $dates = ['deleted_at'];

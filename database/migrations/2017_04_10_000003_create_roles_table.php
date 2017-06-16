@@ -20,7 +20,6 @@ class CreateRolesTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('name');
             $table->smallInteger('weight')->default(0)->unsigned();
-            $table->timestamps();
 
             /*
              * Add Foreign/Unique/Index
