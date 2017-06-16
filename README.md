@@ -18,6 +18,8 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 - Bootstrap 3
 - Font Awesome
 - Socialite Integration
+- Invisible reCAPTCHA
+- **Pricing plan and Access control management** by [NetLicensing](http://netlicensing.io)
 - MySQL, SQLite, PostgreSQL databases support
 - AWS S3 support
 - Google Analytics support in frontend
