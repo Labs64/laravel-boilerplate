@@ -20,7 +20,7 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 - Font Awesome
 - Socialite Integration
 - Invisible reCAPTCHA
-- **Membership plans and Access control management** by [NetLicensing](http://netlicensing.io)
+- **Membership plans and Access control management** by [NetLicensing](http://netlicensing.io/?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=readme)
 - MySQL, SQLite, PostgreSQL databases support
 - AWS S3 support
 - Google Analytics support in frontend
@@ -107,7 +107,7 @@ or
 $ php -S localhost:8080 -t public/
 ```
 
-Now you can browse the site [http://localhost:8080](https://photolancer.zone)  🙌
+Now you can browse the site [http://localhost:8080](https://photolancer.zone/?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=readme)  🙌
 
 ## Docker
 
@@ -146,7 +146,7 @@ $ docker-compose up -d
 $ docker exec laravel-env ./dockerfiles/bin/prj-build.sh
 ```
 
-Now you can browse the site [http://localhost:80](https://photolancer.zone)  🙌
+Now you can browse the site [http://localhost:80](https://photolancer.zone/?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=readme)  🙌
 
 ---
 
@@ -181,6 +181,7 @@ $ docker-compose rm -v
 ## How To's & Modules configuration
 
 Check out project [wiki](https://github.com/Labs64/laravel-boilerplate/wiki) pages for modules configuration and troubleshooting.
+For more detailed instructions on how to use Laravel and it's extensions, check out the full Laravel [documentation](https://laravel.com/docs/).
 
 ## How to contribute
 
