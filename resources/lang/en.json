@@ -132,7 +132,7 @@
   "views.admin.users.edit.roles": "Roles",
   "views.admin.users.edit.cancel": "Cancel",
   "views.admin.users.edit.save": "Save",
-  "**************************** Admin Permissions **********************": "Admin Permissions i18n",
+  "**************************** Membership Plans **********************": "Membership Plans i18n",
   "views.netlicensing.permissions.title": "Permissions",
   "views.netlicensing.permissions.table_header_0": "Email",
   "views.netlicensing.permissions.table_header_1": "Username",

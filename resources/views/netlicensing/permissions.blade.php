@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin')
 
-@section('title', __('views.permissions.license.title'))
+@section('title', __('views.netlicensing.permissions.title'))
 
 @section('content')
     <div class="row">
