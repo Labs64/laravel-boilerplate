@@ -9,8 +9,6 @@
 <a href="https://waffle.io/Labs64/laravel-boilerplate"><img src="https://badge.waffle.io/Labs64/laravel-boilerplate.svg?label=ready&title=Ready" alt="Stories in Ready"></a>
 </p>
 
-![]()
-
 # Laravel 5 Boilerplate Project
 
 _Laravel Boilerplate_ provides a very flexible and extensible way of building your custom Laravel 5 applications.
@@ -179,6 +177,9 @@ Remove all docker-compose images
 ```
 $ docker-compose rm -v
 ```
+
+## How To & Modules configuration
+Check out project [wiki](https://github.com/Labs64/laravel-boilerplate/wiki) pages for modules configuration and troubleshooting.
 
 ## How to contribute
 
