@@ -67,12 +67,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], f
 Route::get('/', 'HomeController@index');
 
 /**
- * NetLicensing
+ * Membership
  */
-
 Route::group(['namespace' => 'NetLicensing', 'prefix' => 'netlisensing', 'as' => 'netlisensing.'], function () {
 
-    Route::get('demo', 'DemoController@index')->name('demo')->middleware('nl.protection:' . config('netlicensing.demo.product_module_number') . ',netlisensing.demo.shop');
-    Route::get('demo/shop/{licensee}', 'DemoController@shop')->name('demo.shop');
-    Route::get('demo/success-shop-redirect/', 'DemoController@successShopRedirect')->name('demo.shop.success');
+    Route::get('membership', 'MembershipController@index')->name('membership')->middleware('nl.protection:' . config('netlicensing.membership.product_module_number') . ',netlisensing.membership.shop');
+    Route::get('membership/shop/{licensee}', 'MembershipController@shop')->name('membership.shop');
+    Route::get('membership/success-shop-redirect/', 'MembershipController@successShopRedirect')->name('membership.shop.success');
 });

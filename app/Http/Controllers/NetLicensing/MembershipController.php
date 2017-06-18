@@ -9,11 +9,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use NetLicensing\TokenService;
 
-class DemoController extends Controller
+class MembershipController extends Controller
 {
     public function index(Request $request)
     {
-        return view('netlicensing.demo');
+        return view('netlicensing.membership');
     }
 
     public function shop($licenseeNumber, Request $request)
@@ -26,7 +26,7 @@ class DemoController extends Controller
         //create shop token
         if ($nlShopToken->isExpired()) {
 
-            $token = nl_shop_token($licenseeNumber, route('netlisensing.demo.shop.success', ['dest'=>$request->get('dest')]));
+            $token = nl_shop_token($licenseeNumber, route('netlisensing.membership.shop.success', ['dest'=>$request->get('dest')]));
             $token = TokenService::create(app('netlicensing')->context(), $token);
 
             $nlShopToken->number = $token->getNumber();

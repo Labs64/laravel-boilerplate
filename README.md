@@ -178,7 +178,8 @@ Remove all docker-compose images
 $ docker-compose rm -v
 ```
 
-## How To & Modules configuration
+## How To's & Modules configuration
+
 Check out project [wiki](https://github.com/Labs64/laravel-boilerplate/wiki) pages for modules configuration and troubleshooting.
 
 ## How to contribute

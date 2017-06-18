@@ -55,7 +55,7 @@ return [
      */
     'except_roles' => ['administrator'],
 
-    'demo' => [
+    'membership' => [
         'product_module_number' =>  env('LABS64_NETLICENSING_PRODUCT_MODULE_NUMBER'),
     ],
 

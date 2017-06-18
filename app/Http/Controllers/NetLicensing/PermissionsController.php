@@ -47,7 +47,7 @@ class PermissionsController extends Controller
 
         $nlValidator->validation_result = $validations;
 
-        //get ttl
+        // get ttl
         $nlValidator->ttl = new Carbon((string)NetLicensingService::getInstance()->lastCurlInfo()->response['ttl']);
         $nlValidator->save();
 

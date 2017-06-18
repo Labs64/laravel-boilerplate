@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="title m-b-md">
-        Your license is OK
+        Member area
     </div>
     <div class="m-b-md">
-        With your license all right, now you have access to this page, enjoy
+        Your membership status is confirmed. All the protected pages will be accessible.
     </div>
 @endsection
