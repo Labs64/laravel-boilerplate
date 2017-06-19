@@ -26,8 +26,8 @@ use Kyslik\ColumnSortable\Sortable;
  * @property \Carbon\Carbon $updated_at
  * @property \Carbon\Carbon $deleted_at
  * @property-read mixed $avatar
- * @property-read \App\Models\NetLicensing\NlShopToken $nlShopToken
- * @property-read \App\Models\NetLicensing\NlValidation $nlValidation
+ * @property-read \App\Models\NetLicensing\NlicShopToken $nlicShopToken
+ * @property-read \App\Models\NetLicensing\NlicValidation $nlicValidation
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Auth\User\SocialAccount[] $providers
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Auth\Role\Role[] $roles

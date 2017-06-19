@@ -4,8 +4,8 @@ namespace App\Models\Auth\User\Traits\Relations;
 
 use App\Models\Auth\Role\Role;
 use App\Models\Auth\User\SocialAccount;
-use App\Models\NetLicensing\NlShopToken;
-use App\Models\NetLicensing\NlValidation;
+use App\Models\NetLicensing\NlicShopToken;
+use App\Models\NetLicensing\NlicValidation;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -31,13 +31,13 @@ trait UserRelations
         return $this->hasMany(SocialAccount::class);
     }
 
-    public function nlValidation()
+    public function nlicValidation()
     {
-        return $this->hasOne(NlValidation::class);
+        return $this->hasOne(NlicValidation::class);
     }
 
-    public function nlShopToken()
+    public function nlicShopToken()
     {
-        return $this->hasOne(NlShopToken::class);
+        return $this->hasOne(NlicShopToken::class);
     }
 }

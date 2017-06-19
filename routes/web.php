@@ -70,9 +70,9 @@ Route::get('/', 'HomeController@index');
  * NetLicensing
  */
 
-Route::group(['namespace' => 'NetLicensing', 'prefix' => 'netlisensing', 'as' => 'netlisensing.'], function () {
+Route::group(['namespace' => 'NetLicensing', 'prefix' => 'protected-area', 'as' => 'netlisensing.'], function () {
 
-    Route::get('demo', 'DemoController@index')->name('demo')->middleware('nl.protection:' . config('netlicensing.demo.product_module_number') . ',netlisensing.demo.shop');
-    Route::get('demo/shop/{licensee}', 'DemoController@shop')->name('demo.shop');
-    Route::get('demo/success-shop-redirect/', 'DemoController@successShopRedirect')->name('demo.shop.success');
+    Route::get('/', 'DemoController@index')->name('demo')->middleware('nl.protection:' . config('netlicensing.demo.product_module_number') . ',netlisensing.demo.shop');
+    Route::get('shop/{licensee}', 'DemoController@shop')->name('demo.shop');
+    Route::get('success-shop-redirect/', 'DemoController@successShopRedirect')->name('demo.shop.success');
 });

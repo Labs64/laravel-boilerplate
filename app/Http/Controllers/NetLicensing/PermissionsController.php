@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\NetLicensing;
 
 use App\Models\Auth\User\User;
-use App\Models\NetLicensing\NlValidation;
+use App\Models\NetLicensing\NlicValidation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,7 +20,7 @@ class PermissionsController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::with('roles')->sortable(['email' => 'asc'])->paginate();
+        $users = User::with(['roles','nlicValidation'])->sortable(['email' => 'asc'])->paginate();
 
         return view('netlicensing.permissions', ['users' => $users]);
     }
@@ -31,8 +31,8 @@ class PermissionsController extends Controller
         $licenseeNumber = $user->getAttribute(config('netlicensing.defaults.licensee.number'));
         $productNumber = config('netlicensing.product_number');
 
-        $nlValidator = $user->nlValidation;
-        $nlValidator = ($nlValidator) ? $nlValidator : new NlValidation(['user_id' => $user->id]);
+        $nlicValidation = $user->nlicValidation;
+        $nlicValidation = ($nlicValidation) ? $nlicValidation : new NlicValidation(['user_id' => $user->id]);
 
         $validationParameters = new ValidationParameters();
         $validationParameters->setLicenseeName($licenseeName);
@@ -45,11 +45,11 @@ class PermissionsController extends Controller
             $validation['valid'] = ($validation['valid'] == 'true') ? true : false;
         }
 
-        $nlValidator->validation_result = $validations;
+        $nlicValidation->validation_result = $validations;
 
         //get ttl
-        $nlValidator->ttl = new Carbon((string)NetLicensingService::getInstance()->lastCurlInfo()->response['ttl']);
-        $nlValidator->save();
+        $nlicValidation->ttl = new Carbon((string)NetLicensingService::getInstance()->lastCurlInfo()->response['ttl']);
+        $nlicValidation->save();
 
         return redirect()->back();
     }

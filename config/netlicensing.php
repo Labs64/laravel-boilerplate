@@ -35,12 +35,12 @@ return [
         /**
          * If you enable auto licensee creation, the user model data will be transferred to create the licensee
          * By default:
-         * user id -> licensee number
-         * user email ->licensee name
+         * licensee number -> user email
+         * licensee name -> user name
          */
         'licensee' => [
-            'number' => 'id',
-            'name' => 'email'
+            'number' => 'email',
+            'name' => 'name'
         ],
         'shop' => [
             'success_url' => env('LABS64_NETLICENSING_SHOP_SUCCESS_URL'),

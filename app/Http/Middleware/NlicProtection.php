@@ -2,9 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\NetLicensing\NlShopToken;
-use App\Models\NetLicensing\NlToken;
-use App\Models\NetLicensing\NlValidation;
+use App\Models\NetLicensing\NlicShopToken;
+use App\Models\NetLicensing\NlicValidation;
 use Carbon\Carbon;
 use Closure;
 use NetLicensing\LicenseeService;
@@ -14,7 +13,7 @@ use NetLicensing\TokenService;
 use NetLicensing\ValidationParameters;
 use Illuminate\Support\Facades\Auth;
 
-class NlProtection
+class NlicProtection
 {
     /**
      * Handle an incoming request.
@@ -35,17 +34,17 @@ class NlProtection
         }
 
         //skip if user has role administrator
-        $exceptRoles = config('netlicensing.except_roles');
-        if ($exceptRoles && auth()->user()->hasRoles($exceptRoles)) return $next($request);
+//        $exceptRoles = config('netlicensing.except_roles');
+//        if ($exceptRoles && auth()->user()->hasRoles($exceptRoles)) return $next($request);
 
         $licenseeName = auth()->user()->getAttribute(config('netlicensing.defaults.licensee.name'));
         $licenseeNumber = auth()->user()->getAttribute(config('netlicensing.defaults.licensee.number'));
         $productNumber = config('netlicensing.product_number');
 
-        $nlValidator = auth()->user()->nlValidation;
-        $nlValidator = ($nlValidator) ? $nlValidator : new NlValidation(['user_id' => auth()->id(), 'ttl' => Carbon::now()]);
+        $nlicValidator = auth()->user()->nlicValidation;
+        $nlicValidator = ($nlicValidator) ? $nlicValidator : new NlicValidation(['user_id' => auth()->id(), 'ttl' => Carbon::now()]);
 
-        if ($nlValidator->isExpired()) {
+        if ($nlicValidator->isExpired()) {
 
             $validationParameters = new ValidationParameters();
             $validationParameters->setLicenseeName($licenseeName);
@@ -58,14 +57,14 @@ class NlProtection
                 $validation['valid'] = ($validation['valid'] == 'true') ? true : false;
             }
 
-            $nlValidator->validation_result = $validations;
+            $nlicValidator->validation_result = $validations;
 
             //get ttl
-            $nlValidator->ttl = new Carbon((string)NetLicensingService::getInstance()->lastCurlInfo()->response['ttl']);
-            $nlValidator->save();
+            $nlicValidator->ttl = new Carbon((string)NetLicensingService::getInstance()->lastCurlInfo()->response['ttl']);
+            $nlicValidator->save();
         }
 
-        if (!$nlValidator->isValid($productModuleNumber)) {
+        if (!$nlicValidator->isValid($productModuleNumber)) {
 
             if ($failedRouteName) {
                 return redirect()->route($failedRouteName, ['licensee' => $licenseeNumber, 'dest' => url()->current()]);
@@ -74,9 +73,9 @@ class NlProtection
             //create shop token
 
             /** @var  $token Token */
-            $nlShopToken = (auth()->user()->nlShopToken) ? auth()->user()->nlShopToken : new NlShopToken(['user_id' => auth()->id()]);
+            $nlicShopToken = (auth()->user()->nlicShopToken) ? auth()->user()->nlicShopToken : new NlicShopToken(['user_id' => auth()->id()]);
 
-            if ($nlShopToken->isExpired()) {
+            if ($nlicShopToken->isExpired()) {
 
                 $token = app('netlicensing')->shopToken($licenseeNumber);
                 $token->setSuccessURL($token->getSuccessURL(url()->current()));
@@ -84,13 +83,13 @@ class NlProtection
 
                 $token = TokenService::create(app('netlicensing')->context(), $token);
 
-                $nlShopToken->number = $token->getNumber();
-                $nlShopToken->expires = new Carbon($token->getExpirationTime());
-                $nlShopToken->shop_url = $token->getShopURL();
-                $nlShopToken->save();
+                $nlicShopToken->number = $token->getNumber();
+                $nlicShopToken->expires = new Carbon($token->getExpirationTime());
+                $nlicShopToken->shop_url = $token->getShopURL();
+                $nlicShopToken->save();
             }
 
-            return redirect($nlShopToken->shop_url);
+            return redirect($nlicShopToken->shop_url);
         }
 
         if ($successRouteName) {

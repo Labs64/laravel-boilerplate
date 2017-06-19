@@ -16,21 +16,21 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $expires
  * @property string $shop_url
  * @property-read \App\Models\Auth\User\User $user
- * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlShopToken whereExpires($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlShopToken whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlShopToken whereNumber($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlShopToken whereShopUrl($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlShopToken whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicShopToken whereExpires($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicShopToken whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicShopToken whereNumber($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicShopToken whereShopUrl($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicShopToken whereUserId($value)
  * @mixin \Eloquent
  */
-class NlShopToken extends Model
+class NlicShopToken extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'nl_shop_tokens';
+    protected $table = 'nlic_shop_tokens';
 
     /**
      * Indicates if the model should be timestamped.

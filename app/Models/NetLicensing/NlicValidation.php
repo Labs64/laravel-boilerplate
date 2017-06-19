@@ -14,21 +14,21 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $ttl
  * @property array $validation_result
  * @property-read \App\Models\Auth\User\User $user
- * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlValidation whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlValidation whereTtl($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlValidation whereUserId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlValidation whereValidationResults($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicValidation whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicValidation whereTtl($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicValidation whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicValidation whereValidationResults($value)
  * @mixin \Eloquent
- * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlValidation whereValidationResult($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicValidation whereValidationResult($value)
  */
-class NlValidation extends Model
+class NlicValidation extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'nl_validations';
+    protected $table = 'nlic_validations';
 
     /**
      * Indicates if the model should be timestamped.

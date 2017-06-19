@@ -24,7 +24,7 @@
                         <a title="Repeat validation" class="btn btn-default pull-right" href="{{ route('admin.permissions.repeat',$user) }}">
                             <i class="fa fa-refresh" aria-hidden="true"></i>
                         </a>
-                        @if($user->nlValidation)
+                        @if($user->nlicValidation)
                             <table class="table table-striped table-bordered dt-responsive nowrap">
                                 <thead>
                                 <tr>
@@ -35,7 +35,7 @@
                                 </thead>
                                 <tbody>
 
-                                @foreach($user->nlValidation->validation_result as $result)
+                                @foreach($user->nlicValidation->validation_result as $result)
                                     <tr>
                                         <td style="width: 30%">{{ $result['productModuleNumber'] }}</td>
                                         <td style="width: 10%">
