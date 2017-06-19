@@ -73,7 +73,7 @@ class NetLicensing
         $successUrl = ($successUrl) ? $successUrl : config('netlicensing.defaults.shop.success_url');
         $cancelUrl = ($cancelUrl) ? $cancelUrl : config('netlicensing.defaults.shop.cancel_url');
         $successUrlTitle = ($successUrlTitle) ? $successUrlTitle : config('netlicensing.defaults.shop.success_url_title');
-        $cancelUrlTitle = ($cancelUrlTitle) ? $cancelUrlTitle : config('netlicensing.defaults.shop.success_url_title');
+        $cancelUrlTitle = ($cancelUrlTitle) ? $cancelUrlTitle : config('netlicensing.defaults.shop.cancel_url_title');
 
         //find existed token
         $query = $user->nlicShopTokens();

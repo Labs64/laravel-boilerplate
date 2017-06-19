@@ -12,7 +12,7 @@ class PermissionController
     public function index(Request $request)
     {
         $users = User::with(['roles', 'nlicValidation'])->sortable(['email' => 'asc'])->paginate();
-        return view('netlicensing.permissions', ['users' => $users]);
+        return view('admin.permissions', ['users' => $users]);
     }
 
     public function repeat(User $user, Request $request)
