@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Auth\User\User;
 use App\Models\NetLicensing\NlicValidation;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MembershipController extends Controller
@@ -36,10 +37,8 @@ class MembershipController extends Controller
         /** @var  $user User */
         $user = $request->user();
 
-        //refresh nl validation
-        if ($user->nlicValidation) $user->nlicValidation->delete();
-
-        nlic_validate($request->user());
+        $user->nlicValidation->ttl = Carbon::now();
+        $user->nlicValidation->save();
 
         return redirect($request->get('dest'));
     }
