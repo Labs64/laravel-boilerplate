@@ -202,6 +202,10 @@ Fork the repository, read the [CONTRIBUTE](CONTRIBUTE.md) file and make some cha
 Once you're done with your changes send a pull request and check [CI validation status](https://travis-ci.org/Labs64/laravel-boilerplate).
 Thanks!
 
+### Contributors and Supporters
+
+- [Photolancer Zone](https://photolancer.zone/?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=readme) team
+
 ## Bugs and Feedback
 
 For bugs, questions and discussions please use the [GitHub Issues](https://github.com/Labs64/laravel-boilerplate/issues).
