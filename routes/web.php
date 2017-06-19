@@ -48,31 +48,33 @@ Route::group(['namespace' => 'Auth'], function () {
 /**
  * Backend routes
  */
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.','namespace'=>'Admin', 'middleware' => 'admin'], function () {
 
     // Dashboard
-    Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
+    Route::get('/', 'DashboardController@index')->name('dashboard');
 
     //Users
-    Route::get('users', 'Admin\UserController@index')->name('users');
-    Route::get('users/{user}', 'Admin\UserController@show')->name('users.show');
-    Route::get('users/{user}/edit', 'Admin\UserController@edit')->name('users.edit');
-    Route::put('users/{user}', 'Admin\UserController@update')->name('users.update');
-    Route::delete('users/{user}', 'Admin\UserController@destroy')->name('users.destroy');
-    Route::get('permissions', 'NetLicensing\PermissionsController@index')->name('permissions');
-    Route::get('permissions/{user}/repeat', 'NetLicensing\PermissionsController@repeat')->name('permissions.repeat');
+    Route::get('users', 'UserController@index')->name('users');
+    Route::get('users/{user}', 'UserController@show')->name('users.show');
+    Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit');
+    Route::put('users/{user}', 'UserController@update')->name('users.update');
+    Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy');
+    Route::get('permissions', 'PermissionController@index')->name('permissions');
+    Route::get('permissions/{user}/repeat', 'PermissionController@repeat')->name('permissions.repeat');
 });
 
 
 Route::get('/', 'HomeController@index');
 
 /**
- * NetLicensing
+ * Membership
  */
-
-Route::group(['namespace' => 'NetLicensing', 'prefix' => 'protected-area', 'as' => 'netlisensing.'], function () {
-
-    Route::get('/', 'DemoController@index')->name('demo')->middleware('nl.protection:' . config('netlicensing.demo.product_module_number') . ',netlisensing.demo.shop');
-    Route::get('shop/{licensee}', 'DemoController@shop')->name('demo.shop');
-    Route::get('success-shop-redirect/', 'DemoController@successShopRedirect')->name('demo.shop.success');
+Route::group(['as' => 'netlisensing.'], function () {
+    Route::get('membership', 'MembershipController@index')->name('membership')->middleware('nlic.protection:' . config('netlicensing.membership.product_module_number') . ',netlisensing.membership.failed');
+    Route::get('membership/access-denied', 'MembershipController@failed')->name('membership.failed');
+    Route::get('membership/before-success-redirect/', 'MembershipController@beforeSuccessRedirect')->name('membership.before.redirect');
 });
+
+
+
+

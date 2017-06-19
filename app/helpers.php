@@ -64,35 +64,42 @@ if (!function_exists('meta_property')) {
     }
 }
 
-if (!function_exists('nl_context')) {
+if (!function_exists('nlic_context')) {
 
-    function nl_context()
+    function nlic_context()
     {
         return app('netlicensing')->context();
     }
 }
 
-if (!function_exists('nl_context_basic_auth')) {
+if (!function_exists('nlic_context_basic_auth')) {
 
-    function nl_context_basic_auth()
+    function nlic_context_basic_auth()
     {
         return app('netlicensing')->context(\NetLicensing\Context::BASIC_AUTHENTICATION);
     }
 }
 
-if (!function_exists('nl_context_api_key')) {
+if (!function_exists('nlic_context_api_key')) {
 
-    function nl_context_api_key()
+    function nlic_context_api_key()
     {
         return app('netlicensing')->context(\NetLicensing\Context::APIKEY_IDENTIFICATION);
     }
 }
 
+if (!function_exists('nlic_shop_token')) {
 
-if (!function_exists('nl_shop_token')) {
-
-    function nl_shop_token($licenseeNumber, $successUrl = null, $cancelUrl = null, $successUrlTitle = null, $cancelUrlTitle = null)
+    function nlic_shop_token(\App\Models\Auth\User\User $user, $successUrl = null, $cancelUrl = null, $successUrlTitle = null, $cancelUrlTitle = null)
     {
-        return app('netlicensing')->shopToken($licenseeNumber, $successUrl, $cancelUrl, $successUrlTitle, $cancelUrlTitle);
+        return app('netlicensing')->createShopToken($user, $successUrl, $cancelUrl, $successUrlTitle, $cancelUrlTitle);
+    }
+}
+
+if (!function_exists('nlic_validate')) {
+
+    function nlic_validate(\App\Models\Auth\User\User $user)
+    {
+        return app('netlicensing')->validate($user);
     }
 }

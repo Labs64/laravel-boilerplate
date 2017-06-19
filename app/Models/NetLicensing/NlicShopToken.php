@@ -22,6 +22,14 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicShopToken whereShopUrl($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicShopToken whereUserId($value)
  * @mixin \Eloquent
+ * @property string $success_url
+ * @property string $cancel_url
+ * @property string $success_url_title
+ * @property string $cancel_url_title
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicShopToken whereCancelUrl($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicShopToken whereCancelUrlTitle($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicShopToken whereSuccessUrl($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicShopToken whereSuccessUrlTitle($value)
  */
 class NlicShopToken extends Model
 {

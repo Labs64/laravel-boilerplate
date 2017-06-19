@@ -36,8 +36,8 @@ trait UserRelations
         return $this->hasOne(NlicValidation::class);
     }
 
-    public function nlicShopToken()
+    public function nlicShopTokens()
     {
-        return $this->hasOne(NlicShopToken::class);
+        return $this->hasMany(NlicShopToken::class);
     }
 }

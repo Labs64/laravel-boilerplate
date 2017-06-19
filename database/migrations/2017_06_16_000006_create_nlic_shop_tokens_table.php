@@ -21,6 +21,10 @@ class CreateNlicShopTokensTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('number');
             $table->timestamp('expires');
+            $table->string('success_url');
+            $table->string('cancel_url');
+            $table->string('success_url_title');
+            $table->string('cancel_url_title');
             $table->string('shop_url');
 
             /*
@@ -31,9 +35,12 @@ class CreateNlicShopTokensTable extends Migration
                 ->on('users')
                 ->onDelete('cascade');
 
-            $table->unique('user_id', 'unique_user');
             $table->index('number');
             $table->index('expires');
+            $table->index('success_url');
+            $table->index('cancel_url');
+            $table->index('success_url_title');
+            $table->index('cancel_url_title');
             $table->index('shop_url');
         });
     }

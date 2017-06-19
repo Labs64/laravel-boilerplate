@@ -15,7 +15,7 @@ return [
         'username' => env('LABS64_NETLICENSING_USERNAME', 'demo'),
         'password' => env('LABS64_NETLICENSING_PASSWORD', 'demo'),
         'api_key' => env('LABS64_NETLICENSING_APIKEY'),
-        'security_mode' => env('LABS64_NETLICENSING_SECURITY_MODE', 'BASIC_AUTH'),//Allowed: BASIC_AUTH|APIKEY
+        'security_mode' => env('LABS64_NETLICENSING_SECURITY_MODE', 'BASIC_AUTH'), // Allowed values: BASIC_AUTH|APIKEY
     ],
 
     /*
@@ -24,7 +24,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Your app product number
-    | If you don`t have product, create product in https://go.netlicensing.io/console/v2/content/vendor/product.xhtml
+    | If you don`t have product, create a new product at https://go.netlicensing.io/console/v2/content/vendor/product.xhtml
     |
     */
 
@@ -35,8 +35,8 @@ return [
         /**
          * If you enable auto licensee creation, the user model data will be transferred to create the licensee
          * By default:
-         * licensee number -> user email
-         * licensee name -> user name
+         * Licensee Number -> user email
+         * Licensee Name -> user name
          */
         'licensee' => [
             'number' => 'email',
@@ -44,18 +44,19 @@ return [
         ],
         'shop' => [
             'success_url' => env('LABS64_NETLICENSING_SHOP_SUCCESS_URL'),
-            'success_url_title' => env('LABS64_NETLICENSING_SHOP_SUCCESS_URL_TITLE', 'Laravel 5 Labs64 Boilerplate'),
+            'success_url_title' => env('LABS64_NETLICENSING_SHOP_SUCCESS_URL_TITLE', 'Return to Laravel 5 Boilerplate'),
             'cancel_url' => env('LABS64_NETLICENSING_SHOP_CANCEL_URL'),
-            'cancel_url_title' => env('LABS64_NETLICENSING_SHOP_CANCEL_URL_TITLE'),
+            'cancel_url_title' => env('LABS64_NETLICENSING_SHOP_CANCEL_URL_TITLE', 'Cancel and return to Laravel 5 Boilerplate'),
         ]
     ],
 
     /**
-     * Skip validation if user has role
+     * Skip validation if user has one of the role(-s)
      */
     'except_roles' => ['administrator'],
 
-    'demo' => [
-        'product_module_number' =>  env('LABS64_NETLICENSING_DEMO_PRODUCT_MODULE_NUMEBR'),
+    'membership' => [
+        'product_module_number' =>  env('LABS64_NETLICENSING_PRODUCT_MODULE_NUMBER'),
     ],
+
 ];

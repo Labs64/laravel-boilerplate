@@ -42,7 +42,7 @@ class NlicValidation extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'ttl', 'validation_results'];
+    protected $fillable = ['user_id', 'ttl', 'validation_result'];
 
 
     /**
@@ -65,7 +65,6 @@ class NlicValidation extends Model
         return $this->belongsTo(User::class);
     }
 
-
     public function isValid($productModuleNumber)
     {
         return collect($this->validation_result)
@@ -78,4 +77,12 @@ class NlicValidation extends Model
     {
         return $this->ttl <= Carbon::now();
     }
+
+    public function getValidationResult($productModuleNumber)
+    {
+        return collect($this->validation_result)
+            ->where('productModuleNumber', $productModuleNumber)
+            ->first();
+    }
+
 }

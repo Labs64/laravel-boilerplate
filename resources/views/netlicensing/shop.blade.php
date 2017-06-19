@@ -2,11 +2,13 @@
 
 @section('content')
     <div class="title m-b-md">
-        The content of this page is protected
+        Member area
     </div>
     <div class="m-b-md">
         <div class="links">
-            <a href="{{ $shop_url }}"> Click to go to the store to buy a license </a>
+          Your membership status isn't confirmed. All the protected pages will not be accessible!
+          <br/><br/>
+          Click <a href="{{ $shop_url }}">here</a> to extend or renew your membership.
         </div>
     </div>
 @endsection

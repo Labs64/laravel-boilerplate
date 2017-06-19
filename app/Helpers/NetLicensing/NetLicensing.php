@@ -2,8 +2,16 @@
 
 namespace App\Helpers\NetLicensing;
 
+use App\Models\Auth\User\User;
+use App\Models\NetLicensing\NlicShopToken;
+use App\Models\NetLicensing\NlicValidation;
+use Carbon\Carbon;
 use NetLicensing\Context;
+use NetLicensing\LicenseeService;
+use NetLicensing\NetLicensingService;
 use NetLicensing\Token;
+use NetLicensing\TokenService;
+use NetLicensing\ValidationParameters;
 
 class NetLicensing
 {
@@ -28,26 +36,86 @@ class NetLicensing
         return $context;
     }
 
-    public function shopToken($licenseeNumber, $successUrl = null, $cancelUrl = null, $successUrlTitle = null, $cancelUrlTitle = null)
+    public function validate(User $user)
     {
-        //create shop token
+        $licenseeName = $user->licensee_name;
+        $licenseeNumber = $user->licensee_number;
+        $productNumber = config('netlicensing.product_number');
+
+        $nlicValidator = $user->nlicValidation;
+        $nlicValidator = ($nlicValidator) ? $nlicValidator : new NlicValidation(['user_id' => auth()->id(), 'ttl' => Carbon::now()]);
+
+        if ($nlicValidator->isExpired()) {
+
+            $validationParameters = new ValidationParameters();
+            $validationParameters->setLicenseeName($licenseeName);
+            $validationParameters->setProductNumber($productNumber);
+
+            $validationResult = LicenseeService::validate(app('netlicensing')->context(), $licenseeNumber, $validationParameters);
+            $validations = $validationResult->getValidations();
+
+            foreach ($validations as &$validation) {
+                $validation['valid'] = ($validation['valid'] == 'true') ? true : false;
+            }
+
+            $nlicValidator->validation_result = $validations;
+
+            //get ttl
+            $nlicValidator->ttl = new Carbon((string)NetLicensingService::getInstance()->lastCurlInfo()->response['ttl']);
+            $nlicValidator->save();
+        }
+
+        return $nlicValidator;
+    }
+
+    public function createShopToken(User $user, $successUrl = null, $cancelUrl = null, $successUrlTitle = null, $cancelUrlTitle = null)
+    {
         $successUrl = ($successUrl) ? $successUrl : config('netlicensing.defaults.shop.success_url');
         $cancelUrl = ($cancelUrl) ? $cancelUrl : config('netlicensing.defaults.shop.cancel_url');
         $successUrlTitle = ($successUrlTitle) ? $successUrlTitle : config('netlicensing.defaults.shop.success_url_title');
         $cancelUrlTitle = ($cancelUrlTitle) ? $cancelUrlTitle : config('netlicensing.defaults.shop.success_url_title');
 
-        if (!$successUrl) $successUrl = url()->current();
-        if (!$cancelUrl) $cancelUrl = url('/');
+        //find existed token
+        $query = $user->nlicShopTokens();
 
-        $token = new Token();
-        $token->setTokenType('SHOP');
-        $token->setLicenseeNumber($licenseeNumber);
+        if ($successUrl) $query->where('success_url', $successUrl);
+        if ($cancelUrl) $query->where('cancel_url', $cancelUrl);
+        if ($successUrlTitle) $query->where('success_url_title', $successUrlTitle);
+        if ($cancelUrlTitle) $query->where('cancel_url_title', $cancelUrlTitle);
 
-        if ($successUrl) $token->setSuccessURL($successUrl);
-        if ($cancelUrl) $token->setCancelURL($cancelUrl);
-        if ($successUrlTitle) $token->setSuccessURLTitle($successUrlTitle);
-        if ($cancelUrlTitle) $token->setCancelURLTitle($cancelUrlTitle);
+        $nlicShopToken = $query->first();
 
-        return $token;
+        if ($nlicShopToken && $nlicShopToken->isExpired()) {
+            $nlicShopToken->delete();
+            $nlicShopToken = null;
+        }
+
+        if (!$nlicShopToken) {
+
+            $nlicShopToken = new NlicShopToken(['user_id' => $user->id]);
+
+            $token = new Token();
+            $token->setTokenType('SHOP');
+            $token->setLicenseeNumber($user->licensee_number);
+
+            if ($successUrl) $token->setSuccessURL($successUrl);
+            if ($cancelUrl) $token->setCancelURL($cancelUrl);
+            if ($successUrlTitle) $token->setSuccessURLTitle($successUrlTitle);
+            if ($cancelUrlTitle) $token->setCancelURLTitle($cancelUrlTitle);
+
+            $token = TokenService::create(app('netlicensing')->context(), $token);
+
+            $nlicShopToken->number = $token->getNumber();
+            $nlicShopToken->expires = new Carbon($token->getExpirationTime());
+            $nlicShopToken->success_url = $token->getSuccessURL();
+            $nlicShopToken->cancel_url = $token->getCancelURL();
+            $nlicShopToken->success_url_title = $token->getSuccessURLTitle();
+            $nlicShopToken->cancel_url_title = $token->getCancelURLTitle();
+            $nlicShopToken->shop_url = $token->getShopURL();
+
+            $nlicShopToken->save();
+        }
+
+        return $nlicShopToken;
     }
 }

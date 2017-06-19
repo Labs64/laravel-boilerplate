@@ -47,4 +47,22 @@ trait UserAttributes
 
         return ($avatar) ? $avatar : $this->getGravatar();
     }
+
+    /**
+     * Get User licensee number
+     */
+    public function getLicenseeNumberAttribute()
+    {
+        return $this->getAttribute(config('netlicensing.defaults.licensee.number'));
+    }
+
+    /**
+     * Get User licensee name
+     *
+     * @return mixed
+     */
+    public function getLicenseeNameAttribute()
+    {
+        return $this->getAttribute(config('netlicensing.defaults.licensee.name'));
+    }
 }

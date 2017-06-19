@@ -2,8 +2,9 @@
 
 <p align="center">
 <a href="https://travis-ci.org/Labs64/laravel-boilerplate"><img src="https://travis-ci.org/Labs64/laravel-boilerplate.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/labs64/laravel-boilerplate"><img src="https://poser.pugx.org/labs64/laravel-boilerplate/d/total.svg" alt="Total Downloads"></a>
+<a href="https://github.com/Labs64/laravel-boilerplate/blob/master/composer.json"><img src="https://img.shields.io/badge/php-%3E%3D%205.6-8892BF.svg" alt="PHP Badge"></a>
 <a href="https://packagist.org/packages/labs64/laravel-boilerplate"><img src="https://poser.pugx.org/labs64/laravel-boilerplate/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/labs64/laravel-boilerplate"><img src="https://poser.pugx.org/labs64/laravel-boilerplate/d/total.svg" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/labs64/laravel-boilerplate"><img src="https://poser.pugx.org/labs64/laravel-boilerplate/license.svg" alt="License"></a>
 <a href="https://waffle.io/Labs64/laravel-boilerplate"><img src="https://badge.waffle.io/Labs64/laravel-boilerplate.svg?label=ready&title=Ready" alt="Stories in Ready"></a>
 </p>
@@ -12,12 +13,27 @@
 
 _Laravel Boilerplate_ provides a very flexible and extensible way of building your custom Laravel 5 applications.
 
+## Table of Contents
+
+- [Features](#features)
+- [Theme Demo](#theme-demo)
+- [System Requirements](#system-requirements)
+- [Installation](#installation)
+- [Run](#run)
+- [Docker](#docker) :point_left:
+- [How To's & Modules configuration](#how-tos--modules-configuration)
+- [How to contribute](#how-to-contribute)
+- [Bugs and Feedback](#bugs-and-feedback)
+- [License](#license)
+
 ## Features
 - Administration Dashboard with [Gentelella Admin Theme](https://github.com/puikinsh/gentelella)
 - Responsive Layout
 - Bootstrap 3
 - Font Awesome
 - Socialite Integration
+- [Invisible reCAPTCHA](https://github.com/albertcht/invisible-recaptcha)
+- **Membership plans and Access control management** by [NetLicensing](http://netlicensing.io/?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=readme) :thumbsup:
 - MySQL, SQLite, PostgreSQL databases support
 - AWS S3 support
 - Google Analytics support in frontend
@@ -54,7 +70,7 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 
 **[Gentelella Admin Theme Demo](https://colorlib.com/polygon/gentelella/index.html)**
 
-## Minimum System Requirements
+## System Requirements
 To be able to run Laravel Boilerplate you have to meet the following requirements:
 - PHP > 5.6.4
 - PHP Extensions: PDO, cURL, Mbstring, Tokenizer, Mcrypt, XML, GD
@@ -104,7 +120,7 @@ or
 $ php -S localhost:8080 -t public/
 ```
 
-Now you can browse the site [http://localhost:8080](https://photolancer.zone)  🙌
+Now you can browse the site [http://localhost:8080](http://localhost:8080)  🙌
 
 ## Docker
 
@@ -143,7 +159,7 @@ $ docker-compose up -d
 $ docker exec laravel-env ./dockerfiles/bin/prj-build.sh
 ```
 
-Now you can browse the site [http://localhost:80](https://photolancer.zone)  🙌
+Now you can browse the site [http://localhost:80](http://localhost:8080)  🙌
 
 ---
 
@@ -175,11 +191,20 @@ Remove all docker-compose images
 $ docker-compose rm -v
 ```
 
+## How To's & Modules configuration
+
+Check out project [wiki](https://github.com/Labs64/laravel-boilerplate/wiki) pages for modules configuration and troubleshooting.
+For more detailed instructions on how to use Laravel and it's extensions, check out the full Laravel [documentation](https://laravel.com/docs/).
+
 ## How to contribute
 
 Fork the repository, read the [CONTRIBUTE](CONTRIBUTE.md) file and make some changes.
 Once you're done with your changes send a pull request and check [CI validation status](https://travis-ci.org/Labs64/laravel-boilerplate).
 Thanks!
+
+### Contributors and Supporters
+
+- [Photolancer Zone](https://photolancer.zone/?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=readme) team
 
 ## Bugs and Feedback
 
