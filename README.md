@@ -20,7 +20,7 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 - [System Requirements](#system-requirements)
 - [Installation](#installation)
 - [Run](#run)
-- [Docker](#docker)
+- [Docker](#docker) :point_left:
 - [How To's & Modules configuration](#how-tos--modules-configuration)
 - [How to contribute](#how-to-contribute)
 - [Bugs and Feedback](#bugs-and-feedback)
@@ -33,7 +33,7 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 - Font Awesome
 - Socialite Integration
 - [Invisible reCAPTCHA](https://github.com/albertcht/invisible-recaptcha)
-- **Membership plans and Access control management** by [NetLicensing](http://netlicensing.io/?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=readme)
+- **Membership plans and Access control management** by [NetLicensing](http://netlicensing.io/?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=readme) :thumbsup:
 - MySQL, SQLite, PostgreSQL databases support
 - AWS S3 support
 - Google Analytics support in frontend
@@ -120,7 +120,7 @@ or
 $ php -S localhost:8080 -t public/
 ```
 
-Now you can browse the site [http://localhost:8080](https://photolancer.zone/?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=readme)  🙌
+Now you can browse the site [http://localhost:8080](http://localhost:8080)  🙌
 
 ## Docker
 
@@ -159,7 +159,7 @@ $ docker-compose up -d
 $ docker exec laravel-env ./dockerfiles/bin/prj-build.sh
 ```
 
-Now you can browse the site [http://localhost:80](https://photolancer.zone/?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=readme)  🙌
+Now you can browse the site [http://localhost:80](http://localhost:8080)  🙌
 
 ---
 
