@@ -82,7 +82,7 @@
         <div class="flex-center position-ref full-height">
 
                 <div class="top-right links">
-                    <a href="{{ route('netlisensing.membership') }}">{{ __('views.welcome.member_area') }}</a>
+                    <a href="{{ route('protection.membership') }}">{{ __('views.welcome.member_area') }}</a>
 
                     @if (Route::has('login'))
                         @if (!Auth::check())

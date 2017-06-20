@@ -64,41 +64,59 @@ if (!function_exists('meta_property')) {
     }
 }
 
-if (!function_exists('nlic_context')) {
-
-    function nlic_context()
+if (!function_exists('protection_context')) {
+    /**
+     * @return \NetLicensing\Context
+     */
+    function protection_context()
     {
         return app('netlicensing')->context();
     }
 }
 
-if (!function_exists('nlic_context_basic_auth')) {
-
-    function nlic_context_basic_auth()
+if (!function_exists('protection_context_basic_auth')) {
+    /**
+     * @return \NetLicensing\Context
+     */
+    function protection_context_basic_auth()
     {
         return app('netlicensing')->context(\NetLicensing\Context::BASIC_AUTHENTICATION);
     }
 }
 
-if (!function_exists('nlic_context_api_key')) {
-
-    function nlic_context_api_key()
+if (!function_exists('protection_context_api_key')) {
+    /**
+     * @return \NetLicensing\Context
+     */
+    function protection_context_api_key()
     {
         return app('netlicensing')->context(\NetLicensing\Context::APIKEY_IDENTIFICATION);
     }
 }
 
-if (!function_exists('nlic_shop_token')) {
+if (!function_exists('protection_shop_token')) {
 
-    function nlic_shop_token(\App\Models\Auth\User\User $user, $successUrl = null, $cancelUrl = null, $successUrlTitle = null, $cancelUrlTitle = null)
+    /**
+     * @param \App\Models\Auth\User\User $user
+     * @param null $successUrl
+     * @param null $cancelUrl
+     * @param null $successUrlTitle
+     * @param null $cancelUrlTitle
+     * @return \App\Models\Protection\ProtectionShopToken
+     */
+    function protection_shop_token(\App\Models\Auth\User\User $user, $successUrl = null, $cancelUrl = null, $successUrlTitle = null, $cancelUrlTitle = null)
     {
         return app('netlicensing')->createShopToken($user, $successUrl, $cancelUrl, $successUrlTitle, $cancelUrlTitle);
     }
 }
 
-if (!function_exists('nlic_validate')) {
+if (!function_exists('protection_validate')) {
 
-    function nlic_validate(\App\Models\Auth\User\User $user)
+    /**
+     * @param \App\Models\Auth\User\User $user
+     * @return \App\Models\Protection\ProtectionValidation
+     */
+    function protection_validate(\App\Models\Auth\User\User $user)
     {
         return app('netlicensing')->validate($user);
     }

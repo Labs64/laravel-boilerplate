@@ -8,7 +8,7 @@
         @if($valid)
             Your membership status is confirmed. All the protected pages will be accessible.
             @if($expires)
-                Your license expires {{ new \Carbon\Carbon($expires) }}
+                <br/>Your license expires on: <i>{{  new \Carbon\Carbon($expires) }}</i>
             @endif
         @else
             Your membership status isn't confirmed. All the protected pages will not be accessible!

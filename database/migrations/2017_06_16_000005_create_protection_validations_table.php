@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNlicValidationsTable extends Migration
+class CreateProtectionValidationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,7 @@ class CreateNlicValidationsTable extends Migration
         /**
          * User and roles relation table
          */
-        Schema::create('nlic_validations', function (Blueprint $table) {
+        Schema::create('protection_validations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->timestamp('ttl');
@@ -25,7 +25,7 @@ class CreateNlicValidationsTable extends Migration
             /*
              * Add Foreign/Unique/Index
              */
-            $table->foreign('user_id','nlic_validations_foreign_user')
+            $table->foreign('user_id','pv_foreign_user')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
@@ -42,13 +42,13 @@ class CreateNlicValidationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('nlic_validations', function (Blueprint $table) {
-            $table->dropForeign('nlic_validations_foreign_user');
+        Schema::table('protection_validations', function (Blueprint $table) {
+            $table->dropForeign('pv_foreign_user');
         });
 
         /*
          * Drop tables
          */
-        Schema::dropIfExists('nlic_validations');
+        Schema::dropIfExists('protection_validations');
     }
 }

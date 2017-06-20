@@ -2,6 +2,7 @@
 
 namespace App\Models\Auth\User;
 
+use App\Models\Auth\User\Traits\Ables\Protectable;
 use App\Models\Auth\User\Traits\Attributes\UserAttributes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -28,9 +29,9 @@ use Kyslik\ColumnSortable\Sortable;
  * @property-read mixed $avatar
  * @property-read mixed $licensee_name
  * @property-read mixed $licensee_number
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\NetLicensing\NlicShopToken[] $nlicShopTokens
- * @property-read \App\Models\NetLicensing\NlicValidation $nlicValidation
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Protection\ProtectionShopToken[] $protectionShopTokens
+ * @property-read \App\Models\Protection\ProtectionValidation $protectionValidation
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Auth\User\SocialAccount[] $providers
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Auth\Role\Role[] $roles
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User sortable($defaultSortParameters = null)
@@ -56,7 +57,8 @@ class User extends Authenticatable
         UserRelations,
         Notifiable,
         SoftDeletes,
-        Sortable;
+        Sortable,
+        Protectable;
 
     public $sortable = ['name', 'email', 'created_at', 'updated_at'];
 

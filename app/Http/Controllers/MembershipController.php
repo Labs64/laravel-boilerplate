@@ -3,44 +3,38 @@
 namespace App\Http\Controllers;
 
 use App\Models\Auth\User\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MembershipController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin', ['except' => ['index', 'failed', 'orderConfirmation']]);
+        $this->middleware('admin', ['except' => ['index', 'failed', 'clearValidationCache']]);
     }
 
     public function index(Request $request)
     {
         /** @var  $user User */
         $user = $request->user();
-        $user->load(['nlicValidation']);
 
         $membership = collect([
-            'valid' => null,
+            'valid' => true,
             'shopUrl' => null,
             'expires' => null,
 
         ]);
 
-        //if user has role administrator
-        $exceptRoles = config('netlicensing.except_roles');
-        if ($exceptRoles && $user->hasRoles($exceptRoles)) {
-            $membership->put('valid', true);
-        } else {
-            if ($user->nlicValidation) {
-                $validationResult = collect($user->nlicValidation->getValidationResult(config('netlicensing.membership.product_module_number')));
+        if ($user->protectionValidation) {
+            $validationResult = collect($user->protectionValidation->getValidationResult(config('protection.membership.product_module_number')));
 
-                $membership->put('valid', $validationResult->get('valid'));
-                $membership->put('expires', $validationResult->get('expires'));
+            $membership->put('expires', $validationResult->get('expires'));
 
-                $nlicShopToken = nlic_shop_token($user, route('netlisensing.membership.order.confirmation', ['dest' => url()->current()]), url('/'));
+            $successUrl = route('protection.membership.clear_validation_cache', ['dest' => url()->current()]);
+            $cancelUrl = url()->current();
 
-                $membership->put('shopUrl', $nlicShopToken->shop_url);
-            }
+            $protectionShopToken = protection_shop_token($user, $successUrl, $cancelUrl);
+
+            $membership->put('shopUrl', $protectionShopToken->shop_url);
         }
 
         return view('membership')->with($membership->toArray());
@@ -50,38 +44,37 @@ class MembershipController extends Controller
     {
         /** @var  $user User */
         $user = $request->user();
-        $user->load(['nlicValidation']);
 
         $membership = collect([
-            'valid' => null,
+            'valid' => false,
             'shopUrl' => null,
             'expires' => null,
 
         ]);
 
-        if ($user->nlicValidation) {
-            $validationResult = collect($user->nlicValidation->getValidationResult(config('netlicensing.membership.product_module_number')));
+        if (!$user->protectionValidation) return redirect($request->get('dest', '/'));
 
-            $membership->put('valid', $validationResult->get('valid'));
-            $membership->put('expires', $validationResult->get('expires'));
+        $validationResult = collect($user->protectionValidation->getValidationResult(config('protection.membership.product_module_number')));
 
-            $nlicShopToken = nlic_shop_token($user, route('netlisensing.membership.order.confirmation', ['dest' => $request->get('dest')]), url('/'));
+        $membership->put('expires', $validationResult->get('expires'));
 
-            $membership->put('shopUrl', $nlicShopToken->shop_url);
-        }
+        $successUrl = route('protection.membership.clear_validation_cache', ['dest' => $request->get('dest', url('/'))]);
+        $cancelUrl = url('/');
+
+        $protectionShopToken = protection_shop_token($user, $successUrl, $cancelUrl);
+
+        $membership->put('shopUrl', $protectionShopToken->shop_url);
 
         return view('membership')->with($membership->toArray());
     }
 
-    public function orderConfirmation(Request $request)
+    public function clearValidationCache(Request $request)
     {
         /** @var  $user User */
         $user = $request->user();
+        $user->load(['protectionValidation']);
 
-        if ($user->nlicValidation) {
-            $user->nlicValidation->ttl = Carbon::now();
-            $user->nlicValidation->save();
-        }
+        if ($user->protectionValidation) $user->protectionValidation->delete();
 
         return redirect($request->get('dest', '/'));
     }

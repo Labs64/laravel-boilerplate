@@ -53,7 +53,7 @@ trait UserAttributes
      */
     public function getLicenseeNumberAttribute()
     {
-        return $this->getAttribute(config('netlicensing.defaults.licensee.number'));
+        return $this->getAttribute(config('protection.defaults.licensee.number'));
     }
 
     /**
@@ -63,6 +63,6 @@ trait UserAttributes
      */
     public function getLicenseeNameAttribute()
     {
-        return $this->getAttribute(config('netlicensing.defaults.licensee.name'));
+        return $this->getAttribute(config('protection.defaults.licensee.name'));
     }
 }

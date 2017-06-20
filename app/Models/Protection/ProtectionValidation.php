@@ -1,34 +1,33 @@
 <?php
 
-namespace App\Models\NetLicensing;
+namespace App\Models\Protection;
 
 use App\Models\Auth\User\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\NetLicensing\NlValidation
+ * App\Models\Protection\ProtectionValidation
  *
  * @property int $id
  * @property int $user_id
  * @property \Carbon\Carbon $ttl
  * @property array $validation_result
  * @property-read \App\Models\Auth\User\User $user
- * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicValidation whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicValidation whereTtl($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicValidation whereUserId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicValidation whereValidationResults($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Protection\ProtectionValidation whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Protection\ProtectionValidation whereTtl($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Protection\ProtectionValidation whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Protection\ProtectionValidation whereValidationResult($value)
  * @mixin \Eloquent
- * @method static \Illuminate\Database\Query\Builder|\App\Models\NetLicensing\NlicValidation whereValidationResult($value)
  */
-class NlicValidation extends Model
+class ProtectionValidation extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'nlic_validations';
+    protected $table = 'protection_validations';
 
     /**
      * Indicates if the model should be timestamped.

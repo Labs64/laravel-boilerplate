@@ -21,41 +21,47 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->name }}</td>
                     <td>
-                        <a title="Repeat validation" class="btn btn-default pull-right" href="{{ route('admin.permissions.repeat',$user) }}">
-                            <i class="fa fa-refresh" aria-hidden="true"></i>
-                        </a>
-                        @if($user->nlicValidation)
-                            <table class="table table-striped table-bordered dt-responsive nowrap">
-                                <thead>
-                                <tr>
-                                    <th>{{ __('views.membership.table_header_3') }}</th>
-                                    <th>{{ __('views.membership.table_header_4') }}</th>
-                                    <th>{{ __('views.membership.table_header_5') }}</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-
-                                @foreach($user->nlicValidation->validation_result as $result)
-                                    <tr>
-                                        <td style="width: 30%">{{ $result['productModuleNumber'] }}</td>
-                                        <td style="width: 10%">
-                                            @if($result['valid'])
-                                                <span class="label label-primary">{{ __('views.membership.valid') }}</span>
-                                            @else
-                                                <span class="label label-danger">{{ __('views.membership.not_valid') }}</span>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            {{ isset($result['expires'])?$result['expires']:''  }}
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        @else
+                        @if($user->hasRoles(config('protection.except_roles')))
                             <div class="line_30 h4">
-                                Not validated
+                                Has access to all membership plans
                             </div>
+                        @else
+                            <a title="Repeat validation" class="btn btn-default pull-right" href="{{ route('admin.permissions.repeat',$user) }}">
+                                <i class="fa fa-refresh" aria-hidden="true"></i>
+                            </a>
+                            @if($user->protectionValidation)
+                                <table class="table table-striped table-bordered dt-responsive nowrap">
+                                    <thead>
+                                    <tr>
+                                        <th>{{ __('views.membership.table_header_3') }}</th>
+                                        <th>{{ __('views.membership.table_header_4') }}</th>
+                                        <th>{{ __('views.membership.table_header_5') }}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    @foreach($user->protectionValidation->validation_result as $result)
+                                        <tr>
+                                            <td style="width: 30%">{{ $result['productModuleNumber'] }}</td>
+                                            <td style="width: 10%">
+                                                @if($result['valid'])
+                                                    <span class="label label-primary">{{ __('views.membership.valid') }}</span>
+                                                @else
+                                                    <span class="label label-danger">{{ __('views.membership.not_valid') }}</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                {{ isset($result['expires'])?$result['expires']:''  }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            @else
+                                <div class="line_30 h4">
+                                    Not validated
+                                </div>
+                            @endif
                         @endif
                     </td>
                 </tr>

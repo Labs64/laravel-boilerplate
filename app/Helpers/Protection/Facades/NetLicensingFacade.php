@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helpers\NetLicensing\Facades;
+namespace App\Helpers\Protection\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
