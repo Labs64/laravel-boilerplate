@@ -15,7 +15,6 @@ class MembershipController extends Controller
 
     public function index(Request $request)
     {
-<<<<<<< HEAD
         /** @var  $user User */
         $user = $request->user();
         $user->load(['nlicValidation']);
@@ -24,12 +23,7 @@ class MembershipController extends Controller
             'valid' => null,
             'shopUrl' => null,
             'expires' => null,
-=======
-        return view('membership')->with([
-            'nlic_shop_token' => nlic_shop_token($request->user(), route('netlisensing.membership.order.confirmation', ['dest' => url()->current()])),
-            'nlic_validation' => collect($request->user()->nlicValidation->getValidationResult(config('netlicensing.membership.product_module_number'))),
-            'user' => $request->user()
->>>>>>> 58117047047f3980f7cafa09ed1f103726f2a599
+
         ]);
 
         //if user has role administrator
@@ -43,7 +37,7 @@ class MembershipController extends Controller
                 $membership->put('valid', $validationResult->get('valid'));
                 $membership->put('expires', $validationResult->get('expires'));
 
-                $nlicShopToken = nlic_shop_token($user, route('netlisensing.membership.before.redirect', ['dest' => url()->current()]));
+                $nlicShopToken = nlic_shop_token($user, route('netlisensing.membership.order.confirmation', ['dest' => url()->current()]));
 
                 $membership->put('shopUrl', $nlicShopToken->shop_url);
             }
@@ -54,7 +48,6 @@ class MembershipController extends Controller
 
     public function failed(Request $request)
     {
-<<<<<<< HEAD
         /** @var  $user User */
         $user = $request->user();
         $user->load(['nlicValidation']);
@@ -63,12 +56,7 @@ class MembershipController extends Controller
             'valid' => null,
             'shopUrl' => null,
             'expires' => null,
-=======
-        return view('membership')->with([
-            'nlic_shop_token' => nlic_shop_token($request->user(), route('netlisensing.membership.order.confirmation', ['dest' => $request->get('dest')])),
-            'nlic_validation' => collect($request->user()->nlicValidation->getValidationResult(config('netlicensing.membership.product_module_number'))),
-            'user' => $request->user()
->>>>>>> 58117047047f3980f7cafa09ed1f103726f2a599
+
         ]);
 
         if ($user->nlicValidation) {
@@ -77,7 +65,7 @@ class MembershipController extends Controller
             $membership->put('valid', $validationResult->get('valid'));
             $membership->put('expires', $validationResult->get('expires'));
 
-            $nlicShopToken = nlic_shop_token($user, route('netlisensing.membership.before.redirect', ['dest' => $request->get('dest')]));
+            $nlicShopToken = nlic_shop_token($user, route('netlisensing.membership.order.confirmation', ['dest' => $request->get('dest')]));
 
             $membership->put('shopUrl', $nlicShopToken->shop_url);
         }
