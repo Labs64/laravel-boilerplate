@@ -72,9 +72,5 @@ Route::get('/', 'HomeController@index');
 Route::group(['as' => 'netlisensing.'], function () {
     Route::get('membership', 'MembershipController@index')->name('membership')->middleware('nlic.protection:' . config('netlicensing.membership.product_module_number') . ',netlisensing.membership.failed');
     Route::get('membership/access-denied', 'MembershipController@failed')->name('membership.failed');
-    Route::get('membership/before-success-redirect/', 'MembershipController@beforeSuccessRedirect')->name('membership.before.redirect');
+    Route::get('membership/order-confirmation/', 'MembershipController@orderConfirmation')->name('membership.order.confirmation');
 });
-
-
-
-

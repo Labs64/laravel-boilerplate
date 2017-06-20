@@ -10,11 +10,12 @@ class MembershipController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin', ['except' => ['index', 'failed', 'beforeSuccessRedirect']]);
+        $this->middleware('admin', ['except' => ['index', 'failed', 'orderConfirmation']]);
     }
 
     public function index(Request $request)
     {
+<<<<<<< HEAD
         /** @var  $user User */
         $user = $request->user();
         $user->load(['nlicValidation']);
@@ -23,6 +24,12 @@ class MembershipController extends Controller
             'valid' => null,
             'shopUrl' => null,
             'expires' => null,
+=======
+        return view('membership')->with([
+            'nlic_shop_token' => nlic_shop_token($request->user(), route('netlisensing.membership.order.confirmation', ['dest' => url()->current()])),
+            'nlic_validation' => collect($request->user()->nlicValidation->getValidationResult(config('netlicensing.membership.product_module_number'))),
+            'user' => $request->user()
+>>>>>>> 58117047047f3980f7cafa09ed1f103726f2a599
         ]);
 
         //if user has role administrator
@@ -47,6 +54,7 @@ class MembershipController extends Controller
 
     public function failed(Request $request)
     {
+<<<<<<< HEAD
         /** @var  $user User */
         $user = $request->user();
         $user->load(['nlicValidation']);
@@ -55,6 +63,12 @@ class MembershipController extends Controller
             'valid' => null,
             'shopUrl' => null,
             'expires' => null,
+=======
+        return view('membership')->with([
+            'nlic_shop_token' => nlic_shop_token($request->user(), route('netlisensing.membership.order.confirmation', ['dest' => $request->get('dest')])),
+            'nlic_validation' => collect($request->user()->nlicValidation->getValidationResult(config('netlicensing.membership.product_module_number'))),
+            'user' => $request->user()
+>>>>>>> 58117047047f3980f7cafa09ed1f103726f2a599
         ]);
 
         if ($user->nlicValidation) {
@@ -71,7 +85,7 @@ class MembershipController extends Controller
         return view('membership')->with($membership->toArray());
     }
 
-    public function beforeSuccessRedirect(Request $request)
+    public function orderConfirmation(Request $request)
     {
         /** @var  $user User */
         $user = $request->user();
