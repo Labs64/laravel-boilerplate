@@ -37,7 +37,7 @@ class MembershipController extends Controller
                 $membership->put('valid', $validationResult->get('valid'));
                 $membership->put('expires', $validationResult->get('expires'));
 
-                $nlicShopToken = nlic_shop_token($user, route('netlisensing.membership.order.confirmation', ['dest' => url()->current()]));
+                $nlicShopToken = nlic_shop_token($user, route('netlisensing.membership.order.confirmation', ['dest' => url()->current()]), url('/'));
 
                 $membership->put('shopUrl', $nlicShopToken->shop_url);
             }
@@ -65,7 +65,7 @@ class MembershipController extends Controller
             $membership->put('valid', $validationResult->get('valid'));
             $membership->put('expires', $validationResult->get('expires'));
 
-            $nlicShopToken = nlic_shop_token($user, route('netlisensing.membership.order.confirmation', ['dest' => $request->get('dest')]));
+            $nlicShopToken = nlic_shop_token($user, route('netlisensing.membership.order.confirmation', ['dest' => $request->get('dest')]), url('/'));
 
             $membership->put('shopUrl', $nlicShopToken->shop_url);
         }
