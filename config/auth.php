@@ -151,6 +151,6 @@ return [
         /*
          * Whether the registration captcha is on or off
          */
-        'registration' => env('REGISTRATION_CAPTCHA_STATUS', true),
+        'registration' => env('REGISTRATION_CAPTCHA_STATUS', false),
     ],
 ];

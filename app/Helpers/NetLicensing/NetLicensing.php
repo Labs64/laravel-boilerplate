@@ -43,7 +43,7 @@ class NetLicensing
         $productNumber = config('netlicensing.product_number');
 
         $nlicValidator = $user->nlicValidation;
-        $nlicValidator = ($nlicValidator) ? $nlicValidator : new NlicValidation(['user_id' => auth()->id(), 'ttl' => Carbon::now()]);
+        $nlicValidator = ($nlicValidator) ? $nlicValidator : new NlicValidation(['user_id' => $user->id, 'ttl' => Carbon::now()]);
 
         if ($nlicValidator->isExpired()) {
 
@@ -62,7 +62,10 @@ class NetLicensing
 
             //get ttl
             $nlicValidator->ttl = new Carbon((string)NetLicensingService::getInstance()->lastCurlInfo()->response['ttl']);
+
             $nlicValidator->save();
+
+            $user->load('nlicValidation');
         }
 
         return $nlicValidator;
@@ -114,6 +117,8 @@ class NetLicensing
             $nlicShopToken->shop_url = $token->getShopURL();
 
             $nlicShopToken->save();
+
+            $user->load('nlicShopTokens');
         }
 
         return $nlicShopToken;

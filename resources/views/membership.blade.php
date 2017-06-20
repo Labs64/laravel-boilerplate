@@ -5,15 +5,18 @@
         Member area
     </div>
     <div class="m-b-md">
-        @if($nlic_validation->get('valid'))
+        @if($valid)
             Your membership status is confirmed. All the protected pages will be accessible.
-            @if($nlic_validation->get('expires'))
-                Your license expires {{ new \Carbon\Carbon($nlic_validation->get('expires')) }}
+            @if($expires)
+                Your license expires {{ new \Carbon\Carbon($expires) }}
             @endif
         @else
             Your membership status isn't confirmed. All the protected pages will not be accessible!
         @endif
-        <br/><br/>
-        Click <a href="{{ $nlic_shop_token->shop_url }}">here</a> to extend or renew your membership.
+
+        @if($shopUrl)
+            <br/><br/>
+            Click <a href="{{ $shopUrl }}">here</a> to extend or renew your membership.
+        @endif
     </div>
 @endsection

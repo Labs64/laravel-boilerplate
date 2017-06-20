@@ -28,7 +28,7 @@ use Kyslik\ColumnSortable\Sortable;
  * @property-read mixed $avatar
  * @property-read mixed $licensee_name
  * @property-read mixed $licensee_number
- * @property-read \App\Models\NetLicensing\NlicShopToken $nlicShopToken
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\NetLicensing\NlicShopToken[] $nlicShopTokens
  * @property-read \App\Models\NetLicensing\NlicValidation $nlicValidation
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Auth\User\SocialAccount[] $providers
@@ -47,7 +47,6 @@ use Kyslik\ColumnSortable\Sortable;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User whereRole($role)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User whereUpdatedAt($value)
  * @mixin \Eloquent
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\NetLicensing\NlicShopToken[] $nlicShopTokens
  */
 class User extends Authenticatable
 {

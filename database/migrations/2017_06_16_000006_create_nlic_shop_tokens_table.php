@@ -37,11 +37,7 @@ class CreateNlicShopTokensTable extends Migration
 
             $table->index('number');
             $table->index('expires');
-            $table->index('success_url');
-            $table->index('cancel_url');
-            $table->index('success_url_title');
-            $table->index('cancel_url_title');
-            $table->index('shop_url');
+            $table->unique(['user_id', 'success_url', 'cancel_url', 'success_url_title', 'cancel_url_title'], 'unique_for_redirect');
         });
     }
 
