@@ -22,8 +22,8 @@
                     <td>{{ $user->name }}</td>
                     <td>
                         @if($user->hasRoles(config('protection.except_roles')))
-                            <div class="line_30 h4">
-                                Has access to all membership plans
+                            <div class="line_30 h5">
+                                &nbsp;
                             </div>
                         @else
                             <a title="Repeat validation" class="btn btn-default pull-right" href="{{ route('admin.permissions.repeat',$user) }}">
@@ -77,8 +77,8 @@
         <div>
             <h4>How To</h4>
             <ul>
-              <li>Manage available membership plans - <a href="https://go.netlicensing.io/console/v2/content/vendor/licensetemplate.xhtml?filterkey=productModuleNumber&filtervalue={{ config('netlicensing.membership.product_module_number') }}" target="_blank"/>NetLicensing Management Console » License Templates</a></li>
-              <li>View and manage registered users - <a href="https://go.netlicensing.io/console/v2/content/vendor/licensee.xhtml?filterkey=productNumber&filtervalue={{ config('netlicensing.product_number') }}" target="_blank"/>NetLicensing Management Console » Licensees</a></li>
+              <li>Manage available membership plans - <a href="https://go.netlicensing.io/console/v2/content/vendor/licensetemplate.xhtml?filterkey=productModuleNumber&filtervalue={{ config('protection.membership.product_module_number') }}" target="_blank"/>NetLicensing Management Console » License Templates</a></li>
+              <li>View and manage registered users - <a href="https://go.netlicensing.io/console/v2/content/vendor/licensee.xhtml?filterkey=productNumber&filtervalue={{ config('protection.product_number') }}" target="_blank"/>NetLicensing Management Console » Licensees</a></li>
             </ul>
         </div>
     </div>

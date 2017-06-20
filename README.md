@@ -132,7 +132,7 @@ You can directly edit configuration files from within the repo as they are mappe
 
 <p align="center"><img src="https://raw.githubusercontent.com/Labs64/laravel-boilerplate/master/dockerfiles/img/laravel-boilerplate-docker.png" alt="Laravel Boilerplate Docker"></p>
 
-### Minimum System Requirements
+### System Requirements
 To be able to run Laravel Boilerplate you have to meet the following requirements:
 * [docker](https://www.docker.com)
 * [docker-compose](https://docs.docker.com/compose/)
@@ -163,32 +163,9 @@ Now you can browse the site [http://localhost:80](http://localhost:8080)  🙌
 
 ---
 
-Stop environment
+5. Stop environment
 ```
 $ docker-compose down
-```
-
-### Useful commands
-
-List docker processes
-```
-$ docker ps
-```
-
-Execute script in a container
-```
-$ docker exec -it <CONTAINER ID|CONTAINER NAME> bash
-```
-
-Verify available databases
-```
-# mysql -u root -p laravel_boilerplate
-mysql> show databases;
-```
-
-Remove all docker-compose images
-```
-$ docker-compose rm -v
 ```
 
 ## How To's & Modules configuration
