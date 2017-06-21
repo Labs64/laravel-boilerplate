@@ -184,6 +184,7 @@ Thanks!
 Thank you to all the [contributors](https://github.com/Labs64/laravel-boilerplate/graphs/contributors) on this project. Your help is much appreciated!
 
 - [Photolancer Zone](https://photolancer.zone/?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=readme) team for a great support in project structuring.
+- [DigiPass Laravel](https://github.com/Labs64/DigiPass-laravel) - Membership pricing plans and Access control management for Laravel
 
 ## Bugs and Feedback
 
