@@ -124,7 +124,7 @@ Now you can browse the site [http://localhost:8080](http://localhost:8080)  🙌
 
 ## Docker
 
-Tere is a Docker based local development environment prepared, which provides a very flexible and extensible way of building your custom Laravel 5 applications.
+Here is a Docker based local development environment prepared, which provides a very flexible and extensible way of building your custom Laravel 5 applications.
 
 ### What's Inside
 This project is based on [docker-compose](https://docs.docker.com/compose/). By default, the following containers are started: _laravel-env (centos:7 based), mysql, phpmyadmin, nginx_. The `/var/www/laravel-boilerplate` directory is the web root which is mapped to the nginx container.
@@ -159,7 +159,7 @@ $ docker-compose up -d
 $ docker exec laravel-env ./dockerfiles/bin/prj-build.sh
 ```
 
-Now you can browse the site [http://localhost:80](http://localhost:8080)  🙌
+Now you can browse the site [http://localhost:80](http://localhost:80)  🙌
 
 ---
 
