@@ -1,0 +1,18 @@
+version: '2'
+services:
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    restart: always
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql
+    ports:
+      - '8080:80'
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
