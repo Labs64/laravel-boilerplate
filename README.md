@@ -170,6 +170,8 @@ Now you can browse the site at [http://localhost:80](http://localhost:80)  🙌
 5. Stop environment
 ```
 $ docker-compose down
+ or
+$ docker-compose -f docker-compose.yml -f docker-compose.utils.yml down
 ```
 
 ## How To's & Modules configuration
