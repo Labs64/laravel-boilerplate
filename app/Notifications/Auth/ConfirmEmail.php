@@ -49,7 +49,7 @@ class ConfirmEmail extends Notification
         $mailMessage->line(__('notification.auth.confirm_email.mail.line.1'));
         $mailMessage->line(__('notification.auth.confirm_email.mail.line.2', ['email' => config('mail.from.address')]));
 
-        $mailMessage->line(__('notification.auth.confirm_email.mail.line.3'));
+        $mailMessage->line(__('notification.auth.confirm_email.mail.line.3', ['app' => config('app.name')]));
 
         return $mailMessage;
     }
