@@ -157,6 +157,8 @@ $ docker-compose up -d
 4. Build project
 ```
 $ docker exec laravel-env ./dockerfiles/bin/prj-build.sh
+ or
+$ docker-compose run --rm laravel-env ./dockerfiles/bin/prj-build.sh
 ```
 
 Now you can browse the site at [http://localhost:80](http://localhost:80)  🙌
