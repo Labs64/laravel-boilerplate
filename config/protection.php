@@ -15,7 +15,7 @@ return [
         'username' => env('LABS64_NETLICENSING_USERNAME', 'demo'),
         'password' => env('LABS64_NETLICENSING_PASSWORD', 'demo'),
         'api_key' => env('LABS64_NETLICENSING_APIKEY'),
-        'security_mode' => env('LABS64_NETLICENSING_SECURITY_MODE', 'BASIC_AUTH'), // Allowed values: BASIC_AUTH|APIKEY
+        'security_mode' => env('LABS64_NETLICENSING_SECURITY_MODE', 'APIKEY'), // Allowed values: BASIC_AUTH|APIKEY
     ],
 
     /*
