@@ -102,6 +102,29 @@ mix.styles([
     'node_modules/select2/dist/css/select2.css',
 ], 'public/assets/admin/css/users/edit.css').version();
 
+mix.scripts([
+    // 'node_modules/gentelella/vendors/bootstrap/dist/js/bootstrap.min.j,
+    // 'node_modules/gentelella/vendors/nprogress/nprogress.js',
+    // 'node_modules/gentelella/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js',
+    // 'node_modules/gentelella/vendors/Chart.js/dist/Chart.min.js',
+
+    'node_modules/gentelella/vendors/Flot/jquery.flot.js',
+    'node_modules/gentelella/vendors/Flot/jquery.flot.time.js',
+    'node_modules/gentelella/vendors/Flot/jquery.flot.pie.js',
+    'node_modules/gentelella/vendors/Flot/jquery.flot.stack.js',
+    'node_modules/gentelella/vendors/Flot/jquery.flot.resize.js',
+
+    'node_modules/gentelella/production/js/flot/jquery.flot.orderBars.js',
+    'node_modules/gentelella/production/js/flot/date.js',
+    'node_modules/gentelella/production/js/flot/curvedLines.js',
+    'node_modules/gentelella/production/js/flot/jquery.flot.spline.js',
+
+
+
+    'resources/assets/admin/js/dashboard.js',
+], 'public/assets/admin/js/dashboard.js').version();
+
+
 /*
  |--------------------------------------------------------------------------
  | Frontend
