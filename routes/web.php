@@ -61,7 +61,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy');
     Route::get('permissions', 'PermissionController@index')->name('permissions');
     Route::get('permissions/{user}/repeat', 'PermissionController@repeat')->name('permissions.repeat');
-    Route::get('dashboard/registered-chart', 'DashboardController@getRegisteredChartData')->name('dashboard.registered.chart');
+    Route::get('dashboard/log-chart', 'DashboardController@getLogChartData')->name('dashboard.log.chart');
+    Route::get('dashboard/registration-chart', 'DashboardController@getRegistrationChartData')->name('dashboard.registration.chart');
 });
 
 

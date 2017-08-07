@@ -1,0 +1,32 @@
+.log-emergency {
+    background-color: #B71C1C;
+}
+
+.log-alert {
+    background-color: #D32F2F;
+}
+
+.log-critical {
+    background-color: #F44336;
+}
+
+.log-error {
+    background-color: #FF5722;
+}
+
+.log-warning {
+    background-color: #FF9100;
+}
+
+.log-notice {
+    background-color: #4CAF50;
+}
+
+.log-info {
+    background-color: #1976D2;
+}
+
+.log-debug {
+    background-color: #90CAF9;
+}
+

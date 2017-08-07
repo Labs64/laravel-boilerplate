@@ -78,6 +78,7 @@ mix.styles([
 
 mix.scripts([
     'node_modules/bootstrap/dist/js/bootstrap.js',
+    'node_modules/gentelella/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js',
     'node_modules/gentelella/build/js/custom.js',
 ], 'public/assets/admin/js/admin.js').version();
 
@@ -103,11 +104,6 @@ mix.styles([
 ], 'public/assets/admin/css/users/edit.css').version();
 
 mix.scripts([
-    // 'node_modules/gentelella/vendors/bootstrap/dist/js/bootstrap.min.j,
-    // 'node_modules/gentelella/vendors/nprogress/nprogress.js',
-    // 'node_modules/gentelella/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js',
-    // 'node_modules/gentelella/vendors/Chart.js/dist/Chart.min.js',
-
     'node_modules/gentelella/vendors/Flot/jquery.flot.js',
     'node_modules/gentelella/vendors/Flot/jquery.flot.time.js',
     'node_modules/gentelella/vendors/Flot/jquery.flot.pie.js',
@@ -119,10 +115,18 @@ mix.scripts([
     'node_modules/gentelella/production/js/flot/curvedLines.js',
     'node_modules/gentelella/production/js/flot/jquery.flot.spline.js',
 
+    'node_modules/gentelella/production/js/moment/moment.min.js',
+    'node_modules/gentelella/production/js/datepicker/daterangepicker.js',
 
+
+    'node_modules/gentelella/vendors/Chart.js/dist/Chart.js',
 
     'resources/assets/admin/js/dashboard.js',
 ], 'public/assets/admin/js/dashboard.js').version();
+
+mix.styles([
+    'resources/assets/admin/css/dashboard.css',
+], 'public/assets/admin/css/dashboard.css').version();
 
 
 /*
