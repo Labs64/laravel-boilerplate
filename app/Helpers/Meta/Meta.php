@@ -39,6 +39,8 @@ class Meta
 
     public function render($keys = [])
     {
+        $keys = is_string($keys) ? explode(',', str_replace(['(', ')', '[', ']'], '', $keys)) : $keys;
+
         $keys = collect($keys);
 
         $html = ($keys->isEmpty() || (!$keys->isEmpty() && $keys->contains('title'))) ? $this->title->render() : '';
