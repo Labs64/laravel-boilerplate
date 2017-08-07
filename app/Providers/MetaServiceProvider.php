@@ -39,9 +39,7 @@ class MetaServiceProvider extends ServiceProvider
         * the chosen javascript variables.
         */
         Blade::directive('meta', function ($argument = null) {
-                        return '<?php print app(\'meta\')->render(' . $argument . '); ?>';
-
-
+            return '<?php print app(\'meta\')->render(' . $argument . '); ?>';
         });
     }
 
