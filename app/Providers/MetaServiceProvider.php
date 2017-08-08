@@ -38,8 +38,8 @@ class MetaServiceProvider extends ServiceProvider
         * The block of code inside this directive indicates
         * the chosen javascript variables.
         */
-        Blade::directive('meta', function ($argumentString = null) {
-            return app('meta')->render($this->getArguments($argumentString));
+        Blade::directive('meta', function ($argument = null) {
+            return '<?php print app(\'meta\')->render(' . $argument . '); ?>';
         });
     }
 
@@ -91,19 +91,5 @@ class MetaServiceProvider extends ServiceProvider
         $meta->tag('DC.Language', config('meta.defaults.dc.language'));
         $meta->tag('DC.Rights', config('meta.defaults.dc.rights'));
         $meta->tag('DC.Audience', config('meta.defaults.dc.audience'));
-    }
-
-    /**
-     * Get argument array from argument string.
-     *
-     * @param string $argumentString
-     *
-     * @return array
-     */
-    private function getArguments($argumentString)
-    {
-        if(!$argumentString) return [];
-
-        return explode(',', str_replace(['(', ')', '[', ']'], '', $argumentString));
     }
 }
