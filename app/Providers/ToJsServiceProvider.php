@@ -29,6 +29,9 @@ class ToJsServiceProvider extends ServiceProvider
             return new ToJs();
         });
 
+//        app('tojs')->put()
+//
+//        Lang
         /*
         * The block of code inside this directive indicates
         * the chosen javascript variables.

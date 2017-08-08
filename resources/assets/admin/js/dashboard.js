@@ -159,12 +159,7 @@
             type: 'doughnut',
             tooltipFillColor: "rgba(51, 51, 51, 0.55)",
             data: {
-                labels: [
-                    "Registration form",
-                    "Google ",
-                    "Facebook",
-                    "Twitter"
-                ],
+                labels: [],
                 datasets: [{
                     data: [],
                     backgroundColor: [
@@ -188,16 +183,21 @@
         },
         init: function ($el) {
             var self = this;
+            $el = $($el);
+
             $.ajax({
                 url: 'admin/dashboard/registration-chart',
                 success: function (response) {
+                    $.each($el.find('.tile_label'), function () {
+                        self._defaults.data.labels.push($(this).text());
+                    });
+
                     var count = 0;
 
                     $.each(response, function () {
                         count += parseInt(this);
                     });
 
-                    console.log(count);
                     $('#registration_usage_from').text(100 / count * parseInt(response.registration_form));
                     $('#registration_usage_google').text(100 / count * parseInt(response.google));
                     $('#registration_usage_facebook').text(100 / count * parseInt(response.facebook));
@@ -205,7 +205,7 @@
 
                     self._defaults.data.datasets[0].data = [response.registration_form, response.google, response.facebook, response.twitter];
 
-                    new Chart($($el), self._defaults);
+                    new Chart($el.find('.canvasDoughnut'), self._defaults);
                 }
             });
         }
