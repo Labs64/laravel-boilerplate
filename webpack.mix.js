@@ -120,6 +120,7 @@ mix.scripts([
 
 
     'node_modules/gentelella/vendors/Chart.js/dist/Chart.js',
+    'node_modules/jcarousel/dist/jquery.jcarousel.min.js',
 
     'resources/assets/admin/js/dashboard.js',
 ], 'public/assets/admin/js/dashboard.js').version();

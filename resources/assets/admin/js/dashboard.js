@@ -213,4 +213,59 @@
 
     registrationUsage.init($('#registration_usage'));
 
+    //jcarousel
+    var jcarousel = $('.jcarousel').jcarousel();
+
+    $('.jcarousel-control-prev')
+        .on('jcarouselcontrol:active', function () {
+            $(this).removeClass('inactive');
+        })
+        .on('jcarouselcontrol:inactive', function () {
+            $(this).addClass('inactive');
+        })
+        .jcarouselControl({
+            target: '-=1'
+        });
+
+    $('.jcarousel-control-next')
+        .on('jcarouselcontrol:active', function () {
+            $(this).removeClass('inactive');
+        })
+        .on('jcarouselcontrol:inactive', function () {
+            $(this).addClass('inactive');
+        })
+        .jcarouselControl({
+            target: '+=1'
+        });
+
+    var url = 'https://photolancer.zone/api/photos',
+        param = {
+            page: 1,
+            perPage: 10,
+            sort: [{by: 'rating', type: 'desc'}]
+        };
+
+    $.ajax({
+        url: url + '?' + $.param(param),
+        method: 'GET',
+        success: function (response) {
+            var html = '<ul>';
+
+            $.each(response, function () {
+                html += '<li><img src="' + this.thumbnails.file.photos.small + '" alt="' + this.name + '"></li>';
+            });
+
+            html += '</ul>';
+
+            // Append items
+            jcarousel
+                .html(html);
+
+            // Reload carousel
+            jcarousel
+                .jcarousel('reload');
+        }
+    });
+
+
 })(jQuery);
