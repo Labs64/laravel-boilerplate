@@ -33,34 +33,6 @@
     </div>
     <!-- /top tiles -->
 
-    {{--Carousel--}}
-    <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
-                <div class="row x_title">
-                    <div class="col-md-6">
-                        <h3>
-                            {!! __('views.admin.dashboard.sub_title_5',['href'=>'http://photolancer.zone']) !!}
-                        </h3>
-                    </div>
-                </div>
-                <div class="x_content">
-                    <div class="col-md-12">
-                        <div class="jcarousel">
-                            <div class="loading">{{ __('views.admin.dashboard.loading') }}</div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-12 text-center jcarousel-control">
-                        <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
-                        <a href="#" class="jcarousel-control-next">&rsaquo;</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div id="log_activity" class="dashboard_graph">
@@ -250,6 +222,33 @@
                             </td>
                         </tr>
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{--Carousel--}}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="row x_title">
+                    <div class="col-md-6">
+                        <h3>
+                            {!! __('views.admin.dashboard.sub_title_5',['href'=>'http://photolancer.zone']) !!}
+                        </h3>
+                    </div>
+                </div>
+                <div class="x_content">
+                    <div class="col-md-12">
+                        <div class="jcarousel">
+                            <div class="loading">{{ __('views.admin.dashboard.loading') }}</div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 text-center jcarousel-control">
+                        <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                        <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+                    </div>
                 </div>
             </div>
         </div>

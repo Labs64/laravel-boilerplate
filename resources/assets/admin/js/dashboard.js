@@ -251,8 +251,10 @@
         success: function (response) {
             var html = '<ul>';
 
+            var href = 'http://photolancer.zone/photos';
+
             $.each(response, function () {
-                html += '<li><img src="' + this.thumbnails.file.photos.small + '" alt="' + this.name + '"></li>';
+                html += '<li><a href="' + href + '/' + this.slug + '/detail" target="_blank"><img src="' + this.thumbnails.file.photos.small + '" alt="' + this.name + '"/></a></li>';
             });
 
             html += '</ul>';
