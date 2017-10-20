@@ -251,7 +251,7 @@
         success: function (response) {
             var html = '<ul>';
 
-            var href = 'http://photolancer.zone/photos';
+            var href = 'https://photolancer.zone/photos';
 
             $.each(response, function () {
                 html += '<li><a href="' + href + '/' + this.slug + '/detail" target="_blank"><img src="' + this.thumbnails.file.photos.small + '" alt="' + this.name + '"/></a></li>';
