@@ -38,17 +38,21 @@ class Protection
 
                 $wiki = 'Check out our wiki https://github.com/Labs64/laravel-boilerplate/wiki/NetLicensing-connection-error';
 
-                if (NetLicensingService::getInstance()->lastCurlInfo()->httpStatusCode == 401) {
-                    throw new RestException($e->getMessage() . ' ' . $wiki);
-                }
-
                 switch (env('LABS64_NETLICENSING_SECURITY_MODE')) {
                     case Context::BASIC_AUTHENTICATION:
-                        throw new RestException('Missing or invalid Username/Password ' . $wiki);
+                        if (empty(env('LABS64_NETLICENSING_USERNAME')) || empty('LABS64_NETLICENSING_PASSWORD')) {
+                            throw new RestException('Missing or invalid Username/Password ' . $wiki);
+                        }
                         break;
                     case Context::APIKEY_IDENTIFICATION:
-                        throw new RestException('Missing or invalid API Key ' . $wiki);
+                        if (empty(env('LABS64_NETLICENSING_APIKEY'))) {
+                            throw new RestException('Missing or invalid API Key ' . $wiki);
+                        }
                         break;
+                }
+
+                if (NetLicensingService::getInstance()->lastCurlInfo()->httpStatusCode == 401) {
+                    throw new RestException($e->getMessage() . ' ' . $wiki);
                 }
             }
         }
