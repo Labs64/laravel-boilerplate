@@ -234,7 +234,7 @@
                 <div class="row x_title">
                     <div class="col-md-6">
                         <h3>
-                            {!! __('views.admin.dashboard.sub_title_5',['href'=>'http://photolancer.zone']) !!}
+                            {!! __('views.admin.dashboard.sub_title_5',['href'=>'https://photolancer.zone']) !!}
                         </h3>
                     </div>
                 </div>
