@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
-use NetLicensing\Context;
 use NetLicensing\NetLicensingService;
 use NetLicensing\RestException;
 
@@ -18,6 +17,7 @@ class Protection
      * @param $productModuleNumber
      * @param null $failedRouteName
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws RestException
      */
     public function handle($request, Closure $next, $productModuleNumber, $failedRouteName)
     {
@@ -37,19 +37,6 @@ class Protection
             if ($e instanceof RestException) {
 
                 $wiki = 'Check out our wiki https://github.com/Labs64/laravel-boilerplate/wiki/NetLicensing-connection-error';
-
-                switch (env('LABS64_NETLICENSING_SECURITY_MODE')) {
-                    case Context::BASIC_AUTHENTICATION:
-                        if (empty(env('LABS64_NETLICENSING_USERNAME')) || empty('LABS64_NETLICENSING_PASSWORD')) {
-                            throw new RestException('Missing or invalid Username/Password ' . $wiki);
-                        }
-                        break;
-                    case Context::APIKEY_IDENTIFICATION:
-                        if (empty(env('LABS64_NETLICENSING_APIKEY'))) {
-                            throw new RestException('Missing or invalid API Key ' . $wiki);
-                        }
-                        break;
-                }
 
                 if (NetLicensingService::getInstance()->lastCurlInfo()->httpStatusCode == 401) {
                     throw new RestException($e->getMessage() . ' ' . $wiki);
