@@ -205,7 +205,7 @@
 
                     self._defaults.data.datasets[0].data = [response.registration_form, response.google, response.facebook, response.twitter];
 
-                    new Chart($el.find('.canvasDoughnut'), self._defaults);
+                    new Chart($el.find('.canvasChart'), self._defaults);
                 }
             });
         }

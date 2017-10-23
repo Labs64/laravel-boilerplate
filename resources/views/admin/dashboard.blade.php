@@ -173,7 +173,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <canvas class="canvasDoughnut" height="140" width="140" style="margin: 15px 10px 10px 0">
+                                <canvas class="canvasChart" height="140" width="140" style="margin: 15px 10px 10px 0">
                                 </canvas>
                             </td>
                             <td>

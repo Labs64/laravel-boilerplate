@@ -110,13 +110,13 @@ mix.scripts([
     'node_modules/gentelella/vendors/Flot/jquery.flot.stack.js',
     'node_modules/gentelella/vendors/Flot/jquery.flot.resize.js',
 
-    'node_modules/gentelella/production/js/flot/jquery.flot.orderBars.js',
-    'node_modules/gentelella/production/js/flot/date.js',
-    'node_modules/gentelella/production/js/flot/curvedLines.js',
-    'node_modules/gentelella/production/js/flot/jquery.flot.spline.js',
+    'node_modules/gentelella/vendors/flot.orderbars/js/jquery.flot.orderBars.js',
+    'node_modules/gentelella/vendors/DateJS/build/date.js',
+    'node_modules/gentelella/vendors/flot.curvedlines/curvedLines.js',
+    'node_modules/gentelella/vendors/flot-spline/js/jquery.flot.spline.min.js',
 
     'node_modules/gentelella/production/js/moment/moment.min.js',
-    'node_modules/gentelella/production/js/datepicker/daterangepicker.js',
+    'node_modules/gentelella/vendors/bootstrap-daterangepicker/daterangepicker.js',
 
 
     'node_modules/gentelella/vendors/Chart.js/dist/Chart.js',
@@ -126,6 +126,7 @@ mix.scripts([
 ], 'public/assets/admin/js/dashboard.js').version();
 
 mix.styles([
+    'node_modules/gentelella/vendors/bootstrap-daterangepicker/daterangepicker.css',
     'resources/assets/admin/css/dashboard.css',
 ], 'public/assets/admin/css/dashboard.css').version();
 
