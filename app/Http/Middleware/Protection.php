@@ -37,7 +37,7 @@ class Protection
             if ($e instanceof RestException) {
 
                 $authError = false;
-                $wiki = 'Check out our wiki https://github.com/Labs64/laravel-boilerplate/wiki/NetLicensing-connection-error';
+                $wiki = 'Check out troubleshooting page at https://github.com/Labs64/laravel-boilerplate/wiki/NetLicensing-Connection-Error';
 
                 if (NetLicensingService::getInstance()->lastCurlInfo()->httpStatusCode == 401) {
                     $authError = true;
@@ -56,7 +56,7 @@ class Protection
                         break;
                 }
 
-                if ($authError) throw new RestException($e->getMessage() . ' ' . $wiki);;
+                if ($authError) throw new RestException($e->getMessage() . '; ' . $wiki);;
             }
         }
 
