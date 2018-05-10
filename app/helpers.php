@@ -122,7 +122,7 @@ if (!function_exists('protection_validate')) {
     }
 }
 
-if (!function_exists('__choice')) {
+if (!function_exists('__trans_choice')) {
     /**
      * Translates the given message based on a count from json key.
      *
@@ -132,7 +132,7 @@ if (!function_exists('__choice')) {
      * @param null $locale
      * @return string
      */
-    function __choice($key, $number, array $replace = [], $locale = null)
+    function __trans_choice($key, $number, array $replace = [], $locale = null)
     {
         return trans_choice(__($key), $number, $replace, $locale);
     }
