@@ -158,9 +158,9 @@ $ docker-compose -f docker-compose.yml -f docker-compose.utils.yml up -d  # to s
 
 4. Build project
 ```
-$ docker exec laravelboilerplate_laravel-env_1 ./dockerfiles/bin/prj-build.sh
+$ docker exec laravel-boilerplate_laravel-env_1 ./dockerfiles/bin/prj-build.sh
  or
-$ docker-compose run --rm laravelboilerplate_laravel-env_1 ./dockerfiles/bin/prj-build.sh
+$ docker-compose run --rm laravel-boilerplate_laravel-env_1 ./dockerfiles/bin/prj-build.sh
 ```
 
 Now you can browse the site at [http://localhost:80](http://localhost:80)  🙌
