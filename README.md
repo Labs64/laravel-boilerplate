@@ -79,18 +79,15 @@ To be able to run Laravel Boilerplate you have to meet the following requirement
 
 ## Installation
 1. Install Composer using detailed installation instructions [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
-
-   ```
-   wget https://getcomposer.org/composer.phar
-   chmod +x composer.phar
-   mv composer.phar /usr/local/bin/composer
-   ```
-
+```
+$ wget https://getcomposer.org/composer.phar
+$ chmod +x composer.phar
+$ mv composer.phar /usr/local/bin/composer
+```
 2. Install Node.js using detailed installation instructions [here](https://nodejs.org/en/download/package-manager/)
-    ```
-    yum install npm
-    ```
-
+```
+$ yum install npm
+```
 3. Clone repository
 ```
 $ git clone https://github.com/Labs64/laravel-boilerplate.git
@@ -120,11 +117,15 @@ $ npm run dev
 ```
 $ php artisan migrate --seed
 ```
-If you get an error like a `PDOException` try editing your `.env` file and change `DB_HOST=127.0.0.1` to `DB_HOST=localhost` or `DB_HOST=mysql` (for *docker-compose* environment).
 
-if password error,see
+## Troubleshooting
 
-    ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root'; 
+- If you get an error like a `PDOException` try editing your `.env` file and change `DB_HOST=127.0.0.1` to `DB_HOST=localhost` or `DB_HOST=mysql` (for *docker-compose* environment).
+
+- If you get a password error try this command:
+```
+# ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root'; 
+```
 
 ## Run
 
