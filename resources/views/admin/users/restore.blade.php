@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin')
 
-@section('title', __('views.admin.users.index.title'))
+@section('title', __('views.admin.users.index.title-restore'))
 
 @section('content')
     <div class="row">
@@ -40,17 +40,9 @@
                     <td>{{ $user->created_at }}</td>
                     <td>{{ $user->updated_at }}</td>
                     <td>
-                        <a class="btn btn-xs btn-primary" href="{{ route('admin.users.show', [$user->id]) }}" data-toggle="tooltip" data-placement="top" data-title="{{ __('views.admin.users.index.show') }}">
-                            <i class="fa fa-eye"></i>
+                        <a class="btn btn-xs btn-primary" href="{{ route('admin.users.restore-user', [$user->id]) }}" data-toggle="tooltip" data-placement="top" data-title="{{ __('views.admin.users.index.restore') }}">
+                            <i class="fa fa-undo"></i>
                         </a>
-                        <a class="btn btn-xs btn-info" href="{{ route('admin.users.edit', [$user->id]) }}" data-toggle="tooltip" data-placement="top" data-title="{{ __('views.admin.users.index.edit') }}">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                        @if(!$user->hasRole('administrator'))
-                            <a href="{{ route('admin.users.destroy', [$user->id]) }}" class="btn btn-xs btn-danger user_destroy" data-toggle="tooltip" data-placement="top" data-title="{{ __('views.admin.users.index.delete') }}">
-                                <i class="fa fa-trash"></i>
-                            </a>
-                        @endif
                     </td>
                 </tr>
             @endforeach
