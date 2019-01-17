@@ -3,7 +3,6 @@
 /**
  * Class GeneralException
  *
- * @package FTX\Exceptions
  */
 
 use Exception;
