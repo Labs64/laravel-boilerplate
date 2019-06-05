@@ -15,18 +15,6 @@ class ProtectionProvider extends ServiceProvider
      */
     public function boot()
     {
-
-    }
-
-    /**
-     * Register the application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this->app->bind('netlicensing', NetLicensing::class);
-
         Blade::directive('protection', function ($productModuleNumber) {
             return "<?php if(auth()->check() && auth()->user()->hasAccess('$productModuleNumber')): ?>";
         });
@@ -42,5 +30,15 @@ class ProtectionProvider extends ServiceProvider
         Blade::directive('endprotection', function () {
             return '<?php endif; ?>';
         });
+    }
+
+    /**
+     * Register the application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->app->bind('netlicensing', NetLicensing::class);
     }
 }

@@ -15,7 +15,13 @@ class MetaServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        /*
+       * The block of code inside this directive indicates
+       * the chosen javascript variables.
+       */
+        Blade::directive('meta', function ($argument = null) {
+            return '<?php print app(\'meta\')->render(' . $argument . '); ?>';
+        });
     }
 
     /**
@@ -33,14 +39,6 @@ class MetaServiceProvider extends ServiceProvider
          * Set Meta Defaults
          */
         $this->setDefaultMeta();
-
-        /*
-        * The block of code inside this directive indicates
-        * the chosen javascript variables.
-        */
-        Blade::directive('meta', function ($argument = null) {
-            return '<?php print app(\'meta\')->render(' . $argument . '); ?>';
-        });
     }
 
     /**

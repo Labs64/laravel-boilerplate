@@ -1,6 +1,6 @@
 <?php
 
-use DaveJamesMiller\Breadcrumbs\Generator;
+use DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator  as Generator;
 
 Breadcrumbs::register('admin.users', function (Generator $breadcrumbs) {
     $breadcrumbs->push(__('views.admin.dashboard.title'), route('admin.dashboard'));

@@ -15,7 +15,13 @@ class ToJsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        /*
+        * The block of code inside this directive indicates
+        * the chosen javascript variables.
+        */
+        Blade::directive('tojs', function () {
+            return '<script> window.Laravel = ' . json_encode(app('tojs')->get()) . '</script>';
+        });
     }
 
     /**
@@ -32,12 +38,6 @@ class ToJsServiceProvider extends ServiceProvider
 //        app('tojs')->put()
 //
 //        Lang
-        /*
-        * The block of code inside this directive indicates
-        * the chosen javascript variables.
-        */
-        Blade::directive('tojs', function () {
-            return '<script> window.Laravel = ' . json_encode(app('tojs')->get()) . '</script>';
-        });
+
     }
 }
