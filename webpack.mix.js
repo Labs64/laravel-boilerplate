@@ -1,23 +1,4 @@
-const {mix} = require('laravel-mix');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-
-// paths to clean
-var pathsToClean = [
-    'public/assets/app/js',
-    'public/assets/app/css',
-    'public/assets/admin/js',
-    'public/assets/admin/css',
-    'public/assets/auth/css',
-];
-
-// the clean options to use
-var cleanOptions = {};
-
-mix.webpackConfig({
-    plugins: [
-        new CleanWebpackPlugin(pathsToClean, cleanOptions)
-    ]
-});
+const mix = require('laravel-mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -129,11 +110,3 @@ mix.styles([
     'node_modules/gentelella/vendors/bootstrap-daterangepicker/daterangepicker.css',
     'resources/assets/admin/css/dashboard.css',
 ], 'public/assets/admin/css/dashboard.css').version();
-
-
-/*
- |--------------------------------------------------------------------------
- | Frontend
- |--------------------------------------------------------------------------
- |
- */

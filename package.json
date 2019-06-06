@@ -11,18 +11,19 @@
   },
   "dependencies": {
     "axios": "^0.19",
-    "bootstrap": "^3.3.7",
-    "bootstrap-sass": "^3.3.7",
-    "clean-webpack-plugin": "^0.1.16",
-    "cross-env": "^3.2.3",
+    "bootstrap": "^3.4",
+    "cross-env": "^5.1",
     "font-awesome": "^4.7.0",
-    "gentelella": "^1.4.0",
-    "jcarousel": "^0.3.5",
-    "jquery": "^3.2.1",
-    "laravel-mix": "0.*",
-    "lodash": "^4.17.4",
-    "pace-progress": "^1.0.2",
-    "select2": "^4.0.3",
-    "vue": "^2.1.10"
+    "gentelella": "^1.4",
+    "jcarousel": "^0.3",
+    "jquery": "^3.2",
+    "laravel-mix": "^4.0",
+    "lodash": "^4.17.5",
+    "popper.js": "^1.12",
+    "resolve-url-loader": "^2.3.1",
+    "sass": "^1.15.2",
+    "sass-loader": "^7.1.0",
+    "select2": "^4.0",
+    "vue": "^2.6"
   }
 }
