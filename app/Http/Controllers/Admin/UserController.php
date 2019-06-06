@@ -6,10 +6,27 @@ use App\Models\Auth\Role\Role;
 use App\Models\Auth\User\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\Access\User\EloquentUserRepository;
 use Validator;
 
 class UserController extends Controller
-{
+{   
+    /**
+     * Repository
+     *
+     * @var object
+     */
+    protected $repository;
+
+    /**
+     * Construct
+     * 
+     */
+    public function __construct()
+    {
+        $this->repository = new EloquentUserRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +35,34 @@ class UserController extends Controller
     public function index(Request $request)
     {
         return view('admin.users.index', ['users' => User::with('roles')->sortable(['email' => 'asc'])->paginate()]);
+    }
+
+    /**
+     * Restore Users
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function restore(Request $request)
+    {
+        return view('admin.users.restore', ['users' => User::onlyTrashed()->with('roles')->sortable(['email' => 'asc'])->paginate()]);
+    }
+
+    /**
+     * Restore Users
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function restoreUser($id)
+    {
+        $status = $this->repository->restore($id);
+
+        if($status)
+        {
+            return redirect()->route('admin.users')->withFlashSuccess('User Restored Successfully!');
+        }
+
+        return redirect()->route('admin.users')->withFlashDanger('Unable to Restore User!');
     }
 
     /**
@@ -121,6 +166,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $status = $this->repository->destroy($id);
+
+        if($status)
+        {
+            return redirect()->route('admin.users')->withFlashSuccess('User Deleted Successfully!');
+        }
+
+        return redirect()->route('admin.users')->withFlashDanger('Unable to Delete User!');
     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('body_class','nav-md')
-
+@include('admin.layouts.flash-messages')
 @section('page')
     <div class="container body">
         <div class="main_container">
