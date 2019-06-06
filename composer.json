@@ -20,7 +20,7 @@
         "docs": "https://github.com/Labs64/laravel-boilerplate"
     },
     "require": {
-        "php": ">=7.1.3",
+        "php": ">=7.2",
         "albertcht/invisible-recaptcha": "^1.9",
         "arcanedev/log-viewer": "~4.5",
         "creativeorange/gravatar": "^1.0",
