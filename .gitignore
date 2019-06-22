@@ -4,7 +4,6 @@ data/
 
 # Laravel, nodeJS, Bower, Gulp exclusions, Composer exclusions
 .htaccess
-vendor/
 node_modules/
 npm-shrinkwrap.json
 bower_components/
