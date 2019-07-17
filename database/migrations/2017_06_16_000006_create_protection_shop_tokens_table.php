@@ -37,7 +37,7 @@ class CreateProtectionShopTokensTable extends Migration
 
             $table->index('number');
             $table->index('expires');
-            $table->unique(['user_id', 'success_url', 'cancel_url'], 'pst_unique');
+            $table->unique(['user_id'], 'pst_unique_user');
         });
     }
 
