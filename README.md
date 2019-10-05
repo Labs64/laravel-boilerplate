@@ -71,7 +71,7 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 - JavaScript / CSS hashing
 - Some very useful helper functions to ease your live :)
 - Added CORS Middleware
-- Added creation of other PHP Classes via [artisan console](https://github.com/albertcht/invisible-recaptcha)
+- Added creation of other PHP Classes via [artisan console](https://github.com/einnar82/other-classes)
 
 ## Theme Demo
 ![Gentelella Bootstrap Admin Template](https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/gentelella-admin-template-preview.jpg "Gentelella Theme Browser Preview")
