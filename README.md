@@ -14,16 +14,23 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 
 ## Table of Contents
 
-- [Features](#features)
-- [Theme Demo](#theme-demo)
-- [System Requirements](#system-requirements)
-- [Installation](#installation)
-- [Run](#run)
-- [Docker](#docker) :point_left:
-- [How To's & Modules configuration](#how-tos--modules-configuration)
-- [How to contribute](#how-to-contribute)
-- [Bugs and Feedback](#bugs-and-feedback)
-- [License](#license)
+- [Laravel 5 Boilerplate Project](#laravel-5-boilerplate-project)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Theme Demo](#theme-demo)
+  - [System Requirements](#system-requirements)
+  - [Installation](#installation)
+  - [Troubleshooting](#troubleshooting)
+  - [Run](#run)
+  - [Docker](#docker)
+    - [What's Inside](#whats-inside)
+    - [System Requirements](#system-requirements-1)
+    - [Run](#run-1)
+  - [How To's & Modules configuration](#how-tos--modules-configuration)
+  - [How to contribute](#how-to-contribute)
+    - [Contributors and Supporters](#contributors-and-supporters)
+  - [Bugs and Feedback](#bugs-and-feedback)
+  - [License](#license)
 
 ## Features
 - Administration Dashboard with [Gentelella Admin Theme](https://github.com/puikinsh/gentelella)
@@ -63,6 +70,8 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 - JavaScript / CSS minification
 - JavaScript / CSS hashing
 - Some very useful helper functions to ease your live :)
+- Added CORS Middleware
+- Added creation of other PHP Classes via [artisan console](https://github.com/albertcht/invisible-recaptcha)
 
 ## Theme Demo
 ![Gentelella Bootstrap Admin Template](https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/gentelella-admin-template-preview.jpg "Gentelella Theme Browser Preview")

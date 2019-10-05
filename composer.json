@@ -2,7 +2,21 @@
     "name": "labs64/laravel-boilerplate",
     "description": "Laravel 5 Boilerplate",
     "type": "project",
-    "keywords": ["php", "framework", "laravel", "laravel5", "admin", "theme", "starter", "bootstrap", "boilerplate", "docker", "template", "social-login", "nodejs"],
+    "keywords": [
+        "php",
+        "framework",
+        "laravel",
+        "laravel5",
+        "admin",
+        "theme",
+        "starter",
+        "bootstrap",
+        "boilerplate",
+        "docker",
+        "template",
+        "social-login",
+        "nodejs"
+    ],
     "homepage": "https://github.com/Labs64/laravel-boilerplate",
     "license": "MIT",
     "authors": [
@@ -30,6 +44,7 @@
         "laravel/framework": "5.8.*",
         "laravel/socialite": "^4.1",
         "laravel/tinker": "~1.0",
+        "einnar82/other-classes": "1.1",
         "laravelcollective/html": "5.8.*"
     },
     "require-dev": {
