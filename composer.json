@@ -22,15 +22,15 @@
     "require": {
         "php": ">=7.2",
         "albertcht/invisible-recaptcha": "^1.9",
-        "arcanedev/log-viewer": "~4.5",
+        "arcanedev/log-viewer": "~5.1",
         "creativeorange/gravatar": "^1.0",
         "davejamesmiller/laravel-breadcrumbs": "^5.2",
-        "kyslik/column-sortable": "^5.8",
+        "kyslik/column-sortable": "^6.1",
         "labs64/netlicensingclient-php": "^2.3",
-        "laravel/framework": "5.8.*",
+        "laravel/framework": "^6.0",
         "laravel/socialite": "^4.1",
         "laravel/tinker": "~1.0",
-        "laravelcollective/html": "5.8.*"
+        "laravelcollective/html": "6.0.*"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.8",
