@@ -11,5 +11,5 @@ assignees: ''
 ### Documentation links
 - _TBD_
 
-*Footnote:*
-In the case of unique->tested->accepted feature we'll be happy to include your GitHub handle to the list of contributors on the main Laravel Boilerplate page (README.md) - https://github.com/Labs64/laravel-boilerplate#contributors-and-supporters
+**Footnote:**
+In the case of unique->tested->accepted feature we'll be happy to include your GitHub handle to the list of contributors on the main Laravel Boilerplate page; see also [README.md / Contributors and Supporters](https://github.com/Labs64/laravel-boilerplate#contributors-and-supporters)
