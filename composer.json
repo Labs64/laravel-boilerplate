@@ -33,13 +33,14 @@
         "laravelcollective/html": "5.8.*"
     },
     "require-dev": {
-        "fzaninotto/faker": "^1.8",
-        "mockery/mockery": "1.2.*",
-        "phpunit/phpunit": "^8.1",
         "barryvdh/laravel-debugbar": "^3.2",
         "barryvdh/laravel-ide-helper": "^2.6",
         "doctrine/dbal": "^2.9",
-        "filp/whoops": "^2.3"
+        "filp/whoops": "^2.3",
+        "fzaninotto/faker": "^1.8",
+        "mockery/mockery": "1.2.*",
+        "phpunit/phpunit": "^8.1",
+        "spatie/phpunit-watcher": "^1.12"
     },
     "autoload": {
         "classmap": [
