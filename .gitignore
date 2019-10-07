@@ -36,3 +36,4 @@ _ide_helper.php
 .phpstorm.meta.php
 *.sqlite
 .rocketeer/
+.env.testing
