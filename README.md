@@ -206,7 +206,7 @@ Thank you to all the [contributors](https://github.com/Labs64/laravel-boilerplat
 
 - [Clever Kids](https://clever-kids.eu?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=readme) team for a great support in project structuring.
 - [PluginPass – WordPress PRO Plugin/Theme Licensing](https://wordpress.org/plugins/pluginpass-pro-plugintheme-licensing/) - Easily control the use and monetize your WordPress plugins and themes
-- @veerajongit - a package that does the testing automatically every time the code or the test changes
+- [@veerajongit](https://github.com/veerajongit) - a package that does the testing automatically every time the code or the test changes
 
 ## Bugs and Feedback
 
