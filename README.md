@@ -8,9 +8,9 @@
 <a href="https://packagist.org/packages/labs64/laravel-boilerplate"><img src="https://poser.pugx.org/labs64/laravel-boilerplate/license.svg" alt="License"></a>
 </p>
 
-# Laravel 5 Boilerplate Project
+# Laravel Boilerplate Project
 
-_Laravel Boilerplate_ provides a very flexible and extensible way of building your custom Laravel 5 applications.
+_Laravel Boilerplate_ provides a very flexible and extensible way of building your custom Laravel applications.
 
 ## Table of Contents
 
@@ -148,7 +148,7 @@ Now you can browse the site at [http://localhost:8080](http://localhost:8080)  ð
 
 ## Docker
 
-Here is a Docker based local development environment prepared, which provides a very flexible and extensible way of building your custom Laravel 5 applications.
+Here is a Docker based local development environment prepared, which provides a very flexible and extensible way of building your custom Laravel applications.
 
 ### What's Inside
 This project is based on [docker-compose](https://docs.docker.com/compose/). By default, the following containers are started: _laravel-env (centos:7 based), mysql, nginx_. Additional containers (_phpmyadmin, mailhog_) are externalized into `docker-compose.utils.yml`. The `/var/www/laravel-boilerplate` directory is the web root which is mapped to the nginx container.
@@ -213,8 +213,10 @@ Thanks!
 
 Thank you to all the [contributors](https://github.com/Labs64/laravel-boilerplate/graphs/contributors) on this project. Your help is much appreciated!
 
-- [Photolancer Zone](https://photolancer.zone/?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=readme) team for a great support in project structuring.
-- [DigiPass Laravel](https://github.com/Labs64/DigiPass-laravel) - Membership pricing plans and Access control management for Laravel
+- [Clever Kids](https://clever-kids.eu?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=readme) team for a great support in project structuring.
+- [PluginPass â€“ WordPress PRO Plugin/Theme Licensing](https://wordpress.org/plugins/pluginpass-pro-plugintheme-licensing/) - Easily control the use and monetize your WordPress plugins and themes
+- [@veerajongit](https://github.com/veerajongit) - a package that does the testing automatically every time the code or the test changes
+- [@rainerkent](https://github.com/rainerkent) - Update to Laravel 6
 
 ## Bugs and Feedback
 
