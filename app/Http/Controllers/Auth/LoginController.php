@@ -107,6 +107,9 @@ class LoginController extends Controller
                 ->withErrors($errors);
         }
 
+        $user->last_login = now();
+        $user->save();
+
         return redirect()->intended($this->redirectPath());
     }
 }

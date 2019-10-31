@@ -61,6 +61,11 @@
                 <th>{{ __('views.admin.users.show.table_header_7') }}</th>
                 <td>{{ $user->updated_at }} ({{ $user->updated_at->diffForHumans() }})</td>
             </tr>
+
+            <tr>
+                <th>{{ __('views.admin.users.show.table_header_8') }}</th>
+                <td>{{ $user->last_login }} ({{ $user->last_login->diffForHumans() }})</td>
+            </tr>
             </tbody>
         </table>
     </div>

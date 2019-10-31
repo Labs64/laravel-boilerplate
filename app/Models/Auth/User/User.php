@@ -26,6 +26,7 @@ use Kyslik\ColumnSortable\Sortable;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property \Carbon\Carbon $deleted_at
+ * @property \Carbon\Carbon $last_login
  * @property-read mixed $avatar
  * @property-read mixed $licensee_name
  * @property-read mixed $licensee_number
@@ -88,5 +89,5 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at', 'last_login'];
 }
