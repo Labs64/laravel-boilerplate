@@ -12,33 +12,33 @@ RUN git --version
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
 	&& rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 RUN yum install yum-utils
-RUN yum-config-manager --enable remi-php71
+RUN yum-config-manager --enable remi-php72
 
-RUN yum -y install php71w \
-					         php71w-bcmath \
-					         php71w-cli \
-					         php71w-common \
-					         php71w-curl \
-					         php71w-fpm \
-					         php71w-gd \
-					         php71w-ldap \
-					         php71w-imap \
-					         php71w-intl \
-					         php71w-mbstring \
-					         php71w-mcrypt \
-					         php71w-mysqlnd \
-					         php71w-opcache \
-					         php71w-pdo \
-					         php71w-pear \
-					         php71w-pecl-apcu \
-					         php71w-pecl-imagick \
-					         php71w-pgsql \
-					         php71w-process \
-					         php71w-pspell \
-					         php71w-recode \
-					         php71w-soap \
-					         php71w-tidy \
-					         php71w-xml
+RUN yum -y install php72w \
+					         php72w-bcmath \
+					         php72w-cli \
+					         php72w-common \
+					         php72w-curl \
+					         php72w-fpm \
+					         php72w-gd \
+					         php72w-ldap \
+					         php72w-imap \
+					         php72w-intl \
+					         php72w-mbstring \
+					         php72w-mcrypt \
+					         php72w-mysqlnd \
+					         php72w-opcache \
+					         php72w-pdo \
+					         php72w-pear \
+					         php72w-pecl-apcu \
+					         php72w-pecl-imagick \
+					         php72w-pgsql \
+					         php72w-process \
+					         php72w-pspell \
+					         php72w-recode \
+					         php72w-soap \
+					         php72w-tidy \
+					         php72w-xml
 
 RUN php -v
 
