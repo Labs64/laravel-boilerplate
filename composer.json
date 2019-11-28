@@ -1,6 +1,6 @@
 {
     "name": "labs64/laravel-boilerplate",
-    "description": "Laravel 5 Boilerplate",
+    "description": "Laravel Boilerplate",
     "type": "project",
     "keywords": ["php", "framework", "laravel", "laravel5", "admin", "theme", "starter", "bootstrap", "boilerplate", "docker", "template", "social-login", "nodejs"],
     "homepage": "https://github.com/Labs64/laravel-boilerplate",

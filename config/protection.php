@@ -44,9 +44,9 @@ return [
         ],
         'shop' => [
             'success_url' => env('LABS64_NETLICENSING_SHOP_SUCCESS_URL'),
-            'success_url_title' => env('LABS64_NETLICENSING_SHOP_SUCCESS_URL_TITLE', 'Return to Laravel 5 Boilerplate'),
+            'success_url_title' => env('LABS64_NETLICENSING_SHOP_SUCCESS_URL_TITLE', 'Return to Laravel Boilerplate'),
             'cancel_url' => env('LABS64_NETLICENSING_SHOP_CANCEL_URL'),
-            'cancel_url_title' => env('LABS64_NETLICENSING_SHOP_CANCEL_URL_TITLE', 'Cancel and return to Laravel 5 Boilerplate'),
+            'cancel_url_title' => env('LABS64_NETLICENSING_SHOP_CANCEL_URL_TITLE', 'Cancel and return to Laravel Boilerplate'),
         ]
     ],
 
