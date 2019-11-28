@@ -1,46 +1,43 @@
-FROM centos:7
+FROM centos:8
 
 MAINTAINER Labs64 GmbH info@labs64.com
 
 # Install some must-haves
 RUN yum -y install vim wget sendmail
-RUN yum -y install libtool make automake autoconf nasm libpng-static
 RUN yum -y install git
 RUN git --version
 
-# Install PHP 7.1 on CentOS
-RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
-	&& rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
-RUN yum install yum-utils
-RUN yum-config-manager --enable remi-php72
-
-RUN yum -y install php72w \
-					         php72w-bcmath \
-					         php72w-cli \
-					         php72w-common \
-					         php72w-curl \
-					         php72w-fpm \
-					         php72w-gd \
-					         php72w-ldap \
-					         php72w-imap \
-					         php72w-intl \
-					         php72w-mbstring \
-					         php72w-mcrypt \
-					         php72w-mysqlnd \
-					         php72w-opcache \
-					         php72w-pdo \
-					         php72w-pear \
-					         php72w-pecl-apcu \
-					         php72w-pecl-imagick \
-					         php72w-pgsql \
-					         php72w-process \
-					         php72w-pspell \
-					         php72w-recode \
-					         php72w-soap \
-					         php72w-tidy \
-					         php72w-xml
-
+# Install PHP 7.2 on CentOS
+RUN yum repolist
+RUN yum module list | grep php
+RUN yum module -y install php:7.2
 RUN php -v
+
+RUN yum -y install php
+RUN yum -y install php-bcmath
+RUN yum -y install php-cli
+RUN yum -y install php-common
+RUN yum -y install php-curl
+RUN yum -y install php-fpm
+RUN yum -y install php-gd
+RUN yum -y install php-ldap
+RUN yum -y install php-intl
+RUN yum -y install php-mbstring
+RUN yum -y install php-mysqlnd
+RUN yum -y install php-opcache
+RUN yum -y install php-pdo
+RUN yum -y install php-pear
+RUN yum -y install php-pecl-apcu
+RUN yum -y install php-pgsql
+RUN yum -y install php-process
+RUN yum -y install php-recode
+RUN yum -y install php-soap
+RUN yum -y install php-xml
+#RUN yum -y install php-imap
+#RUN yum -y install php-mcrypt
+#RUN yum -y install php-pecl-imagick
+#RUN yum -y install php-pspell
+#RUN yum -y install php-tidy
 
 # Prepare PHP environment
 COPY config/php/php-fpm.conf /etc/php-fpm.conf
@@ -54,7 +51,7 @@ RUN mv composer.phar /usr/bin/composer
 RUN composer --version
 
 # Install Node.js
-RUN curl -sL https://rpm.nodesource.com/setup_7.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN yum -y install nodejs
 RUN yum list installed nodejs
 RUN node -v

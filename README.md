@@ -71,10 +71,10 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 
 ## System Requirements
 To be able to run Laravel Boilerplate you have to meet the following requirements:
-- PHP > 7.1
+- PHP >= 7.2
 - PHP Extensions: PDO, cURL, Mbstring, Tokenizer, Mcrypt, XML, GD
-- Node.js > 6.0
-- Composer > 1.0.0
+- Node.js >= 8.x
+- Composer >= 1.9.x
 
 ## Installation
 1. Install Composer using detailed installation instructions [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
@@ -123,7 +123,7 @@ $ php artisan migrate --seed
 
 - If you get a password error try this command:
 ```
-# ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root'; 
+# ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
 ```
 
 ## Run
