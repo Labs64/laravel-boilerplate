@@ -69,7 +69,7 @@
             </tbody>
         </table>
         <div class="pull-right">
-            Powered by <a href="http://netlicensing.io/?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=poweredby" target="_blank"/>Labs64 NetLicensing</a>
+            Powered by <a href="http://l64.cc/nlaff/VXZPYHCTC" target="_blank"/>Labs64 NetLicensing</a>
         </div>
         <div class="pull-right">
             {{ $users->links() }}
@@ -77,8 +77,8 @@
         <div>
             <h4>How To</h4>
             <ul>
-              <li>Manage available membership plans - <a href="https://go.netlicensing.io/console/v2/content/vendor/licensetemplate.xhtml?filterkey=productModuleNumber&filtervalue={{ config('protection.membership.product_module_number') }}" target="_blank"/>NetLicensing Management Console » License Templates</a></li>
-              <li>View and manage registered users - <a href="https://go.netlicensing.io/console/v2/content/vendor/licensee.xhtml?filterkey=productNumber&filtervalue={{ config('protection.product_number') }}" target="_blank"/>NetLicensing Management Console » Licensees</a></li>
+              <li>Manage available membership plans - <a href="https://ui.netlicensing.io/#/modules/LB-DEMO/{{ config('protection.membership.product_module_number') }}/edit" target="_blank"/>NetLicensing Management Console » License Templates</a></li>
+              <li>View and manage registered users - <a href="https://ui.netlicensing.io/#/customers?productNumber={{ config('protection.product_number') }}" target="_blank"/>NetLicensing Management Console » Licensees</a></li>
             </ul>
         </div>
     </div>

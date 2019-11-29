@@ -51,7 +51,6 @@ RUN mv composer.phar /usr/bin/composer
 RUN composer --version
 
 # Install Node.js
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN yum -y install nodejs
 RUN yum list installed nodejs
 RUN node -v

@@ -43,14 +43,14 @@ class Protection
                     $authError = true;
                 }
 
-                switch (env('LABS64_NETLICENSING_SECURITY_MODE')) {
+                switch (env('NETLICENSING_SECURITY_MODE')) {
                     case Context::BASIC_AUTHENTICATION:
-                        if (empty(env('LABS64_NETLICENSING_USERNAME')) || empty('LABS64_NETLICENSING_PASSWORD')) {
+                        if (empty(env('NETLICENSING_USERNAME')) || empty('NETLICENSING_PASSWORD')) {
                             $authError = true;
                         }
                         break;
                     case Context::APIKEY_IDENTIFICATION:
-                        if (empty(env('LABS64_NETLICENSING_APIKEY'))) {
+                        if (empty(env('NETLICENSING_APIKEY'))) {
                             $authError = true;
                         }
                         break;

@@ -85,7 +85,7 @@
                 <h3>{{ __('views.backend.section.navigation.sub_header_3') }}</h3>
                 <ul class="nav side-menu">
                   <li>
-                      <a href="http://netlicensing.io/?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=credits" target="_blank" title="Online Software License Management"><i class="fa fa-lock" aria-hidden="true"></i>NetLicensing</a>
+                      <a href="http://l64.cc/nlaff/VXZPYHCTC" target="_blank" title="Online Software License Management"><i class="fa fa-lock" aria-hidden="true"></i>Labs64 NetLicensing</a>
                   </li>
                 </ul>
             </div>
