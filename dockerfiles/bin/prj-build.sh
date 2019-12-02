@@ -4,6 +4,7 @@
 composer install --prefer-dist --no-interaction
 
 # Generate application key
+php artisan view:clear
 php artisan key:generate
 
 # Verify environment config
