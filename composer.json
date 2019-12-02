@@ -29,7 +29,7 @@
         "labs64/netlicensingclient-php": "^2.4",
         "laravel/framework": "^6.0",
         "laravel/socialite": "^4.1",
-        "laravel/tinker": "~1.0",
+        "laravel/tinker": "~2.0",
         "laravelcollective/html": "6.0.*"
     },
     "require-dev": {
