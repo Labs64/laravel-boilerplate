@@ -1,12 +1,13 @@
 version: '3'
 services:
   mysql:
-    image: mysql:latest
+    image: mysql:5
     volumes:
       - "./data/db:/var/lib/mysql"
     ports:
       - "3306:3306"
     restart: always
+    #command: --default_authentication_plugin=mysql_native_password
     environment:
       - MYSQL_ROOT_PASSWORD=secret
       - MYSQL_DATABASE=laravel_boilerplate
