@@ -33,7 +33,8 @@ RUN yum -y install \
     php-process \
     php-recode \
     php-soap \
-    php-xml
+    php-xml \
+    php-zip
 
 #RUN yum -y install php-imap php-mcrypt php-pecl-imagick php-pspell php-tidy
 
