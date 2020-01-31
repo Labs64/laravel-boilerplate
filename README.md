@@ -43,6 +43,7 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 - Helper class ```Meta``` blade directive ```@meta``` to ease work with meta tags & properties
 - Models for Users and Roles
 - Added Auth controller to allow registration activation by email
+- **Guided Tour** by - [GuideChimp](https://github.com/Labs64/GuideChimp)
 - Extended Auth configuration by:
     - Ability to switch on/off user registration
     - Set up default user role
@@ -205,6 +206,7 @@ Thanks!
 Thank you to all the [contributors](https://github.com/Labs64/laravel-boilerplate/graphs/contributors) on this project. Your help is much appreciated!
 
 - [Clever Kids](https://clever-kids.eu?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=readme) team for a great support in project structuring.
+- [GuideChimp](https://github.com/Labs64/GuideChimp) A simple, lightweight, clean and small library for creating guided product tours for your web app.
 - [PluginPass – WordPress PRO Plugin/Theme Licensing](https://wordpress.org/plugins/pluginpass-pro-plugintheme-licensing/) - Easily control the use and monetize your WordPress plugins and themes
 - [@veerajongit](https://github.com/veerajongit) - a package that does the testing automatically every time the code or the test changes
 - [@rainerkent](https://github.com/rainerkent) - Update to Laravel 6
