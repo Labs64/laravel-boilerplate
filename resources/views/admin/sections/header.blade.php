@@ -21,7 +21,7 @@
                     </ul>
                 </li>
 
-                <li class="guide"><span>Guide</span></li>
+                <li class="guide"><span>Start Tour</span></li>
             </ul>
         </nav>
     </div>

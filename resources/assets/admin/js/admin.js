@@ -25,14 +25,20 @@
     guideChimp.setTour([
         {
             element: '.guide',
-            title: 'Step 1',
-            description: 'Step 1',
+            title: 'Start Guided Tour',
+            description: 'Start the tour by clicking this menu item. You can also show the tour to all new customers and walk them through the website.',
         },
         {
             element:  '.tile_count',
-            title: 'Step 2',
-            description: 'Step 2',
+            title: 'Application Summary',
+            description: 'You can use these components to show the current application or customer stats.',
         },
+        {
+            element:  '#log_activity > .col-md-3',
+            title: 'Log Levels',
+            description: 'This is a component, which is providing you with information about application logs.',
+        },
+
     ]);
 
     if (guideData.wasStarted) {
