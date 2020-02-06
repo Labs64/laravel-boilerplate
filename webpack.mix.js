@@ -21,12 +21,15 @@ const mix = require('laravel-mix');
 mix.scripts([
     'node_modules/jquery/dist/jquery.js',
     'node_modules/pace-progress/pace.js',
+    'node_modules/guidechimp/dist/guidechimp.min.js',
+    'resources/assets/js/app.js',
 
 ], 'public/assets/app/js/app.js').version();
 
 mix.styles([
     'node_modules/font-awesome/css/font-awesome.css',
     'node_modules/pace-progress/themes/blue/pace-theme-minimal.css',
+    'node_modules/guidechimp/dist/guidechimp.min.css',
 ], 'public/assets/app/css/app.css').version();
 
 mix.copy([

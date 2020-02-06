@@ -94,6 +94,7 @@
   "views.welcome.register": "Sign up",
   "views.welcome.admin": "Dashboard",
   "views.welcome.member_area": "Member Area",
+  "views.welcome.guide": "Guide",
   "**************************** Admin dashboard *****************": "Admin dashboard i18n",
   "views.admin.dashboard.title": "Dashboard",
   "views.admin.dashboard.count_0": "Total users",
