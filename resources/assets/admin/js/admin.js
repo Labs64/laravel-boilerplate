@@ -1,4 +1,4 @@
-(function ($) {
+(function($){
     var guideData = localStorage.getItem('guideData')
         ? JSON.parse(localStorage.getItem('guideData'))
         : { wasStarted: false, currentStep: 0 };
@@ -20,14 +20,16 @@
         localStorage.setItem('guideData', JSON.stringify(guideData));
     });
 
+    var $menuSections = $('.nav_menu');
+
     guideChimp.setTour([
         {
-            element: '.content > .title',
+            element: '.guide',
             title: 'Step 1',
             description: 'Step 1',
         },
         {
-            element: '.content > .description',
+            element:  '.tile_count',
             title: 'Step 2',
             description: 'Step 2',
         },
@@ -37,7 +39,8 @@
         guideChimp.start(guideData.currentStep, true);
     }
 
-    $('#guidechimp').on('click', function(){
+    $('.guide').on('click', function(){
         guideChimp.start();
-    })
+    });
+
 })(jQuery);

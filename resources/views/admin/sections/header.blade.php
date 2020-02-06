@@ -20,6 +20,8 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="guide"><span>Guide</span></li>
             </ul>
         </nav>
     </div>
