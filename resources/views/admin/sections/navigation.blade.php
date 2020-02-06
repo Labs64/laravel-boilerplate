@@ -85,7 +85,10 @@
                 <h3>{{ __('views.backend.section.navigation.sub_header_3') }}</h3>
                 <ul class="nav side-menu">
                   <li>
-                      <a href="http://l64.cc/nlaff/VXZPYHCTC" target="_blank" title="Online Software License Management"><i class="fa fa-lock" aria-hidden="true"></i>Labs64 NetLicensing</a>
+                      <a href="http://l64.cc/nlaff/VXZPYHCTC" target="_blank" title="Online Software License Management"><i class="fa fa-external-link" aria-hidden="true"></i>Labs64 NetLicensing</a>
+                  </li>
+                  <li>
+                      <a href="https://github.com/Labs64/GuideChimp/" target="_blank" title="Interactive Guided Product Tours"><i class="fa fa-external-link" aria-hidden="true"></i>GuideChimp</a>
                   </li>
                 </ul>
             </div>
