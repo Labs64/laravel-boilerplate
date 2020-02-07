@@ -1,26 +1,24 @@
 (function($){
-    var guideData = localStorage.getItem('guideData')
-        ? JSON.parse(localStorage.getItem('guideData'))
+    var guidedTourData = localStorage.getItem('guidedTourData')
+        ? JSON.parse(localStorage.getItem('guidedTourData'))
         : { isStarted: false, currentStep: 0 };
 
     var guideChimp = new GuideChimp();
 
-    guideChimp.on('onBeforeChange', function (guide, fromStep, toStep) {
+    guideChimp.on('onBeforeChange', function (tour, fromStep, toStep) {
         if (toStep.page) {
-            guideData.currentStep = guide.steps.indexOf(toStep);
-            guideData.isStarted = true;
-            localStorage.setItem('guideData', JSON.stringify(guideData));
+            guidedTourData.currentStep = tour.steps.indexOf(toStep);
+            guidedTourData.isStarted = true;
+            localStorage.setItem('guidedTourData', JSON.stringify(guidedTourData));
             window.location.href = toStep.page;
         }
     });
 
-    guideChimp.on('onStop', function (guide, fromStep, toStep) {
-        guideData.currentStep = 0;
-        guideData.isStarted = false;
-        localStorage.setItem('guideData', JSON.stringify(guideData));
+    guideChimp.on('onStop', function () {
+        guidedTourData.currentStep = 0;
+        guidedTourData.isStarted = false;
+        localStorage.setItem('guidedTourData', JSON.stringify(guidedTourData));
     });
-
-    var $menuSections = $('.nav_menu');
 
     guideChimp.setTour([
         {
@@ -41,12 +39,11 @@
 
     ]);
 
-    if (guideData.isStarted) {
-        guideChimp.start(guideData.currentStep, true);
+    if (guidedTourData.isStarted) {
+        guideChimp.start(guidedTourData.currentStep, true);
     }
 
-    $('.guide').on('click', function(){
+    $('.guided-tour').on('click', function(){
         guideChimp.start();
     });
-
 })(jQuery);
