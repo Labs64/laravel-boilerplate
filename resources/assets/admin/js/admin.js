@@ -6,7 +6,7 @@
     var guideChimp = new GuideChimp();
 
     guideChimp.on('onBeforeChange', function (tour, fromStep, toStep) {
-        if (toStep.page) {
+        if (toStep.page && window.location.href.indexOf(toStep.page) < 0) {
             guidedTourData.currentStep = tour.steps.indexOf(toStep);
             guidedTourData.isStarted = true;
             localStorage.setItem('guidedTourData', JSON.stringify(guidedTourData));
