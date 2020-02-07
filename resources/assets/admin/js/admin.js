@@ -1,14 +1,14 @@
 (function($){
     var guideData = localStorage.getItem('guideData')
         ? JSON.parse(localStorage.getItem('guideData'))
-        : { wasStarted: false, currentStep: 0 };
+        : { isStarted: false, currentStep: 0 };
 
     var guideChimp = new GuideChimp();
 
     guideChimp.on('onBeforeChange', function (guide, fromStep, toStep) {
         if (toStep.page) {
             guideData.currentStep = guide.steps.indexOf(toStep);
-            guideData.wasStarted = true;
+            guideData.isStarted = true;
             localStorage.setItem('guideData', JSON.stringify(guideData));
             window.location.href = toStep.page;
         }
@@ -16,7 +16,7 @@
 
     guideChimp.on('onStop', function (guide, fromStep, toStep) {
         guideData.currentStep = 0;
-        guideData.wasStarted = false;
+        guideData.isStarted = false;
         localStorage.setItem('guideData', JSON.stringify(guideData));
     });
 
@@ -41,7 +41,7 @@
 
     ]);
 
-    if (guideData.wasStarted) {
+    if (guideData.isStarted) {
         guideChimp.start(guideData.currentStep, true);
     }
 
