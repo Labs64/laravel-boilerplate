@@ -2,7 +2,7 @@
 
 @section('content')
     <div >
-        <h1>Recreational Forest Booking System</h1>
+        <h1>About</h1>
     </div>
     <div class="m-b-md">
     {{--    Sample users:<br/>

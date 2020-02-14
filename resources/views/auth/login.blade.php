@@ -1,3 +1,4 @@
+
 @extends('auth.layouts.auth')
 
 @section('body_class','login')

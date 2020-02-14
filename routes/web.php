@@ -70,6 +70,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
 Route::get('/', 'HomeController@index');
 
+
+Route::get('/contact', function(){
+    return view('contact');
+});
+
+
+Route::get('/about', function(){
+    return view('about');
+});
 /**
  * Membership
  */
@@ -78,3 +87,6 @@ Route::group(['as' => 'protection.'], function () {
     Route::get('membership/access-denied', 'MembershipController@failed')->name('membership.failed');
     Route::get('membership/clear-cache/', 'MembershipController@clearValidationCache')->name('membership.clear_validation_cache');
 });
+
+Route::get('contact-us', 'ContactUSController@contactUS');
+Route::post('contact-us', ['as'=>'contactus.store','uses'=>'ContactUSController@contactUSPost']);
