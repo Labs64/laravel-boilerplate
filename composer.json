@@ -1,6 +1,6 @@
 {
     "name": "labs64/laravel-boilerplate",
-    "description": "Laravel 5 Boilerplate",
+    "description": "Laravel Boilerplate",
     "type": "project",
     "keywords": ["php", "framework", "laravel", "laravel5", "admin", "theme", "starter", "bootstrap", "boilerplate", "docker", "template", "social-login", "nodejs"],
     "homepage": "https://github.com/Labs64/laravel-boilerplate",
@@ -26,10 +26,10 @@
         "creativeorange/gravatar": "^1.0",
         "davejamesmiller/laravel-breadcrumbs": "^5.2",
         "kyslik/column-sortable": "^6.1",
-        "labs64/netlicensingclient-php": "^2.3",
+        "labs64/netlicensingclient-php": "^2.4",
         "laravel/framework": "^6.0",
         "laravel/socialite": "^4.1",
-        "laravel/tinker": "~1.0",
+        "laravel/tinker": "~2.0",
         "laravelcollective/html": "6.0.*"
     },
     "require-dev": {

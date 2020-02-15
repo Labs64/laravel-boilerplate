@@ -61,7 +61,7 @@ class NetLicensing
             $protectionValidation->validation_result = $validations;
 
             //get ttl
-            $protectionValidation->ttl = new Carbon((string)NetLicensingService::getInstance()->lastCurlInfo()->response['ttl']);
+            $protectionValidation->ttl = new Carbon($validationResult->getTtl()->format(DATE_ISO8601));
 
             $protectionValidation->user()->associate($user);
             $protectionValidation->save();

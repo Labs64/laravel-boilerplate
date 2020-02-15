@@ -7,15 +7,15 @@ return [
     |--------------------------------------------------------------------------
     |
     | Your username and password for connecting with Labs64 NetLicensing RESTFul
-    | If you don`t have account sign up in https://go.netlicensing.io/console/v2/content/register.xhtml
+    | If you don`t have account sign up in https://ui.netlicensing.io/#/register
     |
     */
 
     'connection' => [
-        'username' => env('LABS64_NETLICENSING_USERNAME', 'demo'),
-        'password' => env('LABS64_NETLICENSING_PASSWORD', 'demo'),
-        'api_key' => env('LABS64_NETLICENSING_APIKEY'),
-        'security_mode' => env('LABS64_NETLICENSING_SECURITY_MODE', 'APIKEY'), // Allowed values: BASIC_AUTH|APIKEY
+        'username' => env('NETLICENSING_USERNAME', 'laravel'),
+        'password' => env('NETLICENSING_PASSWORD', 'laravel'),
+        'api_key' => env('NETLICENSING_APIKEY'),
+        'security_mode' => env('NETLICENSING_SECURITY_MODE', 'APIKEY'), // Allowed values: BASIC_AUTH|APIKEY
     ],
 
     /*
@@ -24,11 +24,11 @@ return [
     |--------------------------------------------------------------------------
     |
     | Your app product number
-    | If you don`t have product, create a new product at https://go.netlicensing.io/console/v2/content/vendor/product.xhtml
+    | If you don`t have product, create a new product at https://ui.netlicensing.io/#/products
     |
     */
 
-    'product_number' => env('LABS64_NETLICENSING_PRODUCT_NUMBER'),
+    'product_number' => env('NETLICENSING_PRODUCT_NUMBER'),
 
 
     'defaults' => [
@@ -43,10 +43,10 @@ return [
             'name' => 'name'
         ],
         'shop' => [
-            'success_url' => env('LABS64_NETLICENSING_SHOP_SUCCESS_URL'),
-            'success_url_title' => env('LABS64_NETLICENSING_SHOP_SUCCESS_URL_TITLE', 'Return to Laravel 5 Boilerplate'),
-            'cancel_url' => env('LABS64_NETLICENSING_SHOP_CANCEL_URL'),
-            'cancel_url_title' => env('LABS64_NETLICENSING_SHOP_CANCEL_URL_TITLE', 'Cancel and return to Laravel 5 Boilerplate'),
+            'success_url' => env('NETLICENSING_SHOP_SUCCESS_URL'),
+            'success_url_title' => env('NETLICENSING_SHOP_SUCCESS_URL_TITLE', 'Return to Laravel Boilerplate'),
+            'cancel_url' => env('NETLICENSING_SHOP_CANCEL_URL'),
+            'cancel_url_title' => env('NETLICENSING_SHOP_CANCEL_URL_TITLE', 'Cancel and return to Laravel Boilerplate'),
         ]
     ],
 
@@ -56,7 +56,7 @@ return [
     'except_roles' => ['administrator'],
 
     'membership' => [
-        'product_module_number' =>  env('LABS64_NETLICENSING_PRODUCT_MODULE_NUMBER'),
+        'product_module_number' =>  env('NETLICENSING_PRODUCT_MODULE_NUMBER'),
     ],
 
 ];

@@ -15,6 +15,7 @@
                 <th>@sortablelink('confirmed', __('views.admin.users.index.table_header_4'),['page' => $users->currentPage()])</th>
                 <th>@sortablelink('created_at', __('views.admin.users.index.table_header_5'),['page' => $users->currentPage()])</th>
                 <th>@sortablelink('updated_at', __('views.admin.users.index.table_header_6'),['page' => $users->currentPage()])</th>
+                <th>@sortablelink('last_login', __('views.admin.users.index.table_header_7'),['page' => $users->currentPage()])</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -39,6 +40,7 @@
                         @endif</td>
                     <td>{{ $user->created_at }}</td>
                     <td>{{ $user->updated_at }}</td>
+                    <td>{{ $user->last_login }}</td>
                     <td>
                         <a class="btn btn-xs btn-primary" href="{{ route('admin.users.show', [$user->id]) }}" data-toggle="tooltip" data-placement="top" data-title="{{ __('views.admin.users.index.show') }}">
                             <i class="fa fa-eye"></i>

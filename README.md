@@ -43,6 +43,7 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 - Helper class ```Meta``` blade directive ```@meta``` to ease work with meta tags & properties
 - Models for Users and Roles
 - Added Auth controller to allow registration activation by email
+- **Guided Tour** by - [GuideChimp](https://github.com/Labs64/GuideChimp) :thumbsup:
 - Extended Auth configuration by:
     - Ability to switch on/off user registration
     - Set up default user role
@@ -71,10 +72,10 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 
 ## System Requirements
 To be able to run Laravel Boilerplate you have to meet the following requirements:
-- PHP > 7.1
+- PHP >= 7.2
 - PHP Extensions: PDO, cURL, Mbstring, Tokenizer, Mcrypt, XML, GD
-- Node.js > 6.0
-- Composer > 1.0.0
+- Node.js >= 8.x
+- Composer >= 1.9.x
 
 ## Installation
 1. Install Composer using detailed installation instructions [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
@@ -123,7 +124,7 @@ $ php artisan migrate --seed
 
 - If you get a password error try this command:
 ```
-# ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root'; 
+# ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
 ```
 
 ## Run
@@ -205,6 +206,7 @@ Thanks!
 Thank you to all the [contributors](https://github.com/Labs64/laravel-boilerplate/graphs/contributors) on this project. Your help is much appreciated!
 
 - [Clever Kids](https://clever-kids.eu?utm_source=Laravel_Boilerplate&utm_medium=github&utm_campaign=laravel_boilerplate&utm_content=readme) team for a great support in project structuring.
+- [GuideChimp](https://github.com/Labs64/GuideChimp) - A simple, lightweight, clean and small library for creating guided product tours for your web app.
 - [PluginPass – WordPress PRO Plugin/Theme Licensing](https://wordpress.org/plugins/pluginpass-pro-plugintheme-licensing/) - Easily control the use and monetize your WordPress plugins and themes
 - [@veerajongit](https://github.com/veerajongit) - a package that does the testing automatically every time the code or the test changes
 - [@rainerkent](https://github.com/rainerkent) - Update to Laravel 6
