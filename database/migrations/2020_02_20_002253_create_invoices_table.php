@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddNewColumnBookingsTable extends Migration
+class CreateInvoicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AddNewColumnBookingsTable extends Migration
      */
     public function up()
     {
-        Schema::table('bookings', function (Blueprint $table) {
-            $table->integer('num_of_participant');
-        });// //
+        Schema::create('invoices', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -25,6 +26,6 @@ class AddNewColumnBookingsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('invoices');
     }
 }
