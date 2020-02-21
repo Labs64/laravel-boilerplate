@@ -1,30 +1,28 @@
 @extends('layouts.welcome')
-
-
 @section('content')
-
 
     <div>
         <div><h2>Get In Touch</h2> </div>
         <table>
             <tr>
-                <td><i></i></td>
-                <td><p >Cluster of Sports, Recreational and Edutourism, Business Management Division,<br> Office of Deputy Vice Chancellor (Development),<br> 81310 UTM Johor Bahru, Johor Darul Takzim.</p></td>
-                <td><i></i></td>
-                <td><p>SENIOR MANAGER EN. ZAIDI BIN HJ. MOHMOD: (+607) 553 0167 / (+6012) 717 4861
-                    <br><br>General Office : (+607) 553 1216<br><br> Fax : (+607) 5530582</p></td>
+                <td><p>Cluster of Sports, Recreational and Edutourism, Business Management Division,<br> 
+                    Office of Deputy Vice Chancellor (Development),<br> 
+                    81310 UTM Johor Bahru, Johor Darul Takzim.</p>
+                </td>
+            </tr>
+            <tr><p>SENIOR MANAGER EN. ZAIDI BIN HJ. MOHMOD:<br> (+607) 553 0167 / (+6012) 717 4861
+                    <br><br>General Office : (+607) 553 1216<br><br> Fax : (+607) 5530582</p>
+                </td>
+            </tr>
             <tr>
-                <td><i></i></td>
-                <td><p></p></td>
-                <td><i></i></td>
                 <td><p>OFFICE HOUR<br>
-                                                          Sunday to Wednesday<br>
-                                                          8.30 am – 1.00 pm<br>
-                                                          2.00 pm – 5.30 pm<br>
-                                                         <br>
-                                                         Thursday<br>
-                                                         8.30 am – 1.00 pm<br>
-                                                         2.00 pm – 5.30 pm<br></p></td>
+                    Sunday to Wednesday<br>
+                    8.30 am – 1.00 pm<br>
+                    2.00 pm – 5.30 pm<br>
+                    <br>
+                    Thursday<br>
+                    8.30 am – 1.00 pm<br>
+                    2.00 pm – 5.30 pm<br></p></td>
             </tr>
         </table>
     </div>
