@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Package;
+use App\Models\Package;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
 class PackageController extends Controller
 {
     /**
@@ -14,7 +13,18 @@ class PackageController extends Controller
      */
     public function index()
     {
+        // dd('hello');
+        $query = Package::select('name','type','description','category_id','price','active')->groupBy('type')->get();
+     //dd($query);
+        return view('packages',compact('query'));
+    }
+
+    public function getPackage($type)
+    {
         //
+        // dd('asdasf');
+        $query = Package::where('type', $type)->get();
+        return response()->json($query);
     }
 
     /**

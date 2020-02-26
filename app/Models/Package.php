@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Package extends Model
 {
     //
-    use SoftDeletes;
+    // use SoftDeletes;
 
     protected $table = 'package';
 
@@ -17,7 +17,9 @@ class Package extends Model
         'type',
         'description',
         'active',
-        'price'
+        'price',
+        'min_person',
+        
     ];
 
     public function category() {

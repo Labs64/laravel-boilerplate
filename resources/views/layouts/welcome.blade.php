@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
-    <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <head>
         <title>URF Booking System</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    
-
-
+        <style>
+          img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          </style>
         <!-- Laravel variables for js -->
         @tojs
     </head>
-    <body>
-        <body>
-      
+    <body>          
             <nav class="navbar navbar-default">
+              <img style="width:100%;height:auto;" src="https://www.utm.my/edutourism/files/2018/11/edu-logo.png"/>
               <div class="container-fluid">
                 <div class="navbar-header" style>
                   <a class="navbar-brand" href="#">UTM Recreational Forest</a>
                 </div>
                 <ul class="nav navbar-nav">
-                  <li class="active"><a href="#">Home</a></li>
+                <li class><a href="{{url('/welcome')}}">Home</a></li>
                   
                   <li><a href="{{ url('/about') }}">About</a></li>
-                  <li><a href="#">Staff Directory</a></li>
+                  
                   <li><a href="{{ url('/contact') }}">Contact Us</a></li>
-                  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Packages <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Page 1-1</a></li>
-                      <li><a href="#">Page 1-2</a></li>
-                      <li><a href="#">Page 1-3</a></li>
-                    </ul>
-                  </li>
+                  <li><a href="{{ route('package') }}">Packages</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (Route::has('login'))
@@ -68,4 +65,6 @@
                 </div>
             </div>
     </body>
+
 </html>
+

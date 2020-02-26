@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Package;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,6 +81,20 @@ Route::get('/contact', function(){
 Route::get('/about', function(){
     return view('about');
 });
+
+// Route::get('/packages', function(){
+//     return view('packages');
+// });
+
+Route::get('/packages','PackageController@index')->name('package');
+
+
+Route::get('/welcome', function(){
+
+    return view('welcome');
+});
+
+
 /**
  * Membership
  */

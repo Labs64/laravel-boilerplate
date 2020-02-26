@@ -6,10 +6,10 @@ use App\Models\ContactUS;
 use Mail;
 class ContactUSController extends Controller
 {
-   public function contactUS()
-{
-return view('contactUS');
-} 
+    public function contactUS()
+    {
+        return view('contactUS');
+    } 
    /** * Show the application dashboard. * * @return \Illuminate\Http\Response */
    public function contactUSPost(Request $request) 
    {
@@ -17,15 +17,16 @@ return view('contactUS');
     ContactUS::create($request->all()); 
    
     Mail::send('email',
-       array(
+        array(
            'name' => $request->get('name'),
            'email' => $request->get('email'),
            'user_message' => $request->get('message')
-       ), function($message)
-   {
-       $message->from('saquib.gt@gmail.com');
-       $message->to('saquib.rizwan@cloudways.com', 'Admin')->subject('Cloudways Feedback');
-   });
+        ), 
+        function($message)
+        {
+            $message->from('saquib.gt@gmail.com');
+            $message->to('saquib.rizwan@cloudways.com', 'Admin')->subject('Cloudways Feedback');
+        });
     return back()->with('success', 'Thanks for contacting us!'); 
    }
 }
