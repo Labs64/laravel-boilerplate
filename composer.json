@@ -9,7 +9,7 @@
         {
             "name": "Labs64 GmbH",
             "email": "info@labs64.com",
-            "homepage": "http://www.labs64.com"
+            "homepage": "https://www.labs64.com"
         }
     ],
     "support": {
@@ -20,7 +20,7 @@
         "docs": "https://github.com/Labs64/laravel-boilerplate"
     },
     "require": {
-        "php": ">=7.2",
+        "php": ">=7.2.5",
         "albertcht/invisible-recaptcha": "^1.9",
         "arcanedev/log-viewer": "~5.1",
         "creativeorange/gravatar": "^1.0",
