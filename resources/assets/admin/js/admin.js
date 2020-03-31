@@ -4,16 +4,16 @@
         : { isStarted: false, currentStep: 0 };
 
     var guideChimp = new GuideChimp();
-
-    guideChimp.on('onBeforeChange', function (tour, fromStep, toStep) {
-        if (toStep.page && window.location.href.indexOf(toStep.page) < 0) {
-            guidedTourData.currentStep = tour.steps.indexOf(toStep);
+/*
+    guideChimp.on('onBeforeChange', function (tour, to, from) {
+        if (from.page && window.location.href.indexOf(from.page) < 0) {
+            guidedTourData.currentStep = tour.steps.indexOf(from);
             guidedTourData.isStarted = true;
             localStorage.setItem('guidedTourData', JSON.stringify(guidedTourData));
-            window.location.href = toStep.page;
+            window.location.href = from.page;
         }
     });
-
+*/
     guideChimp.on('onStop', function () {
         guidedTourData.currentStep = 0;
         guidedTourData.isStarted = false;
