@@ -1,7 +1,5 @@
 FROM centos:8
 
-MAINTAINER Labs64 GmbH info@labs64.com
-
 # Install some must-haves
 RUN yum -y install vim wget sendmail
 RUN yum -y install git
