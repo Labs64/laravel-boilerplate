@@ -28,18 +28,6 @@
     text-align: left;
 }
 
-.login .btn-google-plus {
-    background-color: #dd4b39;
-    border-color: #dd4b39;
-}
-
-.login .btn-google-plus:hover {
-    background-color: #dd4b39;
-    border-color: #dd4b39;
-    opacity: 0.9;
-    text-decoration: none;
-}
-
 .login .btn-facebook {
     background-color: #3b5998;
     border-color: #3b5998;

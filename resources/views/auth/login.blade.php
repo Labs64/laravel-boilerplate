@@ -49,10 +49,6 @@
                         <div class="separator">
                             <span>{{ __('views.auth.login.message_0') }}</span>
                             <div>
-                                <a href="{{ route('social.redirect', ['google']) }}" class="btn btn-success btn-google-plus">
-                                    <i class="fa fa-google-plus"></i>
-                                    Google+
-                                </a>
                                 <a href="{{ route('social.redirect', ['facebook']) }}" class="btn btn-success btn-facebook">
                                     <i class="fa fa-facebook"></i>
                                     Facebook
