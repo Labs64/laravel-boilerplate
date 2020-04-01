@@ -64,6 +64,7 @@ mix.scripts([
     'node_modules/gentelella/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js',
     'node_modules/gentelella/build/js/custom.js',
     'node_modules/guidechimp/dist/guidechimp.min.js',
+    'node_modules/guidechimp/dist/plugins/multiPage.min.js',
     'resources/assets/admin/js/admin.js',
 ], 'public/assets/admin/js/admin.js').version();
 

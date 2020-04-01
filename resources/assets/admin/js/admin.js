@@ -1,26 +1,8 @@
 (function($){
-    var guidedTourData = localStorage.getItem('guidedTourData')
-        ? JSON.parse(localStorage.getItem('guidedTourData'))
-        : { isStarted: false, currentStep: 0 };
+    // enable plugins
+    GuideChimp.extend(guideChimpPluginMultiPage);
 
-    var guideChimp = new GuideChimp();
-/*
-    guideChimp.on('onBeforeChange', function (tour, to, from) {
-        if (from.page && window.location.href.indexOf(from.page) < 0) {
-            guidedTourData.currentStep = tour.steps.indexOf(from);
-            guidedTourData.isStarted = true;
-            localStorage.setItem('guidedTourData', JSON.stringify(guidedTourData));
-            window.location.href = from.page;
-        }
-    });
-*/
-    guideChimp.on('onStop', function () {
-        guidedTourData.currentStep = 0;
-        guidedTourData.isStarted = false;
-        localStorage.setItem('guidedTourData', JSON.stringify(guidedTourData));
-    });
-
-    guideChimp.setTour([
+    var guide = GuideChimp([
         {
             element: '.guide',
             title: 'Start Guided Tour',
@@ -36,14 +18,9 @@
             title: 'Log Levels',
             description: 'This is a component, which is providing you with information about application logs.',
         },
-
     ]);
 
-    if (guidedTourData.isStarted) {
-        guideChimp.start(guidedTourData.currentStep, true);
-    }
-
     $('.guided-tour').on('click', function(){
-        guideChimp.start();
+        guide.start();
     });
 })(jQuery);
