@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use App\Models\Auth\Roles;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -106,7 +106,13 @@ class LoginController extends Controller
                 ->withInput($request->only($this->username(), 'remember'))
                 ->withErrors($errors);
         }
-
-        return redirect()->intended($this->redirectPath());
+        if(auth()->user()->hasRole('administrator'))
+        {
+             return redirect()->intended('admin/');
+        }
+           
+        else
+             return redirect()->intended($this->redirectPath());
+        
     }
 }

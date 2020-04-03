@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class Package extends Model
 {
     //
     // use SoftDeletes;
+    use Sortable;
 
     protected $table = 'package';
 
@@ -20,11 +22,21 @@ class Package extends Model
         'price',
         'min_person',
         
+        
     ];
 
+    public $sortable = ['name',
+    'type',
+    'description',
+    'active',
+    'price',
+    'min_person',];
+
+
+    protected $dates = ['created_at','updated_at','deleted_at'];
     public function category() {
 
-        return $this->belongsTo(Customer::class, 'category_id')->withTrashed();
+        return $this->belongsTo(Category::class, 'id')->withTrashed();
     }
 
 }

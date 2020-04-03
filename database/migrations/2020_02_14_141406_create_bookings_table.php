@@ -21,7 +21,7 @@ class CreateBookingsTable extends Migration
                 $table->string('contact_person');
                 $table->timestamps();
                 $table->softDeletes();
-
+                $table->string('receipt_image')->nullable();   
                 $table->index(['deleted_at']);
         });
     }

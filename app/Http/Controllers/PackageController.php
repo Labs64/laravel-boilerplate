@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Package;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Package;
+
 class PackageController extends Controller
 {
-    /**
+/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -14,8 +15,9 @@ class PackageController extends Controller
     public function index()
     {
         // dd('hello');
-        $query = Package::select('name','type','description','category_id','price','active')->groupBy('type')->get();
+        $query = Package::select('name','type','description','category_id','price','active','created_at','updated_at')->groupBy('name')->orderBy('type', 'asc')->get();
      //dd($query);
+     
         return view('packages',compact('query'));
     }
 
@@ -46,6 +48,9 @@ class PackageController extends Controller
     public function store(Request $request)
     {
         //
+        
+  
+          return redirect('/packages');
     }
 
     /**

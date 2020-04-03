@@ -60,7 +60,7 @@ class User extends Authenticatable
         Sortable,
         Protectable;
 
-    public $sortable = ['name', 'email', 'created_at', 'updated_at'];
+    public $sortable = ['name', 'email','address_1','address_2','phoneNo', 'created_at', 'updated_at'];
 
     /**
      * The database table used by the model.
@@ -74,7 +74,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password', 'active', 'confirmation_code', 'confirmed'];
+    protected $fillable = ['name', 'email','address_1','address_2','phoneNo', 'password', 'active', 'confirmation_code', 'confirmed'];
 
     /**
      * The attributes that should be hidden for arrays.

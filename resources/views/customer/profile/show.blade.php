@@ -1,6 +1,6 @@
-@extends('admin.layouts.admin')
+@extends('layouts.welcome')
 
-@section('title', __('views.admin.users.show.title', ['name' => $user->name]))
+@section('title', __('Profile ', ['name' => $user->name]))
 
 @section('content')
     <div class="row">
@@ -36,7 +36,7 @@
                 <th>Address</th>
                 <td>
                     
-                        {{ $user->address_1 }}, {{ $user->address_2 }}
+                        {{ $user->address_1 }},{{ $user->address_2 }}
                     
                 </td>
             </tr><tr>

@@ -2,22 +2,20 @@
 
 @section('content')
 
-    <div >
-        <h1>Packages</h1>
+    <div class="jumbotron" style="width:100%;">
+        <h1>PACKAGES</h1>
     </div>
-    <div>
+    <div class = "JUMBOTRON" >
+        {{-- onclick="openPackages('{{$queri->type}}');" --}}
+        @php $i=0 @endphp
         @foreach($query as $queri) 
-        @if($queri->type=='H')
-            <button type="button" class="collapsible" onclick="openPackages('{{$queri->type}}')">PAKEJ {{$queri->type}} :   AKTIVITI REKREASI</button>        
-            <br>
-        @else
-       <button type="button" class="collapsible" onclick="openPackages('{{$queri->type}}')">PAKEJ {{$queri->type}} :   {{$queri->name}}</button>
-       <br>
-       @endif
-       <div  style ="text-align: justify;">
-        <h6><b>{{$queri->name}}</b></h6>
+        @php  $i++ @endphp
+        <button href="#" id="collapsible"  onclick="openPackages('{{$queri->name}}',{{$i}});"  style= "padding: 10px 10px; font-size:15px; text-align: left;border-radius: 8px; width: 100%;display: inline-block; background-color: #777;color:white;"><strong>PAKEJ {{$queri->type}} :  {{$queri->name}}</strong></button> 
+        <div class="content{{$i}}" style ="display:none;padding:2px; background-color:azure;">
+       
+        
         <h6><b>Maklumat Tambahan</b></h6>
-        <ul>
+        <ul style="text-align:justify; display: inline-block;">
             @foreach(explode('.', $queri->description) as $info)
                 <li>{{ $info }}</li>
             @endforeach
@@ -27,54 +25,46 @@
         <h6><b>Status: Tersedia / Available</b></h6>
         @else
         <h6><b>Status: Tidak Tersedia / Not Available</b></h6>
+       
         @endif
-
+        
 
 
        </div>
 
-       @endforeach
+       @endforeach 
     </div>
     
 
 
 @endsection
-@push('scripts')
+
+
+@section('scripts')
 <script>
-
-function openPackages(id) {
-    $.ajax({
-        type:'get',
-        url:'/api/test/'+ id,
-        success: function(data) {
-            console.log('berjaya');
-            collapse();
-            console.log(data);
+    
+function openPackages(id,i){
+  
+        $.ajax({
+          type:'get',
+          url:'/api/test/'+ id,
+          success: function(data) {
+           var content = $(".content"+i);
+                $(content).toggle();
+                
+            
         },
-        error: function(data) {
-
-        }
-    })
-}
-function collapse(){
-var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");  
-            var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } 
-            else {
-                content.style.display = "block";
-            }   
-            }
-        );
-}
-}
+         error: function(data) {
+          }
+        });
+     // hides matched elements if shown, shows if hidden 
+     //$(".content", $(this).next()).toggle(); 
+   
+}      
+//         // hides children divs if shown, shows if hidden 
+//          //   $(this).children(".content").show(); 
+    
 
 </script>
 
-@endpush
+

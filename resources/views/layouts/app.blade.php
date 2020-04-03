@@ -15,6 +15,7 @@
 
         {{--Common App Styles--}}
         {{ Html::style(mix('assets/app/css/app.css')) }}
+        <link rel="stylesheet" href="https://bootswatch.com/3/lumen/bootstrap.min.css">
 
         {{--Styles--}}
         @yield('styles')

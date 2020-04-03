@@ -121,8 +121,8 @@ class RegisterController extends Controller
             $this->guard()->logout();
 
             $user->notify(new ConfirmEmail());
-
-            return redirect(route('login'));
+            
+            return redirect(url('/welcome'))->with('message','Please verify your email in order to log in');
         }
     }
 }

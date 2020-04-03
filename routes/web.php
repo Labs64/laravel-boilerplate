@@ -47,6 +47,18 @@ Route::group(['namespace' => 'Auth'], function () {
     Route::get('social/login/{provider}', 'SocialLoginController@login')->name('social.login');
 });
 
+Route::group(['namespace' => 'Customer'], function () {
+
+    Route::get('customer/{user}/edit', 'CustomerController@edit')->name('customer.edit');
+    Route::put('customer/{user}', 'CustomerController@update')->name('customer.update');
+    Route::get('customer/{user}', 'CustomerController@show')->name('customer.show');
+    Route::resource('booking','BookingController');
+    Route::get('menu','BookingController@menu')->name('booking.menu');
+    Route::get('invoice','BookingController@invoice')->name('booking.submit');
+    Route::post('submit','BookingController@submit')->name('booking.submit');
+
+
+});
 /**
  * Backend routes
  */
@@ -67,6 +79,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('permissions/{user}/repeat', 'PermissionController@repeat')->name('permissions.repeat');
     Route::get('dashboard/log-chart', 'DashboardController@getLogChartData')->name('dashboard.log.chart');
     Route::get('dashboard/registration-chart', 'DashboardController@getRegistrationChartData')->name('dashboard.registration.chart');
+    
+    Route::resource('packages', 'ManagePackageController'); 
+    Route::any('packages/{id}/destroy', 'ManagePackageController@destroyPackage')->name('packages.destroy');
+
 });
 
 
@@ -106,3 +122,6 @@ Route::group(['as' => 'protection.'], function () {
 
 Route::get('contact-us', 'ContactUSController@contactUS');
 Route::post('contact-us', ['as'=>'contactus.store','uses'=>'ContactUSController@contactUSPost']);
+
+Route::resource('cal','gCalendarController');
+Route::get('/oauth','gCalendarController@oauth');
