@@ -17,7 +17,7 @@
     "font-awesome": "^4.7.0",
     "gentelella": "^1.4",
     "jcarousel": "^0.3.9",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "laravel-mix": "^5.0.4",
     "lodash": "^4.17.15",
     "popper.js": "^1.16.1",
