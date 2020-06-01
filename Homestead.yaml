@@ -1,0 +1,26 @@
+ip: 192.168.10.40
+memory: 2048
+cpus: 2
+provider: virtualbox
+authorize: ~/.ssh/id_rsa.pub
+keys:
+    - ~/.ssh/id_rsa
+folders:
+    -
+        map: /home/mariapf/projects/git/sunny-schedule-admin
+        to: /home/vagrant/code
+sites:
+    -
+        map: admin.sunnycal.test
+        to: /home/vagrant/code/public
+databases:
+    - homestead
+features:
+    -
+        mariadb: false
+    -
+        ohmyzsh: false
+    -
+        webdriver: false
+name: sunny-schedule-admin
+hostname: sunny-schedule-admin

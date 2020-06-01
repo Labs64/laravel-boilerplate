@@ -40,6 +40,7 @@
         "doctrine/dbal": "^2.9",
         "filp/whoops": "^2.3",
         "fzaninotto/faker": "^1.8",
+        "laravel/homestead": "^10.8",
         "mockery/mockery": "^1.3.1",
         "phpunit/phpunit": "^8.5",
         "spatie/phpunit-watcher": "^1.12"
