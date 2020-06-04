@@ -4,7 +4,6 @@ namespace App\Helpers\ToJs\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-
 class ToJsFacade extends Facade
 {
     /**

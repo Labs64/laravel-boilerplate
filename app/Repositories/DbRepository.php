@@ -1,6 +1,8 @@
-<?php namespace App\Repositories;
+<?php
 
-/**
+namespace App\Repositories;
+
+/*
  * Abstract Class DbRepository
  *
  *@author Anuj Jaha <er.anujjaha@gmail.com>
@@ -8,24 +10,22 @@
  */
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Collection as SupportCollection;
 
-Abstract class DbRepository
+abstract class DbRepository
 {
     /**
-     * Destroy Item
+     * Destroy Item.
      *
      * @param string|int $id
-     * @return bool
+     *
      * @throws GeneralException
+     *
+     * @return bool
      */
     public function destroy($id)
     {
-        if($this->model->where('ID', '=', $id)->delete())
-        {
+        if ($this->model->where('ID', '=', $id)->delete()) {
             return true;
         }
 
@@ -33,31 +33,33 @@ Abstract class DbRepository
     }
 
     /**
-     * Select All
+     * Select All.
      *
      * @param string $columns
      * @param string $order_by
      * @param string $sort
+     *
      * @return mixed
      */
-    public function selectAll($columns='*', $order_by = 'id', $sort = 'asc')
+    public function selectAll($columns = '*', $order_by = 'id', $sort = 'asc')
     {
         return $this->model->select($columns)->orderBy($order_by, $sort)->get();
     }
 
     /**
-     * Set DateTimeFormat
+     * Set DateTimeFormat.
      *
-     * @param mixed $input
-     * @param mixed $field
+     * @param mixed  $input
+     * @param mixed  $field
      * @param string $format
+     *
      * @return bool|string
      */
     public function setDateTimeFormat($input = null, $field = null, $format = 'Y-m-d')
     {
-        if(isset($input[$field]))
-        {
+        if (isset($input[$field])) {
             $carbonObj = Carbon::parse($input[$field]);
+
             return $format ? $carbonObj->format($format) : $carbonObj->toDateTimeString();
         }
 
@@ -65,38 +67,35 @@ Abstract class DbRepository
     }
 
     /**
-     * Get Records with Offset & Limit
+     * Get Records with Offset & Limit.
      *
-     * @param integer $offset
-     * @param integer $limit
-     * @param array $where
-     * @param array $relations
-     * @param null|array $orderBy
-     * @param string $direction
+     * @param int           $offset
+     * @param int           $limit
+     * @param array         $where
+     * @param array         $relations
+     * @param array|null    $orderBy
+     * @param string        $direction
      * @param \Closure|null $callback
+     *
      * @return mixed
      */
-    public function getRecordsByLimit($offset, $limit, $where = array(), $relations = array(), $orderBy = null, $direction = 'asc', $callback = null)
+    public function getRecordsByLimit($offset, $limit, $where = [], $relations = [], $orderBy = null, $direction = 'asc', $callback = null)
     {
         $query = $this->model->query();
 
-        if($relations && !empty($relations))
-        {
+        if ($relations && ! empty($relations)) {
             $query->with($relations);
         }
 
-        if(!empty($where))
-        {
+        if (! empty($where)) {
             $query = $query->where($where);
         }
 
-        if($callback && $callback instanceof \Closure)
-        {
+        if ($callback && $callback instanceof \Closure) {
             $callback($query);
         }
 
-        if($orderBy && Schema::hasColumn($this->model->getTable(), $orderBy) && in_array(strtolower($direction), ['asc', 'desc']))
-        {
+        if ($orderBy && Schema::hasColumn($this->model->getTable(), $orderBy) && in_array(strtolower($direction), ['asc', 'desc'])) {
             $query->orderBy($orderBy, $direction);
         }
 
@@ -104,53 +103,44 @@ Abstract class DbRepository
     }
 
     /**
-     * Array Sort
+     * Array Sort.
      *
-     * @param array $array
-     * @param string $on
+     * @param array      $array
+     * @param string     $on
      * @param int|string $order
+     *
      * @return array
      */
-    public function arraySort($array = array(), $on = '', $order = SORT_ASC)
+    public function arraySort($array = [], $on = '', $order = SORT_ASC)
     {
         $new_array      = [];
         $sortable_array = [];
 
-        if(count($array) > 0)
-        {
-            foreach($array as $k => $v)
-            {
-                if(is_array($v))
-                {
-                    foreach($v as $k2 => $v2)
-                    {
-                        if($k2 == $on)
-                        {
+        if (count($array) > 0) {
+            foreach ($array as $k => $v) {
+                if (is_array($v)) {
+                    foreach ($v as $k2 => $v2) {
+                        if ($k2 == $on) {
                             $sortable_array[$k] = $v2;
                         }
                     }
-                }
-                else
-                {
+                } else {
                     $sortable_array[$k] = $v;
                 }
             }
 
-            switch($order)
-            {
+            switch ($order) {
                 case SORT_ASC:
 
                     asort($sortable_array);
                     break;
-
                 case SORT_DESC:
 
                     arsort($sortable_array);
                     break;
             }
 
-            foreach($sortable_array as $k => $v)
-            {
+            foreach ($sortable_array as $k => $v) {
                 $new_array[$k] = $array[$k];
             }
         }
@@ -159,22 +149,20 @@ Abstract class DbRepository
     }
 
     /**
-     * Check Record Is Soft Deleted Or Not
+     * Check Record Is Soft Deleted Or Not.
+     *
+     * @throws GeneralException
      *
      * @return mixed
-     * @throws GeneralException
      */
     public function checkRecordIsSoftDeleteOrNot()
     {
-        if(!app()->runningInConsole())
-        {
+        if (! app()->runningInConsole()) {
             $route = request()->route()->getName();
 
-            if(strpos($route, '.edit') !== false)
-            {
+            if (strpos($route, '.edit') !== false) {
                 throw new GeneralException('You cannot view a deleted record. Please restore the record before trying to open the edit view');
             }
         }
     }
 }
-

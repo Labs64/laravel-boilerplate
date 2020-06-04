@@ -12,10 +12,11 @@ class MetaTag
 
     public function render()
     {
-        if ($this->isEmpty()) return '';
-
+        if ($this->isEmpty()) {
+            return '';
+        }
         $attributes = array_merge(['name' => $this->name, 'content' => $this->content], $this->attributes);
 
-        return new HtmlString('<meta' . Html::attributes($attributes) . '>' . PHP_EOL);
+        return new HtmlString('<meta'.Html::attributes($attributes).'>'.PHP_EOL);
     }
 }

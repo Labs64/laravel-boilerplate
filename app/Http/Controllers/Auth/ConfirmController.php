@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use App\Models\Auth\User\User;
 use App\Notifications\Auth\ConfirmEmail;
-use App\Http\Controllers\Controller;
 use Ramsey\Uuid\Uuid;
 
 class ConfirmController extends Controller
@@ -20,9 +20,10 @@ class ConfirmController extends Controller
     }
 
     /**
-     * Confirm user email
+     * Confirm user email.
      *
      * @param User $user
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function confirm(User $user)
@@ -31,6 +32,7 @@ class ConfirmController extends Controller
         $user->save();
 
         auth()->login($user);
+
         return redirect()->intended(app(LoginController::class)->redirectPath());
     }
 

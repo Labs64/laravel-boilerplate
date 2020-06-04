@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use App\Models\Auth\Role\Role;
+use App\Models\Auth\User\User;
 use App\Notifications\Auth\ConfirmEmail;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\Request;
-use App\Models\Auth\User\User;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Ramsey\Uuid\Uuid;
 
 class RegisterController extends Controller
@@ -47,14 +47,15 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         $rules = [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'name'     => 'required|max:255',
+            'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ];
 
@@ -68,18 +69,19 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return User|\Illuminate\Database\Eloquent\Model
      */
     protected function create(array $data)
     {
-        /** @var  $user User */
+        /** @var $user User */
         $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'name'              => $data['name'],
+            'email'             => $data['email'],
+            'password'          => bcrypt($data['password']),
             'confirmation_code' => Uuid::uuid4(),
-            'confirmed' => false
+            'confirmed'         => false,
         ]);
 
         if (config('auth.users.default_role')) {
@@ -92,7 +94,8 @@ class RegisterController extends Controller
     /**
      * Handle a registration request for the application.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function register(Request $request)
@@ -110,14 +113,14 @@ class RegisterController extends Controller
     /**
      * The user has been registered.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  mixed $user
+     * @param \Illuminate\Http\Request $request
+     * @param mixed                    $user
+     *
      * @return mixed
      */
     protected function registered(Request $request, $user)
     {
-        if (config('auth.users.confirm_email') && !$user->confirmed) {
-
+        if (config('auth.users.confirm_email') && ! $user->confirmed) {
             $this->guard()->logout();
 
             $user->notify(new ConfirmEmail());

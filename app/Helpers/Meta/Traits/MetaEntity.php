@@ -7,7 +7,9 @@ use Illuminate\Support\Arr;
 trait MetaEntity
 {
     public $name = null;
+
     public $content = null;
+
     public $attributes = [];
 
     public function __construct($name = null, $content = null, $attributes = [])
@@ -17,8 +19,8 @@ trait MetaEntity
 
     public function set($name, $content = null, $attributes = [])
     {
-        $this->name = $name;
-        $this->content = $content;
+        $this->name       = $name;
+        $this->content    = $content;
         $this->attributes = $attributes;
 
         return $this;
@@ -67,7 +69,7 @@ trait MetaEntity
 
     public function isEmpty()
     {
-        return (!$this->name || is_null($this->content));
+        return ! $this->name || is_null($this->content);
     }
 
     abstract public function render();

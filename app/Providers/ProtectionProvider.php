@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use App\Helpers\Protection\NetLicensing;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\ServiceProvider;
 
 class ProtectionProvider extends ServiceProvider
 {
@@ -16,11 +16,11 @@ class ProtectionProvider extends ServiceProvider
     public function boot()
     {
         Blade::directive('protection', function ($productModuleNumber) {
-            return "<?php if(auth()->check() && auth()->user()->hasAccess('$productModuleNumber')): ?>";
+            return "<?php if(auth()->check() && auth()->user()->hasAccess('${productModuleNumber}')): ?>";
         });
 
         Blade::directive('elseifprotection', function ($productModuleNumber) {
-            return "<?php elseif(auth()->check() && auth()->user()->hasAccess('$productModuleNumber')): ?>";
+            return "<?php elseif(auth()->check() && auth()->user()->hasAccess('${productModuleNumber}')): ?>";
         });
 
         Blade::directive('elseprotection', function () {

@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Protection\ProtectionShopToken
+ * App\Models\Protection\ProtectionShopToken.
  *
  * @property int $id
  * @property int $user_id
@@ -18,7 +18,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $success_url_title
  * @property string $cancel_url_title
  * @property string $shop_url
- * @property-read \App\Models\Auth\User\User $user
+ * @property \App\Models\Auth\User\User $user
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Protection\ProtectionShopToken whereCancelUrl($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Protection\ProtectionShopToken whereCancelUrlTitle($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Protection\ProtectionShopToken whereExpires($value)

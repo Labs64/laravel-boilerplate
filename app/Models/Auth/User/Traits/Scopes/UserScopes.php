@@ -11,14 +11,17 @@ trait UserScopes
      *
      * @param $query \Illuminate\Database\Eloquent\Builder
      * @param $role
+     *
      * @return mixed
      */
     public function scopeWhereRole($query, $role)
     {
-        if ($role instanceof Model) $role = $role->getKey();
+        if ($role instanceof Model) {
+            $role = $role->getKey();
+        }
 
         $query->whereHas('roles', function ($query) use ($role) {
-            /** @var $query \Illuminate\Database\Query\Builder */
+            /* @var $query \Illuminate\Database\Query\Builder */
             $query->orWhere('id', $role)->orWhere('name', $role);
         });
 

@@ -1,8 +1,9 @@
 <?php
+
 namespace App\Helpers\Meta\Factories;
 
-use App\Helpers\Meta\Traits\MetaFactory;
 use App\Helpers\Meta\Entities\MetaTag;
+use App\Helpers\Meta\Traits\MetaFactory;
 
 class MetaTagFactory
 {
@@ -10,6 +11,6 @@ class MetaTagFactory
 
     public function __construct()
     {
-        $this->entity =  MetaTag::class;
+        $this->entity = MetaTag::class;
     }
 }

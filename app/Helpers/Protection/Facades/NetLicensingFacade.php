@@ -4,7 +4,6 @@ namespace App\Helpers\Protection\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-
 class NetLicensingFacade extends Facade
 {
     /**

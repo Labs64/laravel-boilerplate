@@ -20,7 +20,7 @@ class MetaServiceProvider extends ServiceProvider
        * the chosen javascript variables.
        */
         Blade::directive('meta', function ($argument = null) {
-            return '<?php print app(\'meta\')->render(' . $argument . '); ?>';
+            return '<?php print app(\'meta\')->render('.$argument.'); ?>';
         });
     }
 
@@ -35,20 +35,18 @@ class MetaServiceProvider extends ServiceProvider
             return new Meta();
         });
 
-        /**
+        /*
          * Set Meta Defaults
          */
         $this->setDefaultMeta();
     }
 
     /**
-     *
-     * Set default meta
-     *
+     * Set default meta.
      */
     protected function setDefaultMeta()
     {
-        /** @var  $meta Meta */
+        /** @var $meta Meta */
         $meta = app('meta');
 
         //Title

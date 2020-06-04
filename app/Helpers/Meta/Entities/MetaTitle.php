@@ -3,8 +3,8 @@
 namespace App\Helpers\Meta\Entities;
 
 use App\Helpers\Meta\Traits\MetaEntity;
-use Illuminate\Support\HtmlString;
 use Html;
+use Illuminate\Support\HtmlString;
 
 class MetaTitle
 {
@@ -17,8 +17,8 @@ class MetaTitle
 
     public function set($title, $attributes = [])
     {
-        $this->name = 'title';
-        $this->content = $title;
+        $this->name       = 'title';
+        $this->content    = $title;
         $this->attributes = $attributes;
 
         return $this;
@@ -26,10 +26,11 @@ class MetaTitle
 
     public function render()
     {
-        if ($this->isEmpty()) return '';
+        if ($this->isEmpty()) {
+            return '';
+        }
+        $title = (config('meta.title_suffix')) ? $this->content.' '.config('meta.title_suffix') : $this->content;
 
-        $title = (config('meta.title_suffix')) ? $this->content . ' ' . config('meta.title_suffix') : $this->content;
-
-        return new HtmlString('<title' . Html::attributes($this->attributes) . '>' . $title . '</title>' . PHP_EOL);
+        return new HtmlString('<title'.Html::attributes($this->attributes).'>'.$title.'</title>'.PHP_EOL);
     }
 }

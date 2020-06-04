@@ -4,7 +4,6 @@ namespace App\Helpers\Meta\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-
 class MetaFacade extends Facade
 {
     /**

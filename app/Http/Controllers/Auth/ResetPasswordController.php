@@ -41,14 +41,16 @@ class ResetPasswordController extends Controller
     /**
      * Get the response for a successful password reset.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  string  $response
+     * @param \Illuminate\Http\Request $request
+     * @param string                   $response
+     *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
      */
     protected function sendResetResponse(Request $request, $response)
     {
         return redirect($this->redirectPath())
-            ->with('status', __($response));
+            ->with('status', __($response))
+        ;
     }
 
     /**
@@ -56,12 +58,14 @@ class ResetPasswordController extends Controller
      *
      * @param \Illuminate\Http\Request
      * @param string $response
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     protected function sendResetFailedResponse(Request $request, $response)
     {
         return redirect()->back()
             ->withInput($request->only('email'))
-            ->withErrors(['email' => __($response)]);
+            ->withErrors(['email' => __($response)])
+        ;
     }
 }

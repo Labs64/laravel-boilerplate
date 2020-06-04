@@ -1,7 +1,7 @@
 <?php
+
 namespace App\Helpers\Meta\Traits;
 
-use App\Helpers\Meta\Entities\MetaTag;
 use Arcanedev\Support\Collection;
 use Illuminate\Support\Arr;
 
@@ -13,7 +13,9 @@ trait MetaFactory
 
     public function set($name = null, $content = null, $attributes = [])
     {
-        if ($name) $this->meta[$name] = new $this->entity($name, $content, $attributes);
+        if ($name) {
+            $this->meta[$name] = new $this->entity($name, $content, $attributes);
+        }
 
         return $this;
     }
@@ -25,7 +27,9 @@ trait MetaFactory
 
     public function forget($name = null)
     {
-        if (is_null($name)) $this->meta = [];
+        if (is_null($name)) {
+            $this->meta = [];
+        }
 
         Arr::forget($this->meta, $name);
 
@@ -40,10 +44,12 @@ trait MetaFactory
 
         $meta = Arr::dot($this->meta);
 
-        /** @var  $entity MetaEntity */
+        /** @var $entity MetaEntity */
         foreach ($meta as $entity) {
-            if (!$data->isEmpty()) {
-                if (!$data->contains($entity->getName())) continue;
+            if (! $data->isEmpty()) {
+                if (! $data->contains($entity->getName())) {
+                    continue;
+                }
             }
 
             $html .= $entity->render();

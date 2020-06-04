@@ -6,11 +6,11 @@ use App\Models\Auth\User\SocialAccount;
 
 trait UserAttributes
 {
-
     /**
-     * Get user avatar by gravatar
+     * Get user avatar by gravatar.
      *
      * @param bool $size
+     *
      * @return string
      */
     public function getGravatar($size = null)
@@ -21,26 +21,30 @@ trait UserAttributes
     }
 
     /**
-     * Get user avatar by social
+     * Get user avatar by social.
+     *
+     * @param mixed|null $provider
      */
     public function getSocialAvatar($provider = null)
     {
         $provider = ($provider) ? $provider : session(config('auth.socialite.session_name'));
 
-        if (!$provider) return null;
-
-        /** @var  $socialAccount SocialAccount */
+        if (! $provider) {
+            return null;
+        }
+        /** @var $socialAccount SocialAccount */
         $socialAccount = $this->providers->where('provider', $provider)->first();
 
-        if (!$socialAccount) return null;
+        if (! $socialAccount) {
+            return null;
+        }
 
         return $avatar = $socialAccount->avatar;
     }
 
     /**
-     * Get User avatar
+     * Get User avatar.
      */
-
     public function getAvatarAttribute()
     {
         $avatar = $this->getSocialAvatar();
@@ -49,7 +53,7 @@ trait UserAttributes
     }
 
     /**
-     * Get User licensee number
+     * Get User licensee number.
      */
     public function getLicenseeNumberAttribute()
     {
@@ -57,7 +61,7 @@ trait UserAttributes
     }
 
     /**
-     * Get User licensee name
+     * Get User licensee name.
      *
      * @return mixed
      */

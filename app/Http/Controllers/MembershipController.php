@@ -14,14 +14,13 @@ class MembershipController extends Controller
 
     public function index(Request $request)
     {
-        /** @var  $user User */
+        /** @var $user User */
         $user = $request->user();
 
         $membership = collect([
-            'valid' => true,
+            'valid'   => true,
             'shopUrl' => null,
             'expires' => null,
-
         ]);
 
         if ($user->protectionValidation) {
@@ -30,7 +29,7 @@ class MembershipController extends Controller
             $membership->put('expires', $validationResult->get('expires'));
 
             $successUrl = route('protection.membership.clear_validation_cache', ['dest' => url()->current()]);
-            $cancelUrl = url()->current();
+            $cancelUrl  = url()->current();
 
             $protectionShopToken = protection_shop_token($user, $successUrl, $cancelUrl);
 
@@ -42,24 +41,24 @@ class MembershipController extends Controller
 
     public function failed(Request $request)
     {
-        /** @var  $user User */
+        /** @var $user User */
         $user = $request->user();
 
         $membership = collect([
-            'valid' => false,
+            'valid'   => false,
             'shopUrl' => null,
             'expires' => null,
-
         ]);
 
-        if (!$user->protectionValidation) return redirect($request->get('dest', '/'));
-
+        if (! $user->protectionValidation) {
+            return redirect($request->get('dest', '/'));
+        }
         $validationResult = collect($user->protectionValidation->getValidationResult(config('protection.membership.product_module_number')));
 
         $membership->put('expires', $validationResult->get('expires'));
 
         $successUrl = route('protection.membership.clear_validation_cache', ['dest' => $request->get('dest', url('/'))]);
-        $cancelUrl = url('/');
+        $cancelUrl  = url('/');
 
         $protectionShopToken = protection_shop_token($user, $successUrl, $cancelUrl);
 
@@ -70,11 +69,13 @@ class MembershipController extends Controller
 
     public function clearValidationCache(Request $request)
     {
-        /** @var  $user User */
+        /** @var $user User */
         $user = $request->user();
         $user->load(['protectionValidation']);
 
-        if ($user->protectionValidation) $user->protectionValidation->delete();
+        if ($user->protectionValidation) {
+            $user->protectionValidation->delete();
+        }
 
         return redirect($request->get('dest', '/'));
     }

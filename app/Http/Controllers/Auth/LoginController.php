@@ -48,7 +48,8 @@ class LoginController extends Controller
     /**
      * Log the user out of the application.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function logout(Request $request)
@@ -71,7 +72,8 @@ class LoginController extends Controller
     /**
      * Get the failed login response instance.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     protected function sendFailedLoginResponse(Request $request)
@@ -84,25 +86,27 @@ class LoginController extends Controller
 
         return redirect()->back()
             ->withInput($request->only($this->username(), 'remember'))
-            ->withErrors($errors);
+            ->withErrors($errors)
+        ;
     }
 
     /**
      * The user has been authenticated.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  mixed $user
+     * @param \Illuminate\Http\Request $request
+     * @param mixed                    $user
+     *
      * @return mixed
      */
     protected function authenticated(Request $request, $user)
     {
         $errors = [];
 
-        if (config('auth.users.confirm_email') && !$user->confirmed) {
+        if (config('auth.users.confirm_email') && ! $user->confirmed) {
             $errors = [$this->username() => __('auth.notconfirmed', ['url' => route('confirm.send', [$user->email])])];
         }
 
-        if (!$user->active) {
+        if (! $user->active) {
             $errors = [$this->username() => __('auth.active')];
         }
 
@@ -111,7 +115,8 @@ class LoginController extends Controller
 
             return redirect()->back()
                 ->withInput($request->only($this->username(), 'remember'))
-                ->withErrors($errors);
+                ->withErrors($errors)
+            ;
         }
 
         $user->last_login = now();
@@ -122,13 +127,14 @@ class LoginController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     *
      * @throws GuzzleException
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function loginRemote(Request $request)
     {
-
-        try{
+        try {
             $credentials = request(['email', 'password']);
 
             $rememberMe = $request->remember_me ?? false;
@@ -136,19 +142,14 @@ class LoginController extends Controller
             $this->userRepository->userLogin($credentials, $rememberMe);
 
             return redirect()->intended($this->redirectPath());
-
-
-        }  catch (UnauthorizedUserException $guzzleException){
+        } catch (UnauthorizedUserException $guzzleException) {
             $request->session()->forget('authenticated');
             $request->session()->forget('user');
 
             return redirect()->back()
                 ->withInput($request->only($this->username(), 'remember'))
-                ->withErrors($guzzleException->getMessage());
-
+                ->withErrors($guzzleException->getMessage())
+            ;
         }
-
-
-
     }
 }

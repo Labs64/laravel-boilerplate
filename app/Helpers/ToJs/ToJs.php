@@ -19,7 +19,9 @@ class ToJs
 
     public function get($key = null, $default = null)
     {
-        if (!$key) return $this->data;
+        if (! $key) {
+            return $this->data;
+        }
 
         return Arr::get($this->data, $key, $default);
     }

@@ -2,29 +2,28 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Auth\Role\Role;
 use App\Models\Auth\User\User;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Repositories\Access\User\EloquentUserRepository;
+use Illuminate\Http\Request;
 use Validator;
 
 class UserController extends Controller
-{   
+{
     /**
-     * Repository
+     * Repository.
      *
      * @var object
      */
     protected $repository;
 
     /**
-     * Construct
-     * 
+     * Construct.
      */
     public function __construct()
     {
-        $this->repository = new EloquentUserRepository;
+        $this->repository = new EloquentUserRepository();
     }
 
     /**
@@ -38,7 +37,7 @@ class UserController extends Controller
     }
 
     /**
-     * Restore Users
+     * Restore Users.
      *
      * @return \Illuminate\Http\Response
      */
@@ -48,17 +47,17 @@ class UserController extends Controller
     }
 
     /**
-     * Restore Users
+     * Restore Users.
      *
      * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function restoreUser($id)
     {
         $status = $this->repository->restore($id);
 
-        if($status)
-        {
+        if ($status) {
             return redirect()->route('admin.users')->withFlashSuccess('User Restored Successfully!');
         }
 
@@ -78,7 +77,8 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -90,6 +90,7 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param User $user
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show(User $user)
@@ -101,6 +102,7 @@ class UserController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param User $user
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -111,16 +113,17 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param User $user
+     * @param \Illuminate\Http\Request $request
+     * @param User                     $user
+     *
      * @return mixed
      */
     public function update(Request $request, User $user)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255',
-            'active' => 'sometimes|boolean',
+            'name'      => 'required|max:255',
+            'email'     => 'required|email|max:255',
+            'active'    => 'sometimes|boolean',
             'confirmed' => 'sometimes|boolean',
         ]);
 
@@ -132,16 +135,17 @@ class UserController extends Controller
             return $input->password;
         });
 
-        if ($validator->fails()) return redirect()->back()->withErrors($validator->errors());
-
-        $user->name = $request->get('name');
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator->errors());
+        }
+        $user->name  = $request->get('name');
         $user->email = $request->get('email');
 
         if ($request->has('password')) {
             $user->password = bcrypt($request->get('password'));
         }
 
-        $user->active = $request->get('active', 0);
+        $user->active    = $request->get('active', 0);
         $user->confirmed = $request->get('confirmed', 0);
 
         $user->save();
@@ -161,15 +165,15 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         $status = $this->repository->destroy($id);
 
-        if($status)
-        {
+        if ($status) {
             return redirect()->route('admin.users')->withFlashSuccess('User Deleted Successfully!');
         }
 

@@ -3,8 +3,6 @@
 namespace App\Listeners\Auth;
 
 use Illuminate\Auth\Events\Login;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class LoginListener
 {
@@ -21,7 +19,8 @@ class LoginListener
     /**
      * Handle the event.
      *
-     * @param  Login $event
+     * @param Login $event
+     *
      * @return void
      */
     public function handle(Login $event)

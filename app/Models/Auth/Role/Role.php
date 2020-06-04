@@ -2,19 +2,20 @@
 
 namespace App\Models\Auth\Role;
 
-use Illuminate\Database\Eloquent\Model;
-use App\Models\Auth\Role\Traits\Scopes\RoleScopes;
 use App\Models\Auth\Role\Traits\Relations\RoleRelations;
+use App\Models\Auth\Role\Traits\Scopes\RoleScopes;
+use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Auth\Role\Role
+ * App\Models\Auth\Role\Role.
  *
  * @property int $id
  * @property string $name
  * @property int $weight
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Auth\User\User[] $users
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Auth\User\User[] $users
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\Role\Role sort($direction = 'asc')
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\Role\Role whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\Role\Role whereId($value)
@@ -25,8 +26,8 @@ use App\Models\Auth\Role\Traits\Relations\RoleRelations;
  */
 class Role extends Model
 {
-    use RoleScopes,
-        RoleRelations;
+    use RoleScopes;
+    use RoleRelations;
 
     /**
      * The database table used by the model.
@@ -48,5 +49,4 @@ class Role extends Model
      * @var array
      */
     protected $fillable = ['name'];
-
 }

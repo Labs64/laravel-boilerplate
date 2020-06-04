@@ -6,7 +6,7 @@ use App\Models\Auth\User\Traits\Relations\SocialAccountRelations;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Auth\User\SocialAccount
+ * App\Models\Auth\User\SocialAccount.
  *
  * @property int $id
  * @property int $user_id
@@ -16,7 +16,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $avatar
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read \App\Models\Auth\User\User $user
+ * @property \App\Models\Auth\User\User $user
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\SocialAccount whereAvatar($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\SocialAccount whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\SocialAccount whereId($value)

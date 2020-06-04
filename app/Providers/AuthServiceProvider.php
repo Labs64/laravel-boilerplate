@@ -5,7 +5,6 @@ namespace App\Providers;
 use App\Models\Auth\User\User;
 use App\Policies\Backend\BackendPolicy;
 use App\Policies\Models\User\UserPolicy;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -16,11 +15,11 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        /**
+        /*
          * Models Policies
          */
         //User::class => UserPolicy::class,
-        /**
+        /*
          * Without models policies
          */
         //'backend' => BackendPolicy::class

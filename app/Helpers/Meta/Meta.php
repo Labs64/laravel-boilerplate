@@ -3,26 +3,29 @@
 namespace App\Helpers\Meta;
 
 use App\Helpers\Meta\Entities\MetaTitle;
-
 use App\Helpers\Meta\Factories\MetaPropertyFactory;
 use App\Helpers\Meta\Factories\MetaTagFactory;
 
 class Meta
 {
     protected $title;
+
     protected $tagFactory;
+
     protected $propertyFactory;
 
     public function __construct()
     {
-        $this->title = new MetaTitle();
-        $this->tagFactory = new MetaTagFactory();
+        $this->title           = new MetaTitle();
+        $this->tagFactory      = new MetaTagFactory();
         $this->propertyFactory = new MetaPropertyFactory();
     }
 
     public function title($title = null, $attributes = [])
     {
-        if ($title) $this->title->set($title, $attributes);
+        if ($title) {
+            $this->title->set($title, $attributes);
+        }
 
         return $this->title;
     }
@@ -43,7 +46,7 @@ class Meta
 
         $keys = collect($keys);
 
-        $html = ($keys->isEmpty() || (!$keys->isEmpty() && $keys->contains('title'))) ? $this->title->render() : '';
+        $html = ($keys->isEmpty() || (! $keys->isEmpty() && $keys->contains('title'))) ? $this->title->render() : '';
         $html .= $this->tagFactory->render($keys);
         $html .= $this->propertyFactory->render($keys);
 

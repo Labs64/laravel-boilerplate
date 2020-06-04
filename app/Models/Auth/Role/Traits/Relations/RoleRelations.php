@@ -7,7 +7,7 @@ use App\Models\Auth\User\User;
 trait RoleRelations
 {
     /**
-     * Relation with users
+     * Relation with users.
      *
      * @return mixed
      */

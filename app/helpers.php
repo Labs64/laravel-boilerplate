@@ -3,8 +3,7 @@
 /**
  * Global helpers file with misc functions.
  */
-
-if (!function_exists('gravatar')) {
+if (! function_exists('gravatar')) {
     /**
      * Access the gravatar helper.
      *
@@ -16,9 +15,12 @@ if (!function_exists('gravatar')) {
     }
 }
 
-if (!function_exists('to_js')) {
+if (! function_exists('to_js')) {
     /**
      * Access the javascript helper.
+     *
+     * @param mixed|null $key
+     * @param mixed|null $default
      */
     function to_js($key = null, $default = null)
     {
@@ -34,7 +36,7 @@ if (!function_exists('to_js')) {
     }
 }
 
-if (!function_exists('meta')) {
+if (! function_exists('meta')) {
     /**
      * Access the meta helper.
      */
@@ -44,9 +46,13 @@ if (!function_exists('meta')) {
     }
 }
 
-if (!function_exists('meta_tag')) {
+if (! function_exists('meta_tag')) {
     /**
      * Access the meta tags helper.
+     *
+     * @param mixed|null $name
+     * @param mixed|null $content
+     * @param mixed      $attributes
      */
     function meta_tag($name = null, $content = null, $attributes = [])
     {
@@ -54,9 +60,13 @@ if (!function_exists('meta_tag')) {
     }
 }
 
-if (!function_exists('meta_property')) {
+if (! function_exists('meta_property')) {
     /**
      * Access the meta tags helper.
+     *
+     * @param mixed|null $name
+     * @param mixed|null $content
+     * @param mixed      $attributes
      */
     function meta_property($name = null, $content = null, $attributes = [])
     {
@@ -64,7 +74,7 @@ if (!function_exists('meta_property')) {
     }
 }
 
-if (!function_exists('protection_context')) {
+if (! function_exists('protection_context')) {
     /**
      * @return \NetLicensing\Context
      */
@@ -74,7 +84,7 @@ if (!function_exists('protection_context')) {
     }
 }
 
-if (!function_exists('protection_context_basic_auth')) {
+if (! function_exists('protection_context_basic_auth')) {
     /**
      * @return \NetLicensing\Context
      */
@@ -84,7 +94,7 @@ if (!function_exists('protection_context_basic_auth')) {
     }
 }
 
-if (!function_exists('protection_context_api_key')) {
+if (! function_exists('protection_context_api_key')) {
     /**
      * @return \NetLicensing\Context
      */
@@ -94,14 +104,14 @@ if (!function_exists('protection_context_api_key')) {
     }
 }
 
-if (!function_exists('protection_shop_token')) {
-
+if (! function_exists('protection_shop_token')) {
     /**
      * @param \App\Models\Auth\User\User $user
-     * @param null $successUrl
-     * @param null $cancelUrl
-     * @param null $successUrlTitle
-     * @param null $cancelUrlTitle
+     * @param null                       $successUrl
+     * @param null                       $cancelUrl
+     * @param null                       $successUrlTitle
+     * @param null                       $cancelUrlTitle
+     *
      * @return \App\Models\Protection\ProtectionShopToken
      */
     function protection_shop_token(\App\Models\Auth\User\User $user, $successUrl = null, $cancelUrl = null, $successUrlTitle = null, $cancelUrlTitle = null)
@@ -110,10 +120,10 @@ if (!function_exists('protection_shop_token')) {
     }
 }
 
-if (!function_exists('protection_validate')) {
-
+if (! function_exists('protection_validate')) {
     /**
      * @param \App\Models\Auth\User\User $user
+     *
      * @return \App\Models\Protection\ProtectionValidation
      */
     function protection_validate(\App\Models\Auth\User\User $user)
@@ -122,14 +132,15 @@ if (!function_exists('protection_validate')) {
     }
 }
 
-if (!function_exists('__trans_choice')) {
+if (! function_exists('__trans_choice')) {
     /**
      * Translates the given message based on a count from json key.
      *
      * @param $key
      * @param $number
      * @param array $replace
-     * @param null $locale
+     * @param null  $locale
+     *
      * @return string
      */
     function __trans_choice($key, $number, array $replace = [], $locale = null)
@@ -138,10 +149,11 @@ if (!function_exists('__trans_choice')) {
     }
 }
 
-if(!function_exists('isAdmin'))
-{
+if (! function_exists('isAdmin')) {
     /**
-     * Is Admin
+     * Is Admin.
+     *
+     * @param mixed $default
      *
      * @return bool
      */
@@ -153,21 +165,20 @@ if(!function_exists('isAdmin'))
     }
 }
 
-if(!function_exists('redirectToDashboad'))
-{
+if (! function_exists('redirectToDashboad')) {
     /**
-     * Redirect To Dashboard
+     * Redirect To Dashboard.
      *
      * @param string $default
+     *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     function redirectToDashboad($default = '/')
     {
-        if(isAdmin())
-        {
-            return redirect('/admin');    
+        if (isAdmin()) {
+            return redirect('/admin');
         }
-        
+
         return redirect($default);
     }
 }

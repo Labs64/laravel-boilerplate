@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Events\Auth\SocialLogin;
+use App\Http\Controllers\Controller;
 use App\Models\Auth\Role\Role;
 use App\Models\Auth\User\SocialAccount;
 use App\Models\Auth\User\User;
 use Illuminate\Foundation\Auth\RedirectsUsers;
-use App\Http\Controllers\Controller;
 use Ramsey\Uuid\Uuid;
 use Socialite;
 
@@ -35,19 +35,20 @@ class SocialLoginController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return User
      */
     protected function create(array $data)
     {
-        /** @var  $user User */
+        /** @var $user User */
         $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt(Uuid::uuid4()),
+            'name'              => $data['name'],
+            'email'             => $data['email'],
+            'password'          => bcrypt(Uuid::uuid4()),
             'confirmation_code' => Uuid::uuid4(),
-            'confirmed' => true,
-            'active' => true
+            'confirmed'         => true,
+            'active'            => true,
         ]);
 
         if (config('auth.users.default_role')) {
@@ -58,28 +59,39 @@ class SocialLoginController extends Controller
     }
 
     /**
-     * Redirect user to provider
+     * Redirect user to provider.
      *
      * @param $provider
+     *
      * @return mixed
      */
     public function redirect($provider)
     {
         $socialite = Socialite::driver($provider);
 
-        $scopes = config('services.' . $provider . '.scopes');
-        $with = config('services.' . $provider . '.with');
-        $fields = config('services.' . $provider . '.fields');
+        $scopes = config('services.'.$provider.'.scopes');
+        $with   = config('services.'.$provider.'.with');
+        $fields = config('services.'.$provider.'.fields');
 
-        if ($scopes) $socialite->scopes($scopes);
-        if ($with) $socialite->with($with);
-        if ($fields) $socialite->fields($fields);
+        if ($scopes) {
+            $socialite->scopes($scopes);
+        }
+
+        if ($with) {
+            $socialite->with($with);
+        }
+
+        if ($fields) {
+            $socialite->fields($fields);
+        }
 
         return $socialite->redirect();
     }
 
     /**
-     * Social login
+     * Social login.
+     *
+     * @param mixed $provider
      */
     public function login($provider)
     {
@@ -91,32 +103,33 @@ class SocialLoginController extends Controller
 
         $account = SocialAccount::whereProvider($provider)
             ->whereProviderId($socialUser->id)
-            ->first();
+            ->first()
+        ;
 
         if ($account) {
-
-            $account->token = $socialUser->token;
+            $account->token  = $socialUser->token;
             $account->avatar = $socialUser->avatar;
             $account->save();
 
             $user = $account->user;
         }
 
-        if (!$user) {
-
+        if (! $user) {
             $account = new SocialAccount([
-                'provider' => $provider,
+                'provider'    => $provider,
                 'provider_id' => $socialUser->id,
-                'token' => $socialUser->token,
-                'avatar' => $socialUser->avatar,
+                'token'       => $socialUser->token,
+                'avatar'      => $socialUser->avatar,
             ]);
 
             // User email may not provided.
-            $email = $socialUser->email ?: $socialUser->id . '@' . $provider . '.com';
+            $email = $socialUser->email ?: $socialUser->id.'@'.$provider.'.com';
 
             $user = User::whereEmail($email)->first();
 
-            if (!$user) $user = $this->create(['name' => $socialUser->name, 'email' => $email]);
+            if (! $user) {
+                $user = $this->create(['name' => $socialUser->name, 'email' => $email]);
+            }
 
             $account->user()->associate($user);
             $account->save();
@@ -151,11 +164,11 @@ class SocialLoginController extends Controller
     /**
      * The user has been authenticated by social.
      *
-     * @param  mixed $user
+     * @param mixed $user
+     *
      * @return mixed
      */
     protected function socialAuthenticated($user)
     {
-
     }
 }

@@ -12,10 +12,11 @@ class DetectLocale
      * @var mixed
      */
     protected $cookie;
+
     /**
      * Allowed locales list.
      *
-     * @var $this
+     * @var
      */
     protected $locales;
 
@@ -32,15 +33,18 @@ class DetectLocale
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
         $locale = session('session.locale');
 
-        if (!$this->check($locale)) $locale = $this->detectLocale($request);
+        if (! $this->check($locale)) {
+            $locale = $this->detectLocale($request);
+        }
 
         session(['session.locale' => $locale]);
 
@@ -52,23 +56,26 @@ class DetectLocale
     }
 
     /**
-     * Check if locale is allowed
+     * Check if locale is allowed.
      *
      * @param $locale
+     *
      * @return bool
      */
     public function check($locale)
     {
-        if (!$locale) return false;
+        if (! $locale) {
+            return false;
+        }
 
         return $this->locales->contains($locale);
     }
 
-
     /**
-     * Get languages from "HTTP_ACCEPT_LANGUAGE"
+     * Get languages from "HTTP_ACCEPT_LANGUAGE".
      *
      * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Support\Collection
      */
     protected function detectLocale($request)

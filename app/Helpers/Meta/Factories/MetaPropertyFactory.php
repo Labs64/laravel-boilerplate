@@ -2,8 +2,8 @@
 
 namespace App\Helpers\Meta\Factories;
 
-use App\Helpers\Meta\Traits\MetaFactory;
 use App\Helpers\Meta\Entities\MetaProperty;
+use App\Helpers\Meta\Traits\MetaFactory;
 
 class MetaPropertyFactory
 {
@@ -11,6 +11,6 @@ class MetaPropertyFactory
 
     public function __construct()
     {
-        $this->entity =  MetaProperty::class;
+        $this->entity = MetaProperty::class;
     }
 }

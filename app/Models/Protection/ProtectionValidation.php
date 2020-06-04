@@ -7,13 +7,14 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Protection\ProtectionValidation
+ * App\Models\Protection\ProtectionValidation.
  *
  * @property int $id
  * @property int $user_id
  * @property \Carbon\Carbon $ttl
  * @property array $validation_result
- * @property-read \App\Models\Auth\User\User $user
+ * @property \App\Models\Auth\User\User $user
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Protection\ProtectionValidation whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Protection\ProtectionValidation whereTtl($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Protection\ProtectionValidation whereUserId($value)
@@ -43,7 +44,6 @@ class ProtectionValidation extends Model
      */
     protected $fillable = ['user_id', 'ttl', 'validation_result'];
 
-
     /**
      * The attributes that should be cast to native types.
      *
@@ -58,7 +58,6 @@ class ProtectionValidation extends Model
      */
     protected $dates = ['ttl'];
 
-
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -69,7 +68,8 @@ class ProtectionValidation extends Model
         return collect($this->validation_result)
             ->where('productModuleNumber', $productModuleNumber)
             ->where('valid', true)
-            ->isNotEmpty();
+            ->isNotEmpty()
+        ;
     }
 
     public function isExpired()
@@ -81,7 +81,7 @@ class ProtectionValidation extends Model
     {
         return collect($this->validation_result)
             ->where('productModuleNumber', $productModuleNumber)
-            ->first();
+            ->first()
+        ;
     }
-
 }

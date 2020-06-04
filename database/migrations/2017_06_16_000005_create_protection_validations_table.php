@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateProtectionValidationsTable extends Migration
 {
@@ -13,7 +13,7 @@ class CreateProtectionValidationsTable extends Migration
      */
     public function up()
     {
-        /**
+        /*
          * User and roles relation table
          */
         Schema::create('protection_validations', function (Blueprint $table) {
@@ -25,10 +25,11 @@ class CreateProtectionValidationsTable extends Migration
             /*
              * Add Foreign/Unique/Index
              */
-            $table->foreign('user_id','pv_foreign_user')
+            $table->foreign('user_id', 'pv_foreign_user')
                 ->references('id')
                 ->on('users')
-                ->onDelete('cascade');
+                ->onDelete('cascade')
+            ;
 
             $table->unique('user_id', 'unique_user');
             $table->index('ttl');

@@ -2,10 +2,10 @@
 
 namespace App\Exceptions;
 
-use Throwable;
-use Illuminate\Mail\Message;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Mail\Message;
+use Throwable;
 
 class Handler extends ExceptionHandler
 {
@@ -27,9 +27,10 @@ class Handler extends ExceptionHandler
      * Report or log an exception.
      *
      * @param Throwable $exception
-     * @return void
      *
      * @throws \Exception
+     *
+     * @return void
      */
     public function report(Throwable $exception)
     {
@@ -43,10 +44,11 @@ class Handler extends ExceptionHandler
      * Render an exception into an HTTP response.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \Throwable $exception
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param \Throwable               $exception
      *
      * @throws \Throwable
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function render($request, Throwable $exception)
     {
@@ -56,8 +58,9 @@ class Handler extends ExceptionHandler
     /**
      * Convert an authentication exception into a response.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request                 $request
      * @param \Illuminate\Auth\AuthenticationException $exception
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     protected function unauthenticated($request, AuthenticationException $exception)
@@ -76,16 +79,18 @@ class Handler extends ExceptionHandler
      */
     protected function sendReport(Throwable $exception)
     {
-        if (parent::shouldntReport($exception)) return;
-
+        if (parent::shouldntReport($exception)) {
+            return;
+        }
         $emails = config('app.debug_emails');
 
-        if (!$emails) return;
-
+        if (! $emails) {
+            return;
+        }
         $emails = is_string($emails) ? explode(',', $emails) : $emails;
 
-        \Mail::raw((string)$exception, function (Message $message) use ($exception, $emails) {
-            $message->to($emails)->subject(config('app.name') . ' ' . config('app.env') . ' | Error ' . class_basename($exception));
+        \Mail::raw((string) $exception, function (Message $message) use ($exception, $emails) {
+            $message->to($emails)->subject(config('app.name').' '.config('app.env').' | Error '.class_basename($exception));
         });
     }
 }

@@ -20,7 +20,7 @@ class ToJsServiceProvider extends ServiceProvider
         * the chosen javascript variables.
         */
         Blade::directive('tojs', function () {
-            return '<script> window.Laravel = ' . json_encode(app('tojs')->get()) . '</script>';
+            return '<script> window.Laravel = '.json_encode(app('tojs')->get()).'</script>';
         });
     }
 
@@ -38,6 +38,5 @@ class ToJsServiceProvider extends ServiceProvider
 //        app('tojs')->put()
 //
 //        Lang
-
     }
 }

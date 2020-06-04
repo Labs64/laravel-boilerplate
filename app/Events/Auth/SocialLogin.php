@@ -4,19 +4,21 @@ namespace App\Events\Auth;
 
 use App\Models\Auth\User\User;
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
 
 class SocialLogin
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable;
+    use InteractsWithSockets;
+    use SerializesModels;
 
     public $user;
+
     public $provider;
+
     public $socialite;
 
     /**
@@ -25,11 +27,12 @@ class SocialLogin
      * @param User $user
      * @param $provider
      * @param $providerUser
+     * @param mixed $socialite
      */
     public function __construct(User $user, $provider, $socialite)
     {
-        $this->user = $user;
-        $this->provider = $provider;
+        $this->user      = $user;
+        $this->provider  = $provider;
         $this->socialite = $socialite;
     }
 
@@ -40,6 +43,6 @@ class SocialLogin
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('social-login.' . $this->user->id);
+        return new PrivateChannel('social-login.'.$this->user->id);
     }
 }

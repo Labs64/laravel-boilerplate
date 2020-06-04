@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 trait UserRelations
 {
     /**
-     * Relation with role
+     * Relation with role.
      *
      * @return BelongsToMany
      */
@@ -22,7 +22,7 @@ trait UserRelations
     }
 
     /**
-     * Relation with social provider
+     * Relation with social provider.
      *
      * @return HasMany
      */
@@ -32,7 +32,7 @@ trait UserRelations
     }
 
     /**
-     * Relation with protection validation
+     * Relation with protection validation.
      *
      * @return mixed
      */
@@ -42,7 +42,7 @@ trait UserRelations
     }
 
     /**
-     * Relation with protection shop tokens
+     * Relation with protection shop tokens.
      *
      * @return mixed
      */

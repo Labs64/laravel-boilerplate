@@ -3,9 +3,10 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
+/**
+ * @coversNothing
+ */
 class ExampleTest extends TestCase
 {
     /**

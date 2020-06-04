@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use App\Models\Auth\User\User;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -56,7 +56,8 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('web')
             ->namespace($this->namespace)
-            ->group(base_path('routes/web.php'));
+            ->group(base_path('routes/web.php'))
+        ;
     }
 
     /**
@@ -71,11 +72,12 @@ class RouteServiceProvider extends ServiceProvider
         Route::prefix('api')
             ->middleware('api')
             ->namespace($this->namespace)
-            ->group(base_path('routes/api.php'));
+            ->group(base_path('routes/api.php'))
+        ;
     }
 
     /**
-     * Bind route models
+     * Bind route models.
      */
     protected function binds()
     {

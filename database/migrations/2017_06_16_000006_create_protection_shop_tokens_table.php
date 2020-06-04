@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateProtectionShopTokensTable extends Migration
 {
@@ -13,7 +13,7 @@ class CreateProtectionShopTokensTable extends Migration
      */
     public function up()
     {
-        /**
+        /*
          * User and roles relation table
          */
         Schema::create('protection_shop_tokens', function (Blueprint $table) {
@@ -33,7 +33,8 @@ class CreateProtectionShopTokensTable extends Migration
             $table->foreign('user_id', 'pst_foreign_user')
                 ->references('id')
                 ->on('users')
-                ->onDelete('cascade');
+                ->onDelete('cascade')
+            ;
 
             $table->index('number');
             $table->index('expires');

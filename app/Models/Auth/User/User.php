@@ -3,17 +3,17 @@
 namespace App\Models\Auth\User;
 
 use App\Models\Auth\User\Traits\Ables\Protectable;
+use App\Models\Auth\User\Traits\Ables\Rolable;
 use App\Models\Auth\User\Traits\Attributes\UserAttributes;
-use Illuminate\Notifications\Notifiable;
+use App\Models\Auth\User\Traits\Relations\UserRelations;
+use App\Models\Auth\User\Traits\Scopes\UserScopes;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Models\Auth\User\Traits\Ables\Rolable;
-use App\Models\Auth\User\Traits\Scopes\UserScopes;
-use App\Models\Auth\User\Traits\Relations\UserRelations;
+use Illuminate\Notifications\Notifiable;
 use Kyslik\ColumnSortable\Sortable;
 
 /**
- * App\Models\Auth\User\User
+ * App\Models\Auth\User\User.
  *
  * @property int $id
  * @property string $name
@@ -27,14 +27,15 @@ use Kyslik\ColumnSortable\Sortable;
  * @property \Carbon\Carbon $updated_at
  * @property \Carbon\Carbon $deleted_at
  * @property \Carbon\Carbon $last_login
- * @property-read mixed $avatar
- * @property-read mixed $licensee_name
- * @property-read mixed $licensee_number
- * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Protection\ProtectionShopToken[] $protectionShopTokens
- * @property-read \App\Models\Protection\ProtectionValidation $protectionValidation
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Auth\User\SocialAccount[] $providers
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Auth\Role\Role[] $roles
+ * @property mixed $avatar
+ * @property mixed $licensee_name
+ * @property mixed $licensee_number
+ * @property \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Protection\ProtectionShopToken[] $protectionShopTokens
+ * @property \App\Models\Protection\ProtectionValidation $protectionValidation
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Auth\User\SocialAccount[] $providers
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Auth\Role\Role[] $roles
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User sortable($defaultSortParameters = null)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User whereActive($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User whereConfirmationCode($value)
@@ -52,14 +53,14 @@ use Kyslik\ColumnSortable\Sortable;
  */
 class User extends Authenticatable
 {
-    use Rolable,
-        UserAttributes,
-        UserScopes,
-        UserRelations,
-        Notifiable,
-        SoftDeletes,
-        Sortable,
-        Protectable;
+    use Rolable;
+    use UserAttributes;
+    use UserScopes;
+    use UserRelations;
+    use Notifiable;
+    use SoftDeletes;
+    use Sortable;
+    use Protectable;
 
     public $sortable = ['name', 'email', 'created_at', 'updated_at'];
 
@@ -75,7 +76,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password', 'active', 'confirmation_code', 'confirmed','access_token'];
+    protected $fillable = ['name', 'email', 'password', 'active', 'confirmation_code', 'confirmed', 'access_token'];
 
     /**
      * The attributes that should be hidden for arrays.

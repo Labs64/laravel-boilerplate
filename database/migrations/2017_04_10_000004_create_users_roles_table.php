@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateUsersRolesTable extends Migration
 {
@@ -13,7 +13,7 @@ class CreateUsersRolesTable extends Migration
      */
     public function up()
     {
-        /**
+        /*
          * User and roles relation table
          */
         Schema::create('users_roles', function (Blueprint $table) {
@@ -26,12 +26,14 @@ class CreateUsersRolesTable extends Migration
             $table->foreign('user_id', 'foreign_user')
                 ->references('id')
                 ->on('users')
-                ->onDelete('cascade');
+                ->onDelete('cascade')
+            ;
 
             $table->foreign('role_id', 'foreign_role')
                 ->references('id')
                 ->on('roles')
-                ->onDelete('cascade');
+                ->onDelete('cascade')
+            ;
 
             $table->unique(['user_id', 'role_id']);
         });

@@ -11,18 +11,15 @@
 |
 */
 
-
-/**
+/*
  * Auth routes
  */
 Route::group(['namespace' => 'Auth'], function () {
-
     // Authentication Routes...
     Route::get('login', 'LoginController@showLoginForm')->name('login');
     //Route::post('login', 'LoginController@login');
     Route::post('login', 'LoginController@loginRemote');
     Route::get('logout', 'LoginController@logout')->name('logout');
-
 
     // Password Reset Routes...
     Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
@@ -35,14 +32,12 @@ Route::group(['namespace' => 'Auth'], function () {
         Route::get('confirm/{user_by_code}', 'ConfirmController@confirm')->name('confirm');
         Route::get('confirm/resend/{user_by_email}', 'ConfirmController@sendEmail')->name('confirm.send');
     }
-
 });
 
-/**
+/*
  * Backend routes
  */
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => 'auth'], function () {
-
     // Dashboard
     Route::get('/', 'DashboardController@index')->name('dashboard');
 
@@ -63,14 +58,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('dashboard/registration-chart', 'DashboardController@getRegistrationChartData')->name('dashboard.registration.chart');
 });
 
-
 Route::get('/', 'HomeController@index');
 
-/**
+/*
  * Membership
  */
 Route::group(['as' => 'protection.'], function () {
-    Route::get('membership', 'MembershipController@index')->name('membership')->middleware('protection:' . config('protection.membership.product_module_number') . ',protection.membership.failed');
+    Route::get('membership', 'MembershipController@index')->name('membership')->middleware('protection:'.config('protection.membership.product_module_number').',protection.membership.failed');
     Route::get('membership/access-denied', 'MembershipController@failed')->name('membership.failed');
     Route::get('membership/clear-cache/', 'MembershipController@clearValidationCache')->name('membership.clear_validation_cache');
 });

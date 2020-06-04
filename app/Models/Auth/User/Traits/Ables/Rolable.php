@@ -11,15 +11,20 @@ trait Rolable
      * Checks if the user has a role.
      *
      * @param $role
+     *
      * @return bool
      */
     public function hasRole($role)
     {
-        if ($role instanceof Model) $role = $role->getKey();
+        if ($role instanceof Model) {
+            $role = $role->getKey();
+        }
 
-        if ($this->roles->isEmpty()) return false;
+        if ($this->roles->isEmpty()) {
+            return false;
+        }
 
-        return ($this->roles->contains('id', null, $role) || $this->roles->contains('name', null, $role));
+        return $this->roles->contains('id', null, $role) || $this->roles->contains('name', null, $role);
     }
 
     /**
@@ -27,20 +32,27 @@ trait Rolable
      *
      * @param $roles
      * @param bool $all
+     *
      * @return bool|int
      */
     public function hasRoles($roles, $all = false)
     {
-        if ($roles instanceof Model) $roles = $roles->getKey();
+        if ($roles instanceof Model) {
+            $roles = $roles->getKey();
+        }
 
-        if ($roles instanceof Collection) $roles = $roles->modelKeys();
+        if ($roles instanceof Collection) {
+            $roles = $roles->modelKeys();
+        }
 
-        $roles = !is_array($roles) ? [$roles] : $roles;
+        $roles = ! is_array($roles) ? [$roles] : $roles;
 
         $hasRoles = 0;
 
         foreach ($roles as $role) {
-            if ($this->hasRole($role)) $hasRoles++;
+            if ($this->hasRole($role)) {
+                $hasRoles++;
+            }
         }
 
         return ($all) ? ($hasRoles == count($roles)) : ($hasRoles);

@@ -18,14 +18,15 @@ class BackendPolicy
     }
 
     /**
-     * User has access to backend part
+     * User has access to backend part.
      *
      * @param User $user
+     *
      * @return bool|int
      */
     public function view(User $user)
     {
-        /**
+        /*
          * Add roles, who can view backend
          * Administrator fill as example
          */

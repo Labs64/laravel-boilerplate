@@ -1,6 +1,6 @@
 <?php
-namespace Database\traits;
 
+namespace Database\traits;
 
 use Illuminate\Support\Facades\DB;
 
@@ -13,7 +13,7 @@ trait DisableForeignKeys
      * @var array
      */
     private $commands = [
-        'mysql'  => [
+        'mysql' => [
             'enable'  => 'SET FOREIGN_KEY_CHECKS=1;',
             'disable' => 'SET FOREIGN_KEY_CHECKS=0;',
         ],
@@ -22,11 +22,11 @@ trait DisableForeignKeys
             'disable' => 'PRAGMA foreign_keys = OFF;',
         ],
         'sqlsrv' => [
-            'enable' => 'EXEC sp_msforeachtable @command1="print \'?\'", @command2="ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all";',
+            'enable'  => 'EXEC sp_msforeachtable @command1="print \'?\'", @command2="ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all";',
             'disable' => 'EXEC sp_msforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT all";',
         ],
         'pgsql' => [
-            'enable' => 'SET CONSTRAINTS ALL IMMEDIATE;',
+            'enable'  => 'SET CONSTRAINTS ALL IMMEDIATE;',
             'disable' => 'SET CONSTRAINTS ALL DEFERRED;',
         ],
     ];
