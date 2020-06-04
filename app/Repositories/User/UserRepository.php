@@ -41,10 +41,11 @@ class UserRepository
     public function userLogin(array $credentials, bool $rememberMe = false)
     {
 
+
             try {
 
-                    /** @var array $remoteCredentials */
-                    $remoteCredentials = array_merge($credentials, ['remember' => false]);
+                /** @var array $remoteCredentials */
+                $remoteCredentials = array_merge($credentials, ['remember' => false]);
 
                 return $this->sunnyCalApiRepository->login($remoteCredentials);
 

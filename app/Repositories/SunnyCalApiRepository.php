@@ -6,15 +6,18 @@ namespace App\Repositories;
 
 use App\Exceptions\SunnyCalConnectionException;
 use App\Infrastructure\Repositories\ManagesCache;
+use App\Models\Auth\User\User;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Session;
 
 class SunnyCalApiRepository
 {
     use ManagesCache;
 
-    const SUNNYCAL_TOKEN = 'nc:access-token';
+    const SUNNYCAL_TOKEN = 'access-token';
+    const SUNNYCAL_ORGANIZATION = 'ORGANIZATION';
 
     /**
      * @var Client
@@ -44,33 +47,29 @@ class SunnyCalApiRepository
      */
     public function sendRequest(string $method, string $uri, array $data = [])
     {
-        /** @var string $token */
-        if (! $token = $this->read(self::SUNNYCAL_TOKEN)) {
-            $token = $this->login();
-        }
+       $token = Session::get('user')->access_token;
 
-        /** @var array $options */
+        $headers = [
+            'Authorization' => 'Bearer ' . $token,
+            'Accept'        => 'application/json',
+        ];
+
+        /** @var array $headers */
         $options = [
             'base_uri' => config('sunnycal.api.url'),
-            'query'    => [
-                'auth_token' => $token,
-            ],
             'json' => $data,
+            'headers' => $headers
         ];
 
         try {
             $response = $this->client->request($method, $uri, $options);
-        } catch (Exception $apiConnectException) {
-            if ($apiConnectException->getCode() === Response::HTTP_UNAUTHORIZED || Str::contains($apiConnectException->getMessage(), [self::NC_INVALID_TOKEN_MESSAGE])) {
-                $this->login();
+            return json_decode((string) $response->getBody()->getContents());
+        } catch (GuzzleException $guzzleException) {
 
-                return $this->sendRequest($method, $uri, $data);
-            }
-
-            throw new NoahConnectApiConnectionException($apiConnectException->getMessage());
+            throw new SunnyCalConnectionException($guzzleException->getMessage());
         }
 
-        return json_decode((string) $response->getBody()->getContents());
+
     }
 
     /**
@@ -92,7 +91,6 @@ class SunnyCalApiRepository
             ],
         ];
 
-        $options['json'] = $data;
 
         try {
             $response = $this->client->request('POST', 'v1/login', $data);
@@ -109,19 +107,60 @@ class SunnyCalApiRepository
 
 
         /** @var string $token */
-        //dd($response->getBody()->getContents());
+
         $response = json_decode($response->getBody()->getContents())->data;
         $token = $response->token;
 
 
-        if (! isset($credentials['remember']) || ! $credentials['remember']) {
-            $this->forget(self::SUNNYCAL_TOKEN);
-            $this->remember(self::SUNNYCAL_TOKEN, $token);
-        }
+        //$this->forget(self::SUNNYCAL_TOKEN);
+        ////$this->remember(self::SUNNYCAL_TOKEN, $token);
+       // dd(self::SUNNYCAL_TOKEN);
+
+        $this->storeAuthUser($token);
 
        // dd(json_decode($response->getBody()->getContents()));
 
         return $response;
+    }
+
+    /**
+     * Retrieves the data of the authenticated user and stores it on the session
+     * @param $token
+     * @throws SunnyCalConnectionException
+     */
+    public function storeAuthUser( $token){
+
+        $headers = [
+            'Authorization' => 'Bearer ' . $token,
+            'Accept'        => 'application/json',
+        ];
+
+        /** @var array $headers */
+        $options = [
+            'base_uri' => config('sunnycal.api.url'),
+            'headers' => $headers
+        ];
+
+        try {
+            $response = $this->client->request('GET', 'v1/me', $options);
+
+            $data = json_decode($response->getBody()->getContents())->data;
+
+            $user = new User();
+            $user->email = $data->email;
+            $user->access_token = $token;
+            $user->name = $data->name;
+            $user->organization = $data->organization->uuid;
+
+
+            Session::put('authenticated',true);
+            Session::put('user', $user);
+
+
+        } catch (GuzzleException $guzzleException){
+            throw new SunnyCalConnectionException('Unable to retrieve authenticated user');
+        }
+
     }
 
     /**

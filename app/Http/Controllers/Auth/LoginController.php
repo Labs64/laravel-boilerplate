@@ -133,15 +133,7 @@ class LoginController extends Controller
 
             $rememberMe = $request->remember_me ?? false;
 
-            $result = $this->userRepository->userLogin($credentials, $rememberMe);
-
-            $user = new User();
-            $user->email = $request->email;
-            $user->access_token = $result->token;
-            $user->name = $result->name;
-
-            $request->session()->put('authenticated',true);
-            $request->session()->put('user', $user);
+            $this->userRepository->userLogin($credentials, $rememberMe);
 
             return redirect()->intended($this->redirectPath());
 
