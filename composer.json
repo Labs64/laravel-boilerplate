@@ -1,23 +1,18 @@
 {
-    "name": "labs64/laravel-boilerplate",
-    "description": "Laravel Boilerplate",
+    "name": "sunnycal/sunnycal-admin",
+    "description": "SunnyCal Adminpanel",
     "type": "project",
     "keywords": ["php", "framework", "laravel", "laravel7", "admin", "theme", "starter", "bootstrap", "boilerplate", "docker", "template", "social-login", "nodejs"],
-    "homepage": "https://github.com/Labs64/laravel-boilerplate",
     "license": "MIT",
     "authors": [
         {
-            "name": "Labs64 GmbH",
-            "email": "info@labs64.com",
-            "homepage": "https://www.labs64.com"
+            "name": "SunnyCal",
+            "email": "hi@sunnycal.club",
+            "homepage": "https://www.sunnycal.club"
         }
     ],
     "support": {
-        "email": "info@labs64.com",
-        "issues": "https://github.com/Labs64/laravel-boilerplate/issues",
-        "wiki": "https://github.com/Labs64/laravel-boilerplate",
-        "source": "https://github.com/Labs64/laravel-boilerplate",
-        "docs": "https://github.com/Labs64/laravel-boilerplate"
+        "email": "hi@sunnycal.club"
     },
     "require": {
         "php": ">=7.2.5",
@@ -32,7 +27,8 @@
         "laravel/socialite": "^4.1",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
-        "laravelcollective/html": "^6.1.0"
+        "laravelcollective/html": "^6.1.0",
+        "guzzlehttp/guzzle": "^6.3"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",

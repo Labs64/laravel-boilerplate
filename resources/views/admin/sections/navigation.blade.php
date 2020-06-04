@@ -11,10 +11,10 @@
         <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic">
-                <img src="{{ auth()->user()->avatar }}" alt="..." class="img-circle profile_img">
+                <!--<img src="{{ 'image.png' }}" alt="..." class="img-circle profile_img">-->
             </div>
-            <div class="profile_info">
-                <h2>{{ auth()->user()->name }}</h2>
+            <div class="profile_info ">
+                <h2>{{ Session::get('user')->name  }}</h2>
             </div>
         </div>
         <!-- /menu profile quick info -->

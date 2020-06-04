@@ -19,14 +19,10 @@ Route::group(['namespace' => 'Auth'], function () {
 
     // Authentication Routes...
     Route::get('login', 'LoginController@showLoginForm')->name('login');
-    Route::post('login', 'LoginController@login');
+    //Route::post('login', 'LoginController@login');
+    Route::post('login', 'LoginController@loginRemote');
     Route::get('logout', 'LoginController@logout')->name('logout');
 
-    // Registration Routes...
-    if (config('auth.users.registration')) {
-        Route::get('register', 'RegisterController@showRegistrationForm')->name('register');
-        Route::post('register', 'RegisterController@register');
-    }
 
     // Password Reset Routes...
     Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
@@ -40,15 +36,12 @@ Route::group(['namespace' => 'Auth'], function () {
         Route::get('confirm/resend/{user_by_email}', 'ConfirmController@sendEmail')->name('confirm.send');
     }
 
-    // Social Authentication Routes...
-    Route::get('social/redirect/{provider}', 'SocialLoginController@redirect')->name('social.redirect');
-    Route::get('social/login/{provider}', 'SocialLoginController@login')->name('social.login');
 });
 
 /**
  * Backend routes
  */
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => 'auth'], function () {
 
     // Dashboard
     Route::get('/', 'DashboardController@index')->name('dashboard');

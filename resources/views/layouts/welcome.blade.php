@@ -82,18 +82,15 @@
         <div class="flex-center position-ref full-height">
 
                 <div class="top-right links">
-                    <a href="{{ route('protection.membership') }}">{{ __('views.welcome.member_area') }}</a>
 
                     @if (Route::has('login'))
-                        @if (!Auth::check())
-                            @if(config('auth.users.registration'))
-                                <a href="{{ url('/register') }}">{{ __('views.welcome.register') }}</a>
-                            @endif
+                        @if ( !Session::has('user') )
+
                             <a href="{{ url('/login') }}">{{ __('views.welcome.login') }}</a>
                         @else
-                            @if(auth()->user()->hasRole('administrator'))
-                                <a href="{{ url('/admin') }}">{{ __('views.welcome.admin') }}</a>
-                            @endif
+
+                            <a href="{{ url('/admin') }}">{{ __('views.welcome.admin') }}</a>
+
                             <a href="{{ url('/logout') }}">{{ __('views.welcome.logout') }}</a>
                         @endif
                     @endif
@@ -102,8 +99,8 @@
             <div class="content">
                 @yield('content')
                 <div class="footer">
-                    Credits:&nbsp;
-                    <a href="http://l64.cc/nlaff/VXZPYHCTC" target="_blank" title="Online Software License Management"><i class="fa fa-lock" aria-hidden="true"></i>Labs64 NetLicensing</a>&nbsp;&bull;&nbsp;
+                   Powered by
+                    <a href="https://sunnycal.club" target="_blank"><i class="fa fa-lock" aria-hidden="true"></i>SunnyCal</a>&nbsp;&bull;&nbsp;
                 </div>
             </div>
         </div>

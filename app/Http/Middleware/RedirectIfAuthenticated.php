@@ -17,10 +17,11 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/');
+        if ($request->session()->get('authenticated',false) === true) {
+            return redirect('/admin');
         }
-
+        $request->session()->forget('authenticated');
+        $request->session()->forget('user');
         return $next($request);
     }
 }

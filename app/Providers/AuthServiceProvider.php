@@ -19,11 +19,11 @@ class AuthServiceProvider extends ServiceProvider
         /**
          * Models Policies
          */
-        User::class => UserPolicy::class,
+        //User::class => UserPolicy::class,
         /**
          * Without models policies
          */
-        'backend' => BackendPolicy::class
+        //'backend' => BackendPolicy::class
     ];
 
     /**

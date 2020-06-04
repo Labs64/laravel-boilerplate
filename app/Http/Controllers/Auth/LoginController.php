@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Exceptions\UnauthorizedUserException;
 use App\Http\Controllers\Controller;
+use App\Models\Auth\User\User;
+use App\Repositories\User\UserRepository;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
@@ -28,14 +32,17 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/';
 
+    private $userRepository;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UserRepository $userRepository)
     {
         $this->middleware('guest', ['except' => 'logout']);
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -111,5 +118,45 @@ class LoginController extends Controller
         $user->save();
 
         return redirect()->intended($this->redirectPath());
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws GuzzleException
+     */
+    public function loginRemote(Request $request)
+    {
+
+        try{
+            $credentials = request(['email', 'password']);
+
+            $rememberMe = $request->remember_me ?? false;
+
+            $result = $this->userRepository->userLogin($credentials, $rememberMe);
+
+            $user = new User();
+            $user->email = $request->email;
+            $user->access_token = $result->token;
+            $user->name = $result->name;
+
+            $request->session()->put('authenticated',true);
+            $request->session()->put('user', $user);
+
+            return redirect()->intended($this->redirectPath());
+
+
+        }  catch (UnauthorizedUserException $guzzleException){
+            $request->session()->forget('authenticated');
+            $request->session()->forget('user');
+
+            return redirect()->back()
+                ->withInput($request->only($this->username(), 'remember'))
+                ->withErrors($guzzleException->getMessage());
+
+        }
+
+
+
     }
 }

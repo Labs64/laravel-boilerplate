@@ -108,7 +108,7 @@ return [
         /*
          * Whether or not public registration is on
          */
-        'registration' => env('ENABLE_REGISTRATION', true),
+        'registration' => env('ENABLE_REGISTRATION', false),
 
         /*
          * The role the user is assigned to when they sign up from the frontend, not namespaced
