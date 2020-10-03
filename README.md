@@ -72,7 +72,7 @@ _Laravel Boilerplate_ provides a very flexible and extensible way of building yo
 
 ## System Requirements
 To be able to run Laravel Boilerplate you have to meet the following requirements:
-- PHP >= 7.2.5
+- PHP >= 7.4
 - PHP Extensions: BCMath, Ctype, Fileinfo, JSON, Mbstring, OpenSSL, PDO, Tokenizer, XML, cURL, Mcrypt, GD
 - Node.js >= 8.x
 - Composer >= 1.9.x
