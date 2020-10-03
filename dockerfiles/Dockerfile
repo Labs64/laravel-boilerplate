@@ -1,17 +1,20 @@
-FROM centos:8
+FROM php:7.4-fpm
+
+ENV PHP_EXTRA_CONFIGURE_ARGS \
+  --enable-fpm \
+  --with-fpm-user=www-data \
+  --with-fpm-group=www-data \
+  --enable-intl \
+  --enable-opcache \
+  --enable-zip \
+  --enable-calendar
 
 # Install some must-haves
-RUN yum -y install vim wget sendmail
-RUN yum -y install git
+RUN apt-get install vim wget sendmail
+RUN apt-get install git
 RUN git --version
 
-# Install PHP 7.2 on CentOS
-RUN yum repolist
-RUN yum module list | grep php
-RUN yum module -y install php:7.2
-RUN php -v
-
-RUN yum -y install \
+RUN apt-get install \
     php \
     php-bcmath \
     php-cli \
@@ -34,7 +37,7 @@ RUN yum -y install \
     php-xml \
     php-zip
 
-#RUN yum -y install php-imap php-mcrypt php-pecl-imagick php-pspell php-tidy
+#RUN apt-get install php-imap php-mcrypt php-pecl-imagick php-pspell php-tidy
 
 # Prepare PHP environment
 COPY config/php/php-fpm.conf /etc/php-fpm.conf
