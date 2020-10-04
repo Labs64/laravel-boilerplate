@@ -10,34 +10,53 @@ ENV PHP_EXTRA_CONFIGURE_ARGS \
   --enable-calendar
 
 # Install some must-haves
-RUN apt-get install vim wget sendmail
-RUN apt-get install git
-RUN git --version
+RUN apt-get update && \
+    apt-get install -y \
+    vim \
+    wget \
+    sendmail \
+    git \
+    zlib1g-dev \
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    libfreetype6-dev \
+    libcurl4-openssl-dev \
+    libldap2-dev
 
-RUN apt-get install \
-    php \
-    php-bcmath \
-    php-cli \
-    php-common \
-    php-curl \
-    php-fpm \
-    php-gd \
-    php-ldap \
-    php-intl \
-    php-mbstring \
-    php-mysqlnd \
-    php-opcache \
-    php-pdo \
-    php-pear \
-    php-pecl-apcu \
-    php-pgsql \
-    php-process \
-    php-recode \
-    php-soap \
-    php-xml \
-    php-zip
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    libzip-dev \
+    zip \
+    unzip
+
+RUN docker-php-ext-configure \
+      gd --with-freetype --with-jpeg
+
+# Install PHP extensions
+RUN docker-php-ext-install \
+    pdo_mysql \
+    mbstring \
+    exif \
+    pcntl \
+    bcmath \
+    gd \
+    curl \
+    intl \
+    opcache \
+    pdo \
+    soap \
+    xml \
+    zip
 
 #RUN apt-get install php-imap php-mcrypt php-pecl-imagick php-pspell php-tidy
+
+# install xdebug
+RUN pecl install xdebug
 
 # Prepare PHP environment
 COPY config/php/php-fpm.conf /etc/php-fpm.conf
@@ -48,16 +67,12 @@ COPY config/php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/bin/composer
-RUN composer --version
 
 # Install Node.js
-RUN yum -y install nodejs
-RUN yum list installed nodejs
-RUN node -v
+RUN apt-get install  -y nodejs
 
-# Final update and clean up
-RUN yum -y update
-RUN yum clean all
+# Clear cache
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Define work directory
 WORKDIR /var/www/laravel-boilerplate
