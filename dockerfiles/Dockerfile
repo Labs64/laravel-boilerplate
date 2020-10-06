@@ -67,9 +67,13 @@ COPY config/php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/bin/composer
+RUN composer --version
 
 # Install Node.js
-RUN apt-get install  -y nodejs
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN apt-get install -y nodejs
+RUN node -v
+RUN npm -v
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
