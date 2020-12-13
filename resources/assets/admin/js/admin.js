@@ -18,6 +18,10 @@
             title: 'Log Levels',
             description: 'This is a component, which is providing you with information about application logs.',
         },
+        {
+            title: 'Made with GuideChimp',
+            description: 'This tour is made with <strong>GuideChimp</strong> - an open-source guided tours library.<br>Visit GuideChimp website at <a href="https://www.labs64.com/guidechimp/" targer="_blank">labs64.com/guidechimp</a>',
+        }
     ]);
 
     $('.guided-tour').on('click', function(){
