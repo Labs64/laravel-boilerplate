@@ -1,4 +1,4 @@
-{
+
     "name": "labs64/laravel-boilerplate",
     "description": "Laravel Boilerplate",
     "type": "project",
@@ -76,6 +76,6 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
-    },
-    "prefer-stable": true
-}
+    
+    prefer-stable: true
+
