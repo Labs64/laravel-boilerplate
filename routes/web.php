@@ -15,6 +15,7 @@
 /**
  * Auth routes
  */
+//testing comment
 Route::group(['namespace' => 'Auth'], function () {
 
     // Authentication Routes...
