@@ -22,7 +22,7 @@
     "require": {
         "php": ">=7.4.0",
         "albertcht/invisible-recaptcha": "^1.9",
-        "arcanedev/log-viewer": "^7.0",
+        "arcanedev/log-viewer": "^7.0|^8.0",
         "creativeorange/gravatar": "^1.0",
         "davejamesmiller/laravel-breadcrumbs": "^5.2",
         "fruitcake/laravel-cors": "^1.0",
