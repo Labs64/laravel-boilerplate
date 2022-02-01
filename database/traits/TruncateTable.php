@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\traits;
+namespace Database\Traits;
 
 use Illuminate\Support\Facades\DB;
 
