@@ -1,7 +1,9 @@
 <?php
 
-use Database\traits\TruncateTable;
-use Database\traits\DisableForeignKeys;
+namespace Database\Seeders\Auth;
+
+use Database\Traits\TruncateTable;
+use Database\Traits\DisableForeignKeys;
 use Illuminate\Database\Seeder;
 
 class UsersRolesSeeder extends Seeder
