@@ -103,7 +103,7 @@
                 @yield('content')
                 <div class="footer">
                     Credits:&nbsp;
-                    <a href="http://l64.cc/nlaff/VXZPYHCTC" target="_blank" title="Online Software License Management"><i class="fa fa-lock" aria-hidden="true"></i>Labs64 NetLicensing</a>&nbsp;&bull;&nbsp;
+                    <a href="https://l64.cc/nlaff/VXZPYHCTC" target="_blank" title="Online Software License Management"><i class="fa fa-lock" aria-hidden="true"></i>Labs64 NetLicensing</a>&nbsp;&bull;&nbsp;
                 </div>
             </div>
         </div>

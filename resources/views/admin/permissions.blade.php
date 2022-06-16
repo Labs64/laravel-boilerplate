@@ -69,7 +69,7 @@
             </tbody>
         </table>
         <div class="pull-right">
-            Powered by <a href="http://l64.cc/nlaff/VXZPYHCTC" target="_blank"/>Labs64 NetLicensing</a>
+            Powered by <a href="https://l64.cc/nlaff/VXZPYHCTC" target="_blank"/>Labs64 NetLicensing</a>
         </div>
         <div class="pull-right">
             {{ $users->links() }}
