@@ -233,3 +233,7 @@ For bugs, questions and discussions please use the [GitHub Issues](https://githu
 ## License
 
 This boilerplate is open-source software licensed under the [MIT license](LICENSE).
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Labs64/laravel-boilerplate&type=Date)](https://www.star-history.com/#Labs64/laravel-boilerplate&Date)
