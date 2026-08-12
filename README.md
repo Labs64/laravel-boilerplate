@@ -236,4 +236,4 @@ This boilerplate is open-source software licensed under the [MIT license](LICENS
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=Labs64/laravel-boilerplate&type=Date)](https://www.star-history.com/#Labs64/laravel-boilerplate&Date)
+[![Star History Chart](https://star-history.dera.page/svg?repos=Labs64/laravel-boilerplate&type=Date)](https://star-history.dera.page/#Labs64/laravel-boilerplate&Date)
